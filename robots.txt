@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://contapronow.vercel.app/sitemap.xml
