@@ -1,7 +1,6 @@
 /* ===============================
-   ContaProNow · styles.css (V5.3)
+   ContaProNow · styles.css (V5.5)
    Paleta: #004080 (brand) / #4CAF50 (accent)
-   Mobile-first, accesible, rápido
    =============================== */
 :root{
   --brand:#004080;
@@ -43,7 +42,6 @@ textarea:focus-visible{
   outline-offset:2px;
 }
 
-/* Skip link */
 .skip-link{
   position:absolute;
   left:-9999px;
@@ -66,7 +64,6 @@ textarea:focus-visible{
   z-index:1000;
 }
 
-/* Layout */
 .container{
   max-width:var(--container);
   margin-inline:auto;
@@ -105,9 +102,7 @@ textarea:focus-visible{
   text-align:center;
 }
 
-.strong-note{
-  font-weight:600;
-}
+.strong-note{font-weight:600}
 
 /* Header */
 .site-header{
@@ -242,9 +237,7 @@ textarea:focus-visible{
   color:#e6eef8;
 }
 
-.hero-benefits .separator{
-  opacity:.5;
-}
+.hero-benefits .separator{opacity:.5}
 
 .hero-media{
   margin-top:1.2rem;
@@ -300,11 +293,16 @@ textarea:focus-visible{
   .compact-3{grid-template-columns:repeat(3,1fr)}
 }
 
-/* UI Icons */
+/* Icons */
 .ui-icon{
   width:22px;
   height:22px;
   display:block;
+}
+
+.process-icon .ui-icon{
+  width:18px;
+  height:18px;
 }
 
 .icon-badge,
@@ -321,21 +319,14 @@ textarea:focus-visible{
   flex-shrink:0;
 }
 
-.icon-card{
-  text-align:left;
-}
-
-.icon-card .icon-badge{
-  margin-bottom:.9rem;
-}
-
-/* Servicios / features */
+.icon-card,
 .feature-card{
   text-align:left;
 }
 
+.icon-card .icon-badge,
 .feature-card .feature-icon{
-  margin-bottom:.8rem;
+  margin-bottom:.9rem;
 }
 
 .mini-points{
@@ -360,92 +351,85 @@ textarea:focus-visible{
   font-weight:900;
 }
 
-/* Proceso */
+/* Logos */
+.logos-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:.85rem;
+  margin-top:1.35rem;
+}
+
+@media(min-width:700px){
+  .logos-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+@media(min-width:980px){
+  .logos-grid{grid-template-columns:repeat(4,1fr)}
+}
+
+.logo-card{
+  background:#fff;
+  border:1px solid #e9eef5;
+  border-radius:14px;
+  box-shadow:var(--shadow);
+  padding:.9rem 1rem;
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.logo-card img{
+  max-width:96px;
+  max-height:28px;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+}
+
+/* Process */
 .process-grid{
   display:grid;
   grid-template-columns:1fr;
-  gap:1rem;
-  margin-top:1.25rem;
+  gap:.85rem;
+  margin-top:1.1rem;
 }
 
 @media(min-width:760px){
-  .process-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
+  .process-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(min-width:1100px){
-  .process-grid{
-    grid-template-columns:repeat(4,1fr);
-  }
+  .process-grid{grid-template-columns:repeat(4,1fr)}
 }
 
 .process-card{
   background:#fff;
   border:1px solid #e9eef5;
-  border-radius:var(--radius);
+  border-radius:14px;
   box-shadow:var(--shadow);
-  padding:1.15rem;
+  padding:1rem;
 }
 
 .process-card .process-icon{
-  margin-bottom:.9rem;
+  width:40px;
+  height:40px;
+  margin-bottom:.75rem;
 }
 
 .process-card h3{
-  margin:.15rem 0 .4rem;
+  margin:.1rem 0 .35rem;
+  font-size:1.02rem;
 }
 
 .process-card p{
   margin:0;
   color:var(--muted);
+  font-size:.95rem;
+  line-height:1.5;
 }
 
-/* Herramientas */
-.tool-groups{
-  display:grid;
-  gap:1rem;
-  margin-top:1.2rem;
-}
-
-@media(min-width:860px){
-  .tool-groups{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-.tool-group{
-  background:#fff;
-  border:1px solid #e9eef5;
-  border-radius:var(--radius);
-  padding:1.05rem;
-  box-shadow:var(--shadow);
-}
-
-.tool-group h3{
-  margin:.1rem 0 .85rem;
-}
-
-.tools-grid{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.65rem;
-}
-
-.tool-pill{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:.52rem .8rem;
-  border-radius:999px;
-  background:#eef3fb;
-  border:1px solid #dce6f7;
-  color:var(--brand);
-  font-weight:700;
-  font-size:.92rem;
-}
-
-/* Sobre mí */
+/* About */
 .about-grid{
   display:grid;
   gap:1.2rem;
@@ -461,7 +445,7 @@ textarea:focus-visible{
   .about-grid{grid-template-columns:1.1fr .9fr}
 }
 
-/* Contacto */
+/* Contact */
 .contact-grid{
   display:grid;
   gap:1rem;
@@ -499,7 +483,7 @@ input:focus,textarea:focus{
   color:var(--muted);
 }
 
-/* Botones */
+/* Buttons */
 .btn{
   display:inline-block;
   border:2px solid transparent;
@@ -571,7 +555,7 @@ input:focus,textarea:focus{
   .whatsapp-fab{display:none}
 }
 
-/* Menú responsive */
+/* Responsive menu */
 .menu[hidden]{display:none!important}
 
 /* Reveal */
