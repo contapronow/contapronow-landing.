@@ -150,27 +150,28 @@ input:focus,textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(0
 .cta-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   margin-top: 22px;
+  margin-bottom: 34px;
 }
 
-.btn-primary {
-  box-shadow: 0 10px 24px rgba(0, 64, 128, 0.18);
-}
-
-.hero-media {
-  margin-top: 32px;
-}
-
-.hero-media img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 20px;
-}
 .hero-benefits {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
-  margin: 14px 0 38px;
+  column-gap: 18px;
+  row-gap: 14px;
+  margin: 0 0 40px;
+}
+
+.hero-benefits span {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: rgba(0, 64, 128, 0.08);
+  border: 1px solid rgba(0, 64, 128, 0.12);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
 }
