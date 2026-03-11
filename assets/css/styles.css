@@ -569,3 +569,6 @@ input:focus,textarea:focus{
   opacity:1;
   transform:none;
 }
+.logo-card{
+  border: 3px solid red !important;
+}
