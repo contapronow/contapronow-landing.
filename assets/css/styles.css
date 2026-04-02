@@ -1,5 +1,5 @@
 /* ===============================
-   ContaProNow · styles.css (V5.5)
+   ContaProNow · styles.css (V5.6)
    Paleta: #004080 (brand) / #4CAF50 (accent)
    =============================== */
 :root{
@@ -351,6 +351,15 @@ textarea:focus-visible{
   font-weight:900;
 }
 
+/* CTA dentro de tarjetas de servicio */
+.service-card-cta{
+  margin-top:1rem;
+}
+
+.service-card-cta .btn{
+  width:auto;
+}
+
 /* Logos */
 .logos-grid{
   display:grid;
@@ -568,7 +577,4 @@ input:focus,textarea:focus{
 .reveal.in{
   opacity:1;
   transform:none;
-}
-.logo-card{
-  border: 3px solid red !important;
 }
