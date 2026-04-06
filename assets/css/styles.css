@@ -1366,3 +1366,8 @@ button {
     grid-template-columns: 1fr;
   }
 }
+@media (max-width: 768px) {
+  .hero-visual-panel {
+    display: none;
+  }
+}
