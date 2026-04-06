@@ -22,11 +22,14 @@
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <header class="site-header" role="banner">
+  <header class="site-header site-header-glass" role="banner">
     <div class="container header-inner">
       <a class="logo" href="/index.html" aria-label="Inicio ContaProNow">
         <span class="logo-mark" aria-hidden="true">CPN</span>
-        <span class="logo-text">ContaProNow</span>
+        <span class="logo-text-wrap">
+          <span class="logo-text">ContaProNow</span>
+          <span class="logo-subtext">Infraestructura digital</span>
+        </span>
       </a>
 
       <nav class="site-nav" aria-label="Navegación principal">
@@ -50,33 +53,148 @@
   <a class="whatsapp-fab" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20automatizaci%C3%B3n%20de%20facturas." aria-label="Abrir WhatsApp">WA</a>
 
   <main id="contenido">
-    <section class="hero" id="hero" aria-labelledby="hero-title">
-      <div class="container hero-inner">
-        <span class="section-tag" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18);color:#fff;">Servicio</span>
-        <h1 id="hero-title">Automatización de facturas y gestión administrativa</h1>
-        <p class="sub">
-          Una solución pensada para negocios que siguen gestionando facturas y documentación con demasiados pasos manuales,
-          poca visibilidad y una carga administrativa que frena la operativa.
-        </p>
+    <section class="hero hero-premium service-hero-premium" id="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="hero-blur hero-blur-a"></span>
+        <span class="hero-blur hero-blur-b"></span>
+        <span class="hero-grid-lines"></span>
+      </div>
 
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20solicitar%20una%20revisi%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20facturas.">Solicitar revisión</a>
-          <a class="btn btn-secondary" href="#como-funciona">Ver cómo funciona</a>
+      <div class="container hero-layout service-hero-layout">
+        <div class="hero-copy">
+          <span class="section-tag section-tag-strong">Servicio · Gestión administrativa</span>
+
+          <div class="hero-title-wrap">
+            <h1 id="hero-title">Automatización de facturas y gestión administrativa</h1>
+            <p class="sub">
+              Una solución pensada para negocios que siguen gestionando facturas y documentación con demasiados pasos manuales,
+              poca visibilidad y una carga administrativa que frena la operativa.
+            </p>
+          </div>
+
+          <div class="cta-row hero-cta-row">
+            <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20solicitar%20una%20revisi%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20facturas.">Solicitar revisión</a>
+            <a class="btn btn-secondary" href="#como-funciona">Ver cómo funciona</a>
+          </div>
+
+          <div class="hero-benefits hero-benefits-pills" aria-label="Beneficios principales">
+            <span class="benefit-pill">Menos trabajo manual</span>
+            <span class="benefit-pill">Más orden documental</span>
+            <span class="benefit-pill">Mejor control administrativo</span>
+          </div>
+
+          <div class="hero-mini-metrics" aria-label="Puntos clave">
+            <article class="mini-metric-card">
+              <span class="mini-metric-label">Entrada</span>
+              <strong>Más clara</strong>
+              <p>Facturas y documentos con una recepción mejor organizada.</p>
+            </article>
+            <article class="mini-metric-card">
+              <span class="mini-metric-label">Registro</span>
+              <strong>Más útil</strong>
+              <p>Información mejor estructurada para consultar y seguir.</p>
+            </article>
+            <article class="mini-metric-card">
+              <span class="mini-metric-label">Control</span>
+              <strong>Más estable</strong>
+              <p>Una operativa administrativa menos dependiente de pasos manuales.</p>
+            </article>
+          </div>
         </div>
 
-        <div class="hero-benefits" aria-label="Beneficios principales">
-          <span>Menos trabajo manual</span>
-          <span class="separator">|</span>
-          <span>Más orden documental</span>
-          <span class="separator">|</span>
-          <span>Mejor control administrativo</span>
+        <div class="hero-visual hero-visual-panel" aria-hidden="true">
+          <div class="hero-stack">
+            <article class="floating-panel panel-primary">
+              <div class="panel-top">
+                <span class="panel-dot"></span>
+                <span class="panel-dot"></span>
+                <span class="panel-dot"></span>
+              </div>
+
+              <div class="panel-body">
+                <div class="panel-header-row">
+                  <span class="panel-kicker">Administración</span>
+                  <span class="panel-status">Ordenado</span>
+                </div>
+
+                <h2 class="panel-title">Gestión documental más clara</h2>
+
+                <div class="panel-lines">
+                  <span class="line w-100"></span>
+                  <span class="line w-84"></span>
+                  <span class="line w-66"></span>
+                </div>
+
+                <div class="panel-metric-grid">
+                  <div class="panel-metric">
+                    <span class="metric-number">01</span>
+                    <span class="metric-text">Entrada</span>
+                  </div>
+                  <div class="panel-metric">
+                    <span class="metric-number">02</span>
+                    <span class="metric-text">Registro</span>
+                  </div>
+                  <div class="panel-metric">
+                    <span class="metric-number">03</span>
+                    <span class="metric-text">Control</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="floating-panel panel-secondary">
+              <div class="panel-chip-row">
+                <span class="ui-chip">Email</span>
+                <span class="ui-chip">Sheets</span>
+                <span class="ui-chip">Drive</span>
+              </div>
+              <div class="signal-list">
+                <span class="signal-pill">Facturas</span>
+                <span class="signal-pill">Documentos</span>
+                <span class="signal-pill">Orden</span>
+              </div>
+            </article>
+
+            <article class="floating-panel panel-tertiary">
+              <span class="panel-kicker">Flujo de trabajo</span>
+              <div class="flow-steps">
+                <span>Recepción</span>
+                <span>Extracción</span>
+                <span>Registro</span>
+                <span>Control</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight metrics-strip-section" aria-label="Resumen del servicio">
+      <div class="container">
+        <div class="metrics-strip">
+          <article class="strip-card">
+            <span class="strip-label">Problema</span>
+            <strong>Demasiados pasos manuales</strong>
+          </article>
+          <article class="strip-card">
+            <span class="strip-label">Punto crítico</span>
+            <strong>Desorden documental</strong>
+          </article>
+          <article class="strip-card">
+            <span class="strip-label">Objetivo</span>
+            <strong>Más control administrativo</strong>
+          </article>
+          <article class="strip-card">
+            <span class="strip-label">Resultado</span>
+            <strong>Gestión más clara y útil</strong>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section" id="problema" aria-labelledby="problema-title">
       <div class="container">
-        <div class="section-head compact-center">
+        <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Problema habitual</span>
           <h2 id="problema-title">Cuando la gestión administrativa depende demasiado de tareas manuales, el negocio pierde tiempo y control</h2>
           <p class="section-lead">
@@ -86,32 +204,38 @@
           </p>
         </div>
 
-        <div class="cards compact-4">
-          <article class="card icon-card reveal">
-            <div class="icon-badge" aria-hidden="true">
+        <div class="problem-grid">
+          <article class="card icon-card intro-card reveal">
+            <div class="icon-badge icon-badge-gradient" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
                 <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path>
               </svg>
             </div>
+            <div class="card-topline">
+              <span class="card-kicker">Problema 01</span>
+            </div>
             <h3>Facturas dispersas</h3>
             <p>Documentos que llegan por varios canales sin una entrada clara ni una organización fiable.</p>
           </article>
 
-          <article class="card icon-card reveal">
-            <div class="icon-badge" aria-hidden="true">
+          <article class="card icon-card intro-card reveal">
+            <div class="icon-badge icon-badge-gradient" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 12a9 9 0 1 1-3.2-6.9"></path>
                 <path d="M21 3v6h-6"></path>
                 <path d="M12 7v5l3 3"></path>
               </svg>
             </div>
+            <div class="card-topline">
+              <span class="card-kicker">Problema 02</span>
+            </div>
             <h3>Tiempo perdido</h3>
             <p>Copiar datos a mano, descargar archivos uno a uno y repetir pasos que podrían estar mejor resueltos.</p>
           </article>
 
-          <article class="card icon-card reveal">
-            <div class="icon-badge" aria-hidden="true">
+          <article class="card icon-card intro-card reveal">
+            <div class="icon-badge icon-badge-gradient" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 7h16"></path>
                 <path d="M4 12h10"></path>
@@ -119,16 +243,22 @@
                 <rect x="3" y="4" width="18" height="16" rx="2"></rect>
               </svg>
             </div>
+            <div class="card-topline">
+              <span class="card-kicker">Problema 03</span>
+            </div>
             <h3>Desorden documental</h3>
             <p>Dificultad para consultar históricos, localizar documentos y revisar qué está realmente registrado.</p>
           </article>
 
-          <article class="card icon-card reveal">
-            <div class="icon-badge" aria-hidden="true">
+          <article class="card icon-card intro-card reveal">
+            <div class="icon-badge icon-badge-gradient" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
                 <circle cx="12" cy="12" r="3"></circle>
               </svg>
+            </div>
+            <div class="card-topline">
+              <span class="card-kicker">Problema 04</span>
             </div>
             <h3>Falta de control</h3>
             <p>Menos visibilidad sobre qué ha entrado, qué falta y qué estado tiene cada parte del proceso.</p>
@@ -137,89 +267,157 @@
       </div>
     </section>
 
-    <section class="section alt" id="solucion" aria-labelledby="solucion-title">
+    <section class="section section-dark-block" id="solucion" aria-labelledby="solucion-title">
       <div class="container">
-        <div class="section-head compact-center">
-          <span class="section-tag">Qué resolvemos</span>
-          <h2 id="solucion-title">Una forma más clara de gestionar facturas, registros y documentación administrativa</h2>
-          <p class="section-lead">
-            En lugar de seguir trabajando con tareas repetitivas y poca estructura, planteamos una solución práctica
-            para que la información entre mejor, se registre mejor y quede mucho más accesible y controlada.
-          </p>
-        </div>
+        <div class="system-block">
+          <div class="system-copy">
+            <span class="section-tag section-tag-invert">Qué resolvemos</span>
+            <h2 id="solucion-title">Una forma más clara de gestionar facturas, registros y documentación administrativa</h2>
+            <p>
+              En lugar de seguir trabajando con tareas repetitivas y poca estructura, planteamos una solución práctica
+              para que la información entre mejor, se registre mejor y quede mucho más accesible y controlada.
+            </p>
+            <p>
+              No se trata solo de automatizar una parte del proceso, sino de dejar una base administrativa más ordenada,
+              más útil y mucho más fácil de seguir dentro del negocio.
+            </p>
+          </div>
 
-        <div class="cards compact-3 impact-cards">
-          <article class="card service feature-card reveal">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9"></path>
-                <path d="m3 7 9 6 9-6"></path>
-                <path d="M5 19h14"></path>
-              </svg>
-            </div>
-            <h3>Recepción más ordenada</h3>
-            <p>Centralizamos mejor la entrada de facturas y documentos desde correo, carpetas u otros puntos del negocio.</p>
-          </article>
+          <div class="system-visual" aria-hidden="true">
+            <div class="system-board">
+              <article class="board-card board-card-a">
+                <span class="board-kicker">Recepción</span>
+                <div class="board-bars">
+                  <span class="bar w-88"></span>
+                  <span class="bar w-72"></span>
+                  <span class="bar w-52"></span>
+                </div>
+              </article>
 
-          <article class="card service feature-card reveal">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 11h6"></path>
-                <path d="M9 15h3"></path>
-                <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-                <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path>
-              </svg>
-            </div>
-            <h3>Extracción y registro</h3>
-            <p>Los datos clave pueden registrarse en Excel o Google Sheets con una lógica mucho más clara y menos intervención manual.</p>
-          </article>
+              <article class="board-card board-card-b">
+                <span class="board-kicker">Canales</span>
+                <div class="flow-links">
+                  <span class="flow-node">Email</span>
+                  <span class="flow-node">Carpetas</span>
+                  <span class="flow-node">Registro</span>
+                  <span class="flow-node">Control</span>
+                </div>
+              </article>
 
-          <article class="card service feature-card reveal">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 3v18h18"></path>
-                <path d="m19 9-5 5-4-4-3 3"></path>
-              </svg>
+              <article class="board-card board-card-c">
+                <span class="board-kicker">Resultado</span>
+                <div class="result-pills">
+                  <span>Más orden</span>
+                  <span>Menos fricción</span>
+                  <span>Más control</span>
+                </div>
+              </article>
             </div>
-            <h3>Más control operativo</h3>
-            <p>La documentación queda mejor organizada para consultar, revisar y trabajar con más criterio y menos errores.</p>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="como-funciona" aria-labelledby="funciona-title">
+    <section class="section alt" id="como-funciona" aria-labelledby="funciona-title">
       <div class="container">
-        <div class="section-head compact-center">
+        <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Qué puede incluir</span>
           <h2 id="funciona-title">Una solución práctica adaptada al funcionamiento real del negocio</h2>
+          <p class="section-lead">
+            El servicio se plantea sobre la operativa real de la empresa para que la recepción, el registro y el control
+            documental queden mucho más claros y sostenibles.
+          </p>
         </div>
 
-        <div class="cards compact-3">
-          <article class="card reveal">
+        <div class="service-showcase service-showcase-3">
+          <article class="card service feature-card service-card-premium reveal">
+            <div class="service-card-top">
+              <span class="service-badge">Bloque 01</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9"></path>
+                  <path d="m3 7 9 6 9-6"></path>
+                  <path d="M5 19h14"></path>
+                </svg>
+              </div>
+            </div>
             <h3>Recepción de facturas por email o carpetas</h3>
             <p>Organizamos la entrada documental desde los canales que ya utiliza la empresa en el día a día.</p>
           </article>
-          <article class="card reveal">
+
+          <article class="card service feature-card service-card-premium reveal">
+            <div class="service-card-top">
+              <span class="service-badge">Bloque 02</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 11h6"></path>
+                  <path d="M9 15h3"></path>
+                  <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                  <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path>
+                </svg>
+              </div>
+            </div>
             <h3>Extracción de datos clave</h3>
             <p>Identificamos la información importante para facilitar el control y el registro posterior.</p>
           </article>
-          <article class="card reveal">
+
+          <article class="card service feature-card service-card-premium reveal">
+            <div class="service-card-top">
+              <span class="service-badge">Bloque 03</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 3v18h18"></path>
+                  <path d="m19 9-5 5-4-4-3 3"></path>
+                </svg>
+              </div>
+            </div>
             <h3>Registro en Excel o Google Sheets</h3>
             <p>Volcamos la información a una estructura clara que permita consultar y seguir mejor la operativa.</p>
           </article>
         </div>
 
-        <div class="cards compact-3" style="margin-top:1rem;">
-          <article class="card reveal">
+        <div class="service-showcase service-showcase-3 service-showcase-gap-top">
+          <article class="card service feature-card service-card-premium reveal">
+            <div class="service-card-top">
+              <span class="service-badge">Bloque 04</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 7h16"></path>
+                  <path d="M4 12h10"></path>
+                  <path d="M4 17h7"></path>
+                  <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                </svg>
+              </div>
+            </div>
             <h3>Orden documental</h3>
             <p>Mejor organización de archivos y documentación para acceder a ellos con más rapidez y menos fricción.</p>
           </article>
-          <article class="card reveal">
+
+          <article class="card service feature-card service-card-premium reveal service-card-featured">
+            <div class="service-card-top">
+              <span class="service-badge">Bloque 05</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12a9 9 0 1 1-3.2-6.9"></path>
+                  <path d="M21 3v6h-6"></path>
+                  <path d="M12 7v5l3 3"></path>
+                </svg>
+              </div>
+            </div>
             <h3>Menos errores y menos pasos manuales</h3>
             <p>Reducción de tareas repetitivas y del riesgo de fallos derivados de copiar, pegar y mover archivos a mano.</p>
           </article>
-          <article class="card reveal">
+
+          <article class="card service feature-card service-card-premium reveal">
+            <div class="service-card-top">
+              <span class="service-badge">Bloque 06</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 17l6-6 4 4 7-8"></path>
+                  <path d="M14 7h6v6"></path>
+                </svg>
+              </div>
+            </div>
             <h3>Base para mejoras futuras</h3>
             <p>Una estructura más útil para seguir conectando otros procesos administrativos o internos después.</p>
           </article>
@@ -227,9 +425,9 @@
       </div>
     </section>
 
-    <section class="section alt" id="resultado" aria-labelledby="resultado-title">
+    <section class="section" id="resultado" aria-labelledby="resultado-title">
       <div class="container">
-        <div class="section-head compact-center">
+        <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Resultado</span>
           <h2 id="resultado-title">No se trata solo de automatizar por automatizar, sino de trabajar con más orden y más control</h2>
           <p class="section-lead">
@@ -238,37 +436,50 @@
           </p>
         </div>
 
-        <div class="cards compact-3">
-          <article class="card reveal">
-            <h3>Menos fricción diaria</h3>
+        <div class="cards compact-3 value-cards">
+          <article class="card reveal value-card">
+            <div class="value-card-head">
+              <span class="value-number">01</span>
+              <h3>Menos fricción diaria</h3>
+            </div>
             <p>Menos pasos repetitivos en una parte del negocio que suele consumir demasiado tiempo.</p>
           </article>
-          <article class="card reveal">
-            <h3>Más claridad interna</h3>
+
+          <article class="card reveal value-card">
+            <div class="value-card-head">
+              <span class="value-number">02</span>
+              <h3>Más claridad interna</h3>
+            </div>
             <p>Una base documental y administrativa más ordenada para consultar y trabajar mejor.</p>
           </article>
-          <article class="card reveal">
-            <h3>Más recorrido</h3>
+
+          <article class="card reveal value-card">
+            <div class="value-card-head">
+              <span class="value-number">03</span>
+              <h3>Más recorrido</h3>
+            </div>
             <p>Una estructura más sólida sobre la que seguir mejorando otros procesos si el negocio lo necesita.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section service-cta" id="revision" aria-labelledby="revision-title">
+    <section class="section alt section-cta-premium" id="revision" aria-labelledby="revision-title">
       <div class="container">
-        <div class="section-head compact-center">
-          <span class="section-tag">Revisión</span>
-          <h2 id="revision-title">Si quieres saber si este servicio encaja con tu negocio, lo revisamos contigo</h2>
-          <p class="section-lead">
-            Podemos revisar cómo gestionáis ahora facturas y documentación para detectar dónde tiene sentido intervenir
-            y qué solución sería más útil según vuestra forma real de trabajar.
-          </p>
-        </div>
+        <div class="final-cta-shell">
+          <div class="section-head compact-center">
+            <span class="section-tag">Revisión</span>
+            <h2 id="revision-title">Si quieres saber si este servicio encaja con tu negocio, lo revisamos contigo</h2>
+            <p class="section-lead">
+              Podemos revisar cómo gestionáis ahora facturas y documentación para detectar dónde tiene sentido intervenir
+              y qué solución sería más útil según vuestra forma real de trabajar.
+            </p>
+          </div>
 
-        <div class="cta-row" style="justify-content:center;">
-          <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20facturas%20y%20gesti%C3%B3n%20administrativa.">Pedir revisión</a>
-          <a class="btn btn-secondary" href="/index.html#contacto">Ir a contacto</a>
+          <div class="cta-row final-cta-row">
+            <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20facturas%20y%20gesti%C3%B3n%20administrativa.">Pedir revisión</a>
+            <a class="btn btn-secondary" href="/index.html#contacto">Ir a contacto</a>
+          </div>
         </div>
       </div>
     </section>
