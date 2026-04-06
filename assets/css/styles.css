@@ -1334,3 +1334,35 @@ button {
     transition: none !important;
   }
 }
+.service-hero-premium {
+  padding-bottom: 3.5rem;
+}
+
+.service-hero-layout {
+  grid-template-columns: minmax(0, 1.05fr) minmax(380px, 0.95fr);
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.service-showcase-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.service-showcase-gap-top {
+  margin-top: 1rem;
+}
+
+@media (max-width: 980px) {
+  .problem-grid,
+  .service-showcase-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .service-hero-layout {
+    grid-template-columns: 1fr;
+  }
+}
