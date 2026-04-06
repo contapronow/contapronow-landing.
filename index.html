@@ -46,11 +46,14 @@
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <header class="site-header" role="banner">
+  <header class="site-header site-header-glass" role="banner">
     <div class="container header-inner">
       <a class="logo" href="#hero" aria-label="Inicio ContaProNow">
         <span class="logo-mark" aria-hidden="true">CPN</span>
-        <span class="logo-text">ContaProNow</span>
+        <span class="logo-text-wrap">
+          <span class="logo-text">ContaProNow</span>
+          <span class="logo-subtext">Infraestructura digital</span>
+        </span>
       </a>
 
       <nav class="site-nav" aria-label="Navegación principal">
@@ -76,49 +79,145 @@
   <a class="whatsapp-fab" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20vuestros%20servicios." aria-label="Abrir WhatsApp">WA</a>
 
   <main id="contenido">
-    <section class="hero hero-enhanced" id="hero" aria-labelledby="hero-title">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="section-tag">Infraestructura digital para empresas</span>
-          <h1 id="hero-title">Menos tareas manuales, más orden y una base digital preparada para crecer</h1>
-          <p class="sub">
-            Ayudamos a autónomos, pymes y negocios a organizar mejor su operativa, automatizar tareas clave
-            y mejorar su estructura digital con soluciones útiles para el día a día.
-          </p>
+    <section class="hero hero-premium" id="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="hero-blur hero-blur-a"></span>
+        <span class="hero-blur hero-blur-b"></span>
+        <span class="hero-grid-lines"></span>
+      </div>
 
-          <div class="cta-row">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <span class="section-tag section-tag-strong">Infraestructura digital para empresas</span>
+
+          <div class="hero-title-wrap">
+            <h1 id="hero-title">Menos tareas manuales, más orden y una base digital preparada para crecer</h1>
+            <p class="sub">
+              Ayudamos a autónomos, pymes y negocios a organizar mejor su operativa, automatizar tareas clave
+              y mejorar su estructura digital con soluciones útiles para el día a día.
+            </p>
+          </div>
+
+          <div class="cta-row hero-cta-row">
             <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20solicitar%20una%20revisi%C3%B3n%20de%20mi%20negocio.">Solicitar revisión</a>
             <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
           </div>
 
-          <div class="hero-benefits" aria-label="Beneficios principales">
-            <span>Menos carga manual</span>
-            <span class="separator">|</span>
-            <span>Más control operativo</span>
-            <span class="separator">|</span>
-            <span>Mejor seguimiento comercial</span>
+          <div class="hero-benefits hero-benefits-pills" aria-label="Beneficios principales">
+            <span class="benefit-pill">Menos carga manual</span>
+            <span class="benefit-pill">Más control operativo</span>
+            <span class="benefit-pill">Mejor seguimiento comercial</span>
+          </div>
+
+          <div class="hero-mini-metrics" aria-label="Puntos clave">
+            <article class="mini-metric-card">
+              <span class="mini-metric-label">Operativa</span>
+              <strong>Más clara</strong>
+              <p>Procesos mejor estructurados para el día a día.</p>
+            </article>
+            <article class="mini-metric-card">
+              <span class="mini-metric-label">Gestión</span>
+              <strong>Más conectada</strong>
+              <p>Herramientas que trabajan con más lógica entre sí.</p>
+            </article>
+            <article class="mini-metric-card">
+              <span class="mini-metric-label">Negocio</span>
+              <strong>Más aprovechable</strong>
+              <p>Menos fricción y mejor base para seguir creciendo.</p>
+            </article>
           </div>
         </div>
 
-        <div class="hero-visual">
-          <picture>
-            <source type="image/webp" srcset="/assets/img/hero-operativa.webp">
-            <img
-              src="/assets/img/hero-operativa.jpg"
-              width="900"
-              height="1100"
-              alt="Profesional revisando procesos digitales y operativa de negocio"
-              decoding="async"
-              fetchpriority="high"
-            />
-          </picture>
+        <div class="hero-visual hero-visual-panel" aria-hidden="true">
+          <div class="hero-stack">
+            <article class="floating-panel panel-primary">
+              <div class="panel-top">
+                <span class="panel-dot"></span>
+                <span class="panel-dot"></span>
+                <span class="panel-dot"></span>
+              </div>
+              <div class="panel-body">
+                <div class="panel-header-row">
+                  <span class="panel-kicker">Sistema</span>
+                  <span class="panel-status">Activo</span>
+                </div>
+                <h2 class="panel-title">Operativa más conectada</h2>
+                <div class="panel-lines">
+                  <span class="line w-100"></span>
+                  <span class="line w-84"></span>
+                  <span class="line w-66"></span>
+                </div>
+
+                <div class="panel-metric-grid">
+                  <div class="panel-metric">
+                    <span class="metric-number">01</span>
+                    <span class="metric-text">Facturas</span>
+                  </div>
+                  <div class="panel-metric">
+                    <span class="metric-number">02</span>
+                    <span class="metric-text">Atención</span>
+                  </div>
+                  <div class="panel-metric">
+                    <span class="metric-number">03</span>
+                    <span class="metric-text">Web</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="floating-panel panel-secondary">
+              <div class="panel-chip-row">
+                <span class="ui-chip">n8n</span>
+                <span class="ui-chip">Sheets</span>
+                <span class="ui-chip">WhatsApp</span>
+              </div>
+              <div class="signal-list">
+                <span class="signal-pill">Automatización</span>
+                <span class="signal-pill">Control</span>
+                <span class="signal-pill">Seguimiento</span>
+              </div>
+            </article>
+
+            <article class="floating-panel panel-tertiary">
+              <span class="panel-kicker">Flujo de trabajo</span>
+              <div class="flow-steps">
+                <span>Entrada</span>
+                <span>Orden</span>
+                <span>Implantación</span>
+                <span>Mejora</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight metrics-strip-section" aria-label="Resumen visual">
+      <div class="container">
+        <div class="metrics-strip">
+          <article class="strip-card">
+            <span class="strip-label">Enfoque</span>
+            <strong>Soluciones aterrizadas</strong>
+          </article>
+          <article class="strip-card">
+            <span class="strip-label">Objetivo</span>
+            <strong>Más orden y eficiencia</strong>
+          </article>
+          <article class="strip-card">
+            <span class="strip-label">Resultado</span>
+            <strong>Base digital con sentido</strong>
+          </article>
+          <article class="strip-card">
+            <span class="strip-label">Trabajo</span>
+            <strong>Útil para el negocio real</strong>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section" id="introduccion" aria-labelledby="introduccion-title">
       <div class="container">
-        <div class="section-head compact-center">
+        <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Enfoque</span>
           <h2 id="introduccion-title">No trabajamos con herramientas aisladas, sino con soluciones que encajan en la operativa real del negocio</h2>
           <p class="section-lead">
@@ -129,21 +228,24 @@
           </p>
         </div>
 
-        <div class="cards compact-3">
-          <article class="card icon-card reveal">
-            <div class="icon-badge" aria-hidden="true">
+        <div class="cards compact-3 intro-cards-grid">
+          <article class="card icon-card intro-card reveal">
+            <div class="icon-badge icon-badge-gradient" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 12a9 9 0 1 1-3.2-6.9"></path>
                 <path d="M21 3v6h-6"></path>
                 <path d="M12 7v5l3 3"></path>
               </svg>
             </div>
+            <div class="card-topline">
+              <span class="card-kicker">Impacto</span>
+            </div>
             <h3>Menos carga manual</h3>
             <p>Reducimos tareas repetitivas que consumen tiempo cada semana y ralentizan el negocio.</p>
           </article>
 
-          <article class="card icon-card reveal">
-            <div class="icon-badge" aria-hidden="true">
+          <article class="card icon-card intro-card reveal">
+            <div class="icon-badge icon-badge-gradient" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 7h16"></path>
                 <path d="M4 12h10"></path>
@@ -151,16 +253,22 @@
                 <rect x="3" y="4" width="18" height="16" rx="2"></rect>
               </svg>
             </div>
+            <div class="card-topline">
+              <span class="card-kicker">Control</span>
+            </div>
             <h3>Más orden y control</h3>
             <p>Organizamos mejor la información, los procesos y los puntos clave para que todo esté más claro.</p>
           </article>
 
-          <article class="card icon-card reveal">
-            <div class="icon-badge" aria-hidden="true">
+          <article class="card icon-card intro-card reveal">
+            <div class="icon-badge icon-badge-gradient" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"></path>
                 <circle cx="12" cy="12" r="3"></circle>
               </svg>
+            </div>
+            <div class="card-topline">
+              <span class="card-kicker">Negocio</span>
             </div>
             <h3>Mejor aprovechamiento comercial</h3>
             <p>Te ayudamos a responder antes, seguir mejor tus oportunidades y no perder contactos por el camino.</p>
@@ -169,29 +277,60 @@
       </div>
     </section>
 
-    <section class="section visual-split" aria-labelledby="bloque-operativa-title">
-      <div class="container split-grid">
-        <div class="split-media">
-          <img src="/assets/img/proceso-manual.jpg" alt="Negocio gestionando tareas manuales y documentación" width="800" height="520" loading="lazy" />
-        </div>
-        <div class="split-copy">
-          <span class="section-tag">Realidad habitual</span>
-          <h2 id="bloque-operativa-title">Muchos negocios ya tienen herramientas, pero siguen funcionando con demasiados pasos manuales</h2>
-          <p>
-            Correos, hojas de cálculo, WhatsApp, formularios, documentos y tareas internas conviven cada día,
-            pero sin una estructura clara. Eso genera pérdidas de tiempo, desorden y oportunidades mal aprovechadas.
-          </p>
-          <p>
-            El objetivo no es complicar más el negocio, sino ordenar mejor lo que ya ocurre y convertirlo en una
-            operativa más útil, más conectada y más fácil de gestionar.
-          </p>
+    <section class="section section-dark-block" aria-labelledby="bloque-operativa-title">
+      <div class="container">
+        <div class="system-block">
+          <div class="system-copy">
+            <span class="section-tag section-tag-invert">Realidad habitual</span>
+            <h2 id="bloque-operativa-title">Muchos negocios ya tienen herramientas, pero siguen funcionando con demasiados pasos manuales</h2>
+            <p>
+              Correos, hojas de cálculo, WhatsApp, formularios, documentos y tareas internas conviven cada día,
+              pero sin una estructura clara. Eso genera pérdidas de tiempo, desorden y oportunidades mal aprovechadas.
+            </p>
+            <p>
+              El objetivo no es complicar más el negocio, sino ordenar mejor lo que ya ocurre y convertirlo en una
+              operativa más útil, más conectada y más fácil de gestionar.
+            </p>
+          </div>
+
+          <div class="system-visual" aria-hidden="true">
+            <div class="system-board">
+              <article class="board-card board-card-a">
+                <span class="board-kicker">Entrada</span>
+                <div class="board-bars">
+                  <span class="bar w-88"></span>
+                  <span class="bar w-72"></span>
+                  <span class="bar w-52"></span>
+                </div>
+              </article>
+
+              <article class="board-card board-card-b">
+                <span class="board-kicker">Procesos</span>
+                <div class="flow-links">
+                  <span class="flow-node">Email</span>
+                  <span class="flow-node">Hojas</span>
+                  <span class="flow-node">WhatsApp</span>
+                  <span class="flow-node">Web</span>
+                </div>
+              </article>
+
+              <article class="board-card board-card-c">
+                <span class="board-kicker">Resultado</span>
+                <div class="result-pills">
+                  <span>Más claro</span>
+                  <span>Más útil</span>
+                  <span>Más conectado</span>
+                </div>
+              </article>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section alt" id="servicios" aria-labelledby="servicios-title">
       <div class="container">
-        <div class="section-head compact-center">
+        <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Servicios</span>
           <h2 id="servicios-title">Tres líneas de servicio pensadas para problemas reales de negocio</h2>
           <p class="section-lead">
@@ -200,19 +339,18 @@
           </p>
         </div>
 
-        <div class="cards compact-3 impact-cards">
-          <article class="card service feature-card reveal">
-            <div class="service-image">
-              <img src="/assets/img/servicio-facturas.jpg" alt="Gestión administrativa y automatización de facturas" width="700" height="420" loading="lazy" />
-            </div>
-
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
-                <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path>
-                <path d="M9 13h6"></path>
-                <path d="M9 17h6"></path>
-              </svg>
+        <div class="service-showcase">
+          <article class="card service feature-card service-card-premium reveal">
+            <div class="service-card-top">
+              <span class="service-badge">Servicio 01</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                  <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path>
+                  <path d="M9 13h6"></path>
+                  <path d="M9 17h6"></path>
+                </svg>
+              </div>
             </div>
 
             <h3>Automatización de facturas y gestión administrativa</h3>
@@ -220,29 +358,31 @@
               Diseñado para negocios que siguen moviendo facturas, documentos y registros de forma manual y
               necesitan más orden, menos errores y mejor control administrativo.
             </p>
-            <ul class="mini-points">
+
+            <ul class="mini-points mini-points-elevated">
               <li>Recepción de facturas desde email o carpetas</li>
               <li>Extracción de datos clave para registro y control</li>
               <li>Registro automático en Excel o Google Sheets</li>
               <li>Orden documental más claro y accesible</li>
               <li>Menos tiempo manual y menos riesgo de errores</li>
             </ul>
-            <div class="service-card-cta">
+
+            <div class="service-card-footer">
+              <span class="service-footnote">Gestión más ordenada</span>
               <a class="btn btn-secondary" href="/automatizacion-facturas.html">Ver servicio</a>
             </div>
           </article>
 
-          <article class="card service feature-card reveal">
-            <div class="service-image">
-              <img src="/assets/img/servicio-captacion.jpg" alt="Atención a clientes y captación digital organizada" width="700" height="420" loading="lazy" />
-            </div>
-
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"></path>
-                <path d="M8 9h8"></path>
-                <path d="M8 13h5"></path>
-              </svg>
+          <article class="card service feature-card service-card-premium reveal service-card-featured">
+            <div class="service-card-top">
+              <span class="service-badge">Servicio 02</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"></path>
+                  <path d="M8 9h8"></path>
+                  <path d="M8 13h5"></path>
+                </svg>
+              </div>
             </div>
 
             <h3>Automatización de atención y captación</h3>
@@ -250,29 +390,31 @@
               Pensado para empresas que reciben consultas, formularios o mensajes, pero no tienen un sistema claro
               para responder a tiempo, organizar oportunidades y seguir bien cada contacto.
             </p>
-            <ul class="mini-points">
+
+            <ul class="mini-points mini-points-elevated">
               <li>Mensajes y consultas mejor organizados</li>
               <li>Formularios conectados con seguimiento comercial</li>
               <li>Leads registrados sin depender de pasos manuales</li>
               <li>Respuestas más rápidas y mejor continuidad</li>
               <li>Menos oportunidades perdidas por falta de seguimiento</li>
             </ul>
-            <div class="service-card-cta">
+
+            <div class="service-card-footer">
+              <span class="service-footnote">Más continuidad comercial</span>
               <a class="btn btn-secondary" href="/automatizacion-atencion-captacion.html">Ver servicio</a>
             </div>
           </article>
 
-          <article class="card service feature-card reveal">
-            <div class="service-image">
-              <img src="/assets/img/servicio-web.jpg" alt="Web profesional orientada a captación y estructura digital" width="700" height="420" loading="lazy" />
-            </div>
-
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="13" rx="2"></rect>
-                <path d="M8 20h8"></path>
-                <path d="M12 17v3"></path>
-              </svg>
+          <article class="card service feature-card service-card-premium reveal">
+            <div class="service-card-top">
+              <span class="service-badge">Servicio 03</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="13" rx="2"></rect>
+                  <path d="M8 20h8"></path>
+                  <path d="M12 17v3"></path>
+                </svg>
+              </div>
             </div>
 
             <h3>Web orientada a captación y estructura digital</h3>
@@ -280,14 +422,17 @@
               No planteamos una web como algo solo visual. La trabajamos como una pieza útil para presentar mejor
               el negocio, generar confianza, facilitar el contacto y servir como base digital más sólida.
             </p>
-            <ul class="mini-points">
+
+            <ul class="mini-points mini-points-elevated">
               <li>Web con estructura clara y mensaje más sólido</li>
               <li>Contacto mejor planteado para captar oportunidades</li>
               <li>Presentación más profesional del negocio</li>
               <li>Base lista para integraciones y mejoras futuras</li>
               <li>Mejor conversión y mejor apoyo comercial</li>
             </ul>
-            <div class="service-card-cta">
+
+            <div class="service-card-footer">
+              <span class="service-footnote">Mejor base digital</span>
               <a class="btn btn-secondary" href="/web-captacion-estructura-digital.html">Ver servicio</a>
             </div>
           </article>
@@ -297,7 +442,7 @@
 
     <section class="section" id="por-que-contapronow" aria-labelledby="porque-title">
       <div class="container">
-        <div class="section-head compact-center">
+        <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Cómo lo planteamos</span>
           <h2 id="porque-title">No se trata solo de implantar algo técnico, sino de que encaje de verdad en la forma de trabajar del negocio</h2>
           <p class="section-lead">
@@ -306,17 +451,28 @@
           </p>
         </div>
 
-        <div class="cards compact-3">
-          <article class="card reveal">
-            <h3>Soluciones aterrizadas</h3>
+        <div class="cards compact-3 value-cards">
+          <article class="card reveal value-card">
+            <div class="value-card-head">
+              <span class="value-number">01</span>
+              <h3>Soluciones aterrizadas</h3>
+            </div>
             <p>Trabajamos sobre tareas, procesos y puntos de fricción reales, no sobre promesas abstractas.</p>
           </article>
-          <article class="card reveal">
-            <h3>Visión práctica</h3>
+
+          <article class="card reveal value-card">
+            <div class="value-card-head">
+              <span class="value-number">02</span>
+              <h3>Visión práctica</h3>
+            </div>
             <p>Buscamos que el resultado sea útil en el día a día y no una capa extra de complejidad para el negocio.</p>
           </article>
-          <article class="card reveal">
-            <h3>Base para seguir creciendo</h3>
+
+          <article class="card reveal value-card">
+            <div class="value-card-head">
+              <span class="value-number">03</span>
+              <h3>Base para seguir creciendo</h3>
+            </div>
             <p>Dejamos estructuras que luego puedan ampliarse con más lógica, más control y mejor recorrido.</p>
           </article>
         </div>
@@ -325,7 +481,7 @@
 
     <section class="section alt" id="proceso" aria-labelledby="proc-title">
       <div class="container">
-        <div class="section-head compact-center">
+        <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Cómo trabajamos</span>
           <h2 id="proc-title">Un proceso claro, práctico y orientado a negocio</h2>
           <p class="section-lead">
@@ -333,8 +489,9 @@
           </p>
         </div>
 
-        <div class="process-grid">
-          <article class="process-card reveal">
+        <div class="process-timeline">
+          <article class="process-card process-card-premium reveal">
+            <div class="process-step">01</div>
             <div class="process-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="11" cy="11" r="7"></circle>
@@ -345,7 +502,8 @@
             <p>Vemos cómo funciona tu operativa actual y qué puntos merece la pena mejorar primero.</p>
           </article>
 
-          <article class="process-card reveal">
+          <article class="process-card process-card-premium reveal">
+            <div class="process-step">02</div>
             <div class="process-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 20h9"></path>
@@ -356,7 +514,8 @@
             <p>Definimos una solución útil, realista y alineada con el momento de tu negocio.</p>
           </article>
 
-          <article class="process-card reveal">
+          <article class="process-card process-card-premium reveal">
+            <div class="process-step">03</div>
             <div class="process-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="3"></circle>
@@ -367,7 +526,8 @@
             <p>Ponemos en marcha la solución y la dejamos integrada de forma clara dentro del negocio.</p>
           </article>
 
-          <article class="process-card reveal">
+          <article class="process-card process-card-premium reveal">
+            <div class="process-step">04</div>
             <div class="process-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 17l6-6 4 4 7-8"></path>
@@ -383,7 +543,7 @@
 
     <section class="section" id="herramientas" aria-labelledby="herramientas-title">
       <div class="container">
-        <div class="section-head compact-center">
+        <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Herramientas y ecosistema</span>
           <h2 id="herramientas-title">Tecnología conectada a la operativa real del negocio</h2>
           <p class="section-lead">
@@ -392,9 +552,12 @@
           </p>
         </div>
 
-        <div class="tool-groups">
+        <div class="tool-groups tool-groups-premium">
           <article class="tool-group reveal">
-            <h3>Automatización</h3>
+            <div class="tool-group-top">
+              <span class="tool-group-label">Área</span>
+              <h3>Automatización</h3>
+            </div>
             <div class="tools-grid" aria-label="Herramientas de automatización">
               <span class="tool-pill">n8n</span>
               <span class="tool-pill">Make</span>
@@ -403,7 +566,10 @@
           </article>
 
           <article class="tool-group reveal">
-            <h3>Operativa y datos</h3>
+            <div class="tool-group-top">
+              <span class="tool-group-label">Área</span>
+              <h3>Operativa y datos</h3>
+            </div>
             <div class="tools-grid" aria-label="Herramientas de operativa y datos">
               <span class="tool-pill">Google Sheets</span>
               <span class="tool-pill">Airtable</span>
@@ -412,7 +578,10 @@
           </article>
 
           <article class="tool-group reveal">
-            <h3>Web y negocio</h3>
+            <div class="tool-group-top">
+              <span class="tool-group-label">Área</span>
+              <h3>Web y negocio</h3>
+            </div>
             <div class="tools-grid" aria-label="Herramientas de web y negocio">
               <span class="tool-pill">WordPress</span>
               <span class="tool-pill">WooCommerce</span>
@@ -421,7 +590,10 @@
           </article>
 
           <article class="tool-group reveal">
-            <h3>Comunicación y gestión</h3>
+            <div class="tool-group-top">
+              <span class="tool-group-label">Área</span>
+              <h3>Comunicación y gestión</h3>
+            </div>
             <div class="tools-grid" aria-label="Herramientas de comunicación y gestión">
               <span class="tool-pill">Gmail</span>
               <span class="tool-pill">WhatsApp</span>
@@ -434,7 +606,7 @@
 
     <section class="section alt" id="casos-visuales" aria-labelledby="casos-visuales-title">
       <div class="container">
-        <div class="section-head compact-center">
+        <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Qué tipo de mejoras trabajamos</span>
           <h2 id="casos-visuales-title">Soluciones pensadas para problemas reales de organización, atención y estructura digital</h2>
           <p class="section-lead">
@@ -442,42 +614,69 @@
           </p>
         </div>
 
-        <div class="visual-gallery">
-          <figure class="gallery-card reveal">
-            <img src="/assets/img/galeria-facturas.jpg" alt="Documentación, facturas y control administrativo" width="700" height="500" loading="lazy" />
-            <figcaption>Facturas, registro y orden administrativo</figcaption>
-          </figure>
+        <div class="capability-grid">
+          <article class="capability-card reveal">
+            <div class="capability-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path>
+                <path d="M9 13h6"></path>
+                <path d="M9 17h6"></path>
+              </svg>
+            </div>
+            <h3>Facturas, registro y orden administrativo</h3>
+            <p>Procesos documentales con más control, menos fricción y mejor acceso a la información.</p>
+          </article>
 
-          <figure class="gallery-card reveal">
-            <img src="/assets/img/galeria-atencion.jpg" alt="Atención al cliente y mensajes organizados" width="700" height="500" loading="lazy" />
-            <figcaption>Atención más clara y mejor seguimiento</figcaption>
-          </figure>
+          <article class="capability-card reveal">
+            <div class="capability-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"></path>
+                <path d="M8 9h8"></path>
+                <path  d="M8 13h5"></path>
+              </svg>
+            </div>
+            <h3>Atención más clara y mejor seguimiento</h3>
+            <p>Consultas, formularios y oportunidades mejor conectados con la operativa comercial.</p>
+          </article>
 
-          <figure class="gallery-card reveal">
-            <img src="/assets/img/galeria-web.jpg" alt="Web profesional orientada a negocio" width="700" height="500" loading="lazy" />
-            <figcaption>Web útil como base de captación y confianza</figcaption>
-          </figure>
+          <article class="capability-card reveal">
+            <div class="capability-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="13" rx="2"></rect>
+                <path d="M8 20h8"></path>
+                <path d="M12 17v3"></path>
+              </svg>
+            </div>
+            <h3>Web útil como base de captación y confianza</h3>
+            <p>Una presencia digital más sólida, más clara y mejor preparada para apoyar el negocio.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section" id="para-quien" aria-labelledby="para-quien-title">
       <div class="container">
-        <div class="section-head compact-center">
+        <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Para quién es</span>
           <h2 id="para-quien-title">Pensado para negocios que necesitan más orden, conexión y eficiencia</h2>
         </div>
 
-        <div class="cards compact-3">
-          <article class="card reveal">
+        <div class="cards compact-3 audience-cards">
+          <article class="card reveal audience-card">
+            <span class="audience-badge">Perfil</span>
             <h3>Autónomos y pequeños negocios</h3>
             <p>Para quienes necesitan quitar carga manual, ordenar mejor su día a día y trabajar con más claridad.</p>
           </article>
-          <article class="card reveal">
+
+          <article class="card reveal audience-card audience-card-highlight">
+            <span class="audience-badge">Perfil</span>
             <h3>Pymes en crecimiento</h3>
             <p>Para empresas que ya tienen varias herramientas y quieren que todo funcione mejor entre sí.</p>
           </article>
-          <article class="card reveal">
+
+          <article class="card reveal audience-card">
+            <span class="audience-badge">Perfil</span>
             <h3>Negocios con procesos manuales o comerciales desordenados</h3>
             <p>Para equipos que quieren mejorar facturación, seguimiento, atención o presencia digital sin complicarse de más.</p>
           </article>
@@ -485,47 +684,67 @@
       </div>
     </section>
 
-    <section class="section" id="sobre-mi" aria-labelledby="sobre-title">
-      <div class="container about-grid">
-        <div>
-          <span class="section-tag">Sobre mí</span>
-          <h2 id="sobre-title">Un enfoque práctico para construir sistemas digitales con sentido</h2>
-          <p>
-            En ContaProNow trabajo con un enfoque práctico: ayudar a empresas, pymes y autónomos
-            a organizar mejor su estructura digital para que su operativa sea más clara, conectada y eficiente.
-          </p>
-          <p>
-            Diseño e implanto soluciones que encajan en el día a día del negocio, desde necesidades concretas
-            hasta sistemas más completos.
-          </p>
-        </div>
-        <div class="about-photo">
-          <img src="/assets/img/sobre-mi.jpg" alt="Abián Pérez, fundador de ContaProNow" width="600" height="600" loading="lazy" />
+    <section class="section section-about-premium" id="sobre-mi" aria-labelledby="sobre-title">
+      <div class="container">
+        <div class="about-shell">
+          <div class="about-copy">
+            <span class="section-tag">Sobre mí</span>
+            <h2 id="sobre-title">Un enfoque práctico para construir sistemas digitales con sentido</h2>
+            <p>
+              En ContaProNow trabajo con un enfoque práctico: ayudar a empresas, pymes y autónomos
+              a organizar mejor su estructura digital para que su operativa sea más clara, conectada y eficiente.
+            </p>
+            <p>
+              Diseño e implanto soluciones que encajan en el día a día del negocio, desde necesidades concretas
+              hasta sistemas más completos.
+            </p>
+          </div>
+
+          <div class="about-visual" aria-hidden="true">
+            <div class="about-panel">
+              <div class="about-panel-top">
+                <span class="panel-dot"></span>
+                <span class="panel-dot"></span>
+                <span class="panel-dot"></span>
+              </div>
+              <div class="about-panel-body">
+                <span class="about-kicker">ContaProNow</span>
+                <h3>Sistemas digitales con sentido</h3>
+                <div class="about-panel-list">
+                  <span>Operativa más clara</span>
+                  <span>Procesos mejor conectados</span>
+                  <span>Implantación útil para negocio</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section alt" id="cierre-servicios" aria-labelledby="cierre-title">
+    <section class="section alt section-cta-premium" id="cierre-servicios" aria-labelledby="cierre-title">
       <div class="container">
-        <div class="section-head compact-center">
-          <span class="section-tag">Siguiente paso</span>
-          <h2 id="cierre-title">Si no tienes claro qué solución encaja mejor, podemos revisarlo contigo</h2>
-          <p class="section-lead">
-            No hace falta venir con todo definido. Podemos revisar tu situación actual, detectar dónde estás
-            perdiendo tiempo o control, y proponerte la mejora que tenga más sentido para tu negocio.
-          </p>
-        </div>
+        <div class="final-cta-shell">
+          <div class="section-head compact-center">
+            <span class="section-tag">Siguiente paso</span>
+            <h2 id="cierre-title">Si no tienes claro qué solución encaja mejor, podemos revisarlo contigo</h2>
+            <p class="section-lead">
+              No hace falta venir con todo definido. Podemos revisar tu situación actual, detectar dónde estás
+              perdiendo tiempo o control, y proponerte la mejora que tenga más sentido para tu negocio.
+            </p>
+          </div>
 
-        <div class="cta-row" style="justify-content:center;">
-          <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20que%20revisemos%20qu%C3%A9%20servicio%20encaja%20mejor%20con%20mi%20negocio.">Pedir revisión</a>
-          <a class="btn btn-secondary" href="#contacto">Escribir directamente</a>
+          <div class="cta-row final-cta-row">
+            <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20que%20revisemos%20qu%C3%A9%20servicio%20encaja%20mejor%20con%20mi%20negocio.">Pedir revisión</a>
+            <a class="btn btn-secondary" href="#contacto">Escribir directamente</a>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section alt" id="contacto" aria-labelledby="contacto-title">
-      <div class="container contact-grid">
-        <div>
+      <div class="container contact-shell">
+        <div class="contact-copy">
           <span class="section-tag">Contacto</span>
           <h2 id="contacto-title">Si quieres revisar qué mejora tiene más sentido, hablemos</h2>
           <p>
@@ -540,19 +759,22 @@
           <p class="small">Sin compromiso.</p>
         </div>
 
-        <form id="contact-form" aria-describedby="privacidad">
+        <form id="contact-form" class="contact-form-card" aria-describedby="privacidad">
           <div class="field">
             <label for="name">Nombre</label>
             <input id="name" name="name" type="text" autocomplete="name" required />
           </div>
+
           <div class="field">
             <label for="email">Email</label>
             <input id="email" name="email" type="email" autocomplete="email" required />
           </div>
+
           <div class="field">
             <label for="message">Mensaje</label>
             <textarea id="message" name="message" rows="4" required></textarea>
           </div>
+
           <button class="btn btn-primary" type="submit">Enviar</button>
           <p id="status" role="status" aria-live="polite"></p>
           <p id="privacidad" class="small">
@@ -577,3 +799,4 @@
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
+                  
