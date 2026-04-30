@@ -1371,3 +1371,66 @@ button {
     display: none;
   }
 }
+/* =========================================================
+   ContaProNow — Reglas para imágenes integradas en hero y
+   sección "Realidad habitual" (system-block).
+   Añade este bloque al final de tu /assets/css/styles.css
+   ========================================================= */
+
+/* --- HERO: imagen sustituye a los floating-panel --- */
+.hero-visual.hero-visual-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-visual.hero-visual-image .hero-image {
+  width: 100%;
+  height: auto;
+  max-width: 640px;
+  display: block;
+  border-radius: 18px;
+  filter: drop-shadow(0 24px 60px rgba(0, 64, 128, 0.18))
+          drop-shadow(0 8px 18px rgba(0, 64, 128, 0.10));
+  transition: transform 0.6s ease;
+}
+
+.hero-visual.hero-visual-image .hero-image:hover {
+  transform: translateY(-4px);
+}
+
+/* --- SECCIÓN "Realidad habitual": imagen sustituye al system-board --- */
+.system-visual.system-visual-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.system-visual.system-visual-image .system-image {
+  width: 100%;
+  height: auto;
+  max-width: 640px;
+  display: block;
+  border-radius: 18px;
+  background: #ffffff;
+  padding: 14px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22),
+              0 6px 16px rgba(0, 0, 0, 0.10);
+  transition: transform 0.6s ease;
+}
+
+.system-visual.system-visual-image .system-image:hover {
+  transform: translateY(-4px);
+}
+
+/* --- Responsive: en móvil reducimos un poco el tamaño máximo --- */
+@media (max-width: 720px) {
+  .hero-visual.hero-visual-image .hero-image,
+  .system-visual.system-visual-image .system-image {
+    max-width: 520px;
+  }
+}
