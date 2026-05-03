@@ -14,6 +14,10 @@
   <meta property="og:image" content="https://www.contapronow.com/assets/img/og-image.png" />
   <link rel="canonical" href="https://www.contapronow.com/" />
   <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
   <link rel="preload" as="style" href="/assets/css/styles.css" />
   <link rel="stylesheet" href="/assets/css/styles.css" />
   <script type="application/ld+json">
@@ -24,7 +28,7 @@
     "image":"https://www.contapronow.com/assets/img/og-image.png",
     "url":"https://www.contapronow.com/",
     "telephone":"+34 634753021",
-    "email":"[contapronoww@gmail.com](mailto:contapronoww@gmail.com)",
+    "email":"contapronoww@gmail.com",
     "priceRange":"€€",
     "areaServed":"España",
     "address":{"@type":"PostalAddress","addressCountry":"ES","addressRegion":"España"},
@@ -42,6 +46,9 @@
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <div class="cursor-dot" aria-hidden="true"></div>
+
   <header class="site-header site-header-glass" role="banner">
     <div class="container header-inner">
       <a class="logo" href="#hero" aria-label="Inicio ContaProNow">
@@ -70,26 +77,48 @@
       </nav>
     </div>
   </header>
-  <a class="whatsapp-fab" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20vuestros%20servicios." aria-label="Abrir WhatsApp">WA</a>
+
+  <a class="whatsapp-fab" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20vuestros%20servicios." aria-label="Abrir WhatsApp">
+    <span class="wa-pulse wa-pulse-1" aria-hidden="true"></span>
+    <span class="wa-pulse wa-pulse-2" aria-hidden="true"></span>
+    <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </svg>
+  </a>
+
   <main id="contenido">
     <section class="hero hero-premium" id="hero" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true">
         <span class="hero-blur hero-blur-a"></span>
         <span class="hero-blur hero-blur-b"></span>
+        <span class="hero-blur hero-blur-c"></span>
         <span class="hero-grid-lines"></span>
       </div>
       <div class="container hero-layout">
         <div class="hero-copy">
-          <span class="section-tag section-tag-strong">Infraestructura digital para empresas</span>
+          <span class="section-tag section-tag-strong section-tag-shimmer">Infraestructura digital para empresas</span>
           <div class="hero-title-wrap">
-            <h1 id="hero-title">Menos tareas manuales, más orden y una base digital preparada para crecer</h1>
+            <h1 id="hero-title" class="hero-title-anim" data-split>
+              <span class="title-word"><span class="hl">Menos</span></span>
+              <span class="title-word"><span class="hl">tareas</span></span>
+              <span class="title-word"><span class="hl">manuales,</span></span>
+              <span class="title-word">más</span>
+              <span class="title-word">orden</span>
+              <span class="title-word">y</span>
+              <span class="title-word">una</span>
+              <span class="title-word">base</span>
+              <span class="title-word">digital</span>
+              <span class="title-word">preparada</span>
+              <span class="title-word">para</span>
+              <span class="title-word">crecer</span>
+            </h1>
             <p class="sub">
               Ayudamos a autónomos, pymes y negocios a organizar mejor su operativa, automatizar tareas clave
               y mejorar su estructura digital con soluciones útiles para el día a día.
             </p>
           </div>
           <div class="cta-row hero-cta-row">
-            <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20solicitar%20una%20revisi%C3%B3n%20de%20mi%20negocio.">Solicitar revisión</a>
+            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20solicitar%20una%20revisi%C3%B3n%20de%20mi%20negocio.">Solicitar revisión</a>
             <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
           </div>
           <div class="hero-benefits hero-benefits-pills" aria-label="Beneficios principales">
@@ -98,24 +127,24 @@
             <span class="benefit-pill">Mejor seguimiento comercial</span>
           </div>
           <div class="hero-mini-metrics" aria-label="Puntos clave">
-            <article class="mini-metric-card">
+            <article class="mini-metric-card reveal">
               <span class="mini-metric-label">Operativa</span>
               <strong>Más clara</strong>
               <p>Procesos mejor estructurados para el día a día.</p>
             </article>
-            <article class="mini-metric-card">
+            <article class="mini-metric-card reveal">
               <span class="mini-metric-label">Gestión</span>
               <strong>Más conectada</strong>
               <p>Herramientas que trabajan con más lógica entre sí.</p>
             </article>
-            <article class="mini-metric-card">
+            <article class="mini-metric-card reveal">
               <span class="mini-metric-label">Negocio</span>
               <strong>Más aprovechable</strong>
               <p>Menos fricción y mejor base para seguir creciendo.</p>
             </article>
           </div>
         </div>
-        <div class="hero-visual hero-visual-image">
+        <div class="hero-visual hero-visual-image" data-parallax>
           <img
             src="/assets/img/hero-dashboard.png"
             alt="Panel de control de ContaProNow con dashboard de operativa y herramientas conectadas"
@@ -129,28 +158,30 @@
         </div>
       </div>
     </section>
+
     <section class="section section-tight metrics-strip-section" aria-label="Resumen visual">
       <div class="container">
         <div class="metrics-strip">
-          <article class="strip-card">
+          <article class="strip-card reveal">
             <span class="strip-label">Enfoque</span>
             <strong>Soluciones aterrizadas</strong>
           </article>
-          <article class="strip-card">
+          <article class="strip-card reveal">
             <span class="strip-label">Objetivo</span>
             <strong>Más orden y eficiencia</strong>
           </article>
-          <article class="strip-card">
+          <article class="strip-card reveal">
             <span class="strip-label">Resultado</span>
             <strong>Base digital con sentido</strong>
           </article>
-          <article class="strip-card">
+          <article class="strip-card reveal">
             <span class="strip-label">Trabajo</span>
             <strong>Útil para el negocio real</strong>
           </article>
         </div>
       </div>
     </section>
+
     <section class="section" id="introduccion" aria-labelledby="introduccion-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
@@ -209,10 +240,11 @@
         </div>
       </div>
     </section>
+
     <section class="section section-dark-block" aria-labelledby="bloque-operativa-title">
       <div class="container">
         <div class="system-block">
-          <div class="system-copy">
+          <div class="system-copy reveal">
             <span class="section-tag section-tag-invert">Realidad habitual</span>
             <h2 id="bloque-operativa-title">Muchos negocios ya tienen herramientas, pero siguen funcionando con demasiados pasos manuales</h2>
             <p>
@@ -224,7 +256,7 @@
               operativa más útil, más conectada y más fácil de gestionar.
             </p>
           </div>
-          <div class="system-visual system-visual-image">
+          <div class="system-visual system-visual-image reveal" data-parallax>
             <img
               src="/assets/img/operativa-conectada.png"
               alt="Diagrama de operativa conectada de ContaProNow integrando herramientas y datos del negocio"
@@ -238,6 +270,7 @@
         </div>
       </div>
     </section>
+
     <section class="section alt" id="servicios" aria-labelledby="servicios-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
@@ -249,7 +282,8 @@
           </p>
         </div>
         <div class="service-showcase">
-          <article class="card service feature-card service-card-premium reveal">
+          <article class="card service feature-card service-card-premium reveal tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
             <div class="service-card-top">
               <span class="service-badge">Servicio 01</span>
               <div class="feature-icon" aria-hidden="true">
@@ -278,7 +312,8 @@
               <a class="btn btn-secondary" href="/automatizacion-facturas.html">Ver servicio</a>
             </div>
           </article>
-          <article class="card service feature-card service-card-premium reveal service-card-featured">
+          <article class="card service feature-card service-card-premium reveal service-card-featured tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
             <div class="service-card-top">
               <span class="service-badge">Servicio 02</span>
               <div class="feature-icon" aria-hidden="true">
@@ -306,7 +341,8 @@
               <a class="btn btn-secondary" href="/automatizacion-atencion-captacion.html">Ver servicio</a>
             </div>
           </article>
-          <article class="card service feature-card service-card-premium reveal">
+          <article class="card service feature-card service-card-premium reveal tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
             <div class="service-card-top">
               <span class="service-badge">Servicio 03</span>
               <div class="feature-icon" aria-hidden="true">
@@ -337,6 +373,7 @@
         </div>
       </div>
     </section>
+
     <section class="section" id="por-que-contapronow" aria-labelledby="porque-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
@@ -372,6 +409,7 @@
         </div>
       </div>
     </section>
+
     <section class="section alt" id="proceso" aria-labelledby="proc-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
@@ -382,6 +420,7 @@
           </p>
         </div>
         <div class="process-timeline">
+          <div class="process-line" aria-hidden="true"><span class="process-line-fill"></span></div>
           <article class="process-card process-card-premium reveal">
             <div class="process-step">01</div>
             <div class="process-icon" aria-hidden="true">
@@ -429,6 +468,7 @@
         </div>
       </div>
     </section>
+
     <section class="section" id="herramientas" aria-labelledby="herramientas-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
@@ -487,6 +527,7 @@
         </div>
       </div>
     </section>
+
     <section class="section alt" id="casos-visuales" aria-labelledby="casos-visuales-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
@@ -534,6 +575,7 @@
         </div>
       </div>
     </section>
+
     <section class="section" id="para-quien" aria-labelledby="para-quien-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
@@ -559,10 +601,11 @@
         </div>
       </div>
     </section>
+
     <section class="section section-about-premium" id="sobre-mi" aria-labelledby="sobre-title">
       <div class="container">
         <div class="about-shell">
-          <div class="about-copy">
+          <div class="about-copy reveal">
             <span class="section-tag">Sobre mí</span>
             <h2 id="sobre-title">Un enfoque práctico para construir sistemas digitales con sentido</h2>
             <p>
@@ -574,7 +617,7 @@
               hasta sistemas más completos.
             </p>
           </div>
-          <div class="about-visual" aria-hidden="true">
+          <div class="about-visual reveal" aria-hidden="true">
             <div class="about-panel">
               <div class="about-panel-top">
                 <span class="panel-dot"></span>
@@ -595,9 +638,10 @@
         </div>
       </div>
     </section>
+
     <section class="section alt section-cta-premium" id="cierre-servicios" aria-labelledby="cierre-title">
       <div class="container">
-        <div class="final-cta-shell">
+        <div class="final-cta-shell reveal">
           <div class="section-head compact-center">
             <span class="section-tag">Siguiente paso</span>
             <h2 id="cierre-title">Si no tienes claro qué solución encaja mejor, podemos revisarlo contigo</h2>
@@ -607,15 +651,16 @@
             </p>
           </div>
           <div class="cta-row final-cta-row">
-            <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20que%20revisemos%20qu%C3%A9%20servicio%20encaja%20mejor%20con%20mi%20negocio.">Pedir revisión</a>
+            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20que%20revisemos%20qu%C3%A9%20servicio%20encaja%20mejor%20con%20mi%20negocio.">Pedir revisión</a>
             <a class="btn btn-secondary" href="#contacto">Escribir directamente</a>
           </div>
         </div>
       </div>
     </section>
+
     <section class="section alt" id="contacto" aria-labelledby="contacto-title">
       <div class="container contact-shell">
-        <div class="contact-copy">
+        <div class="contact-copy reveal">
           <span class="section-tag">Contacto</span>
           <h2 id="contacto-title">Si quieres revisar qué mejora tiene más sentido, hablemos</h2>
           <p>
@@ -623,26 +668,30 @@
             según el punto en el que esté tu negocio.
           </p>
           <p>
-            <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20hablar%20sobre%20vuestros%20servicios.">
+            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20hablar%20sobre%20vuestros%20servicios.">
               Solicitar revisión
             </a>
           </p>
           <p class="small">Sin compromiso.</p>
         </div>
-        <form id="contact-form" class="contact-form-card" aria-describedby="privacidad">
-          <div class="field">
+        <form id="contact-form" class="contact-form-card reveal" aria-describedby="privacidad" novalidate>
+          <div class="field field-float">
+            <input id="name" name="name" type="text" autocomplete="name" required placeholder=" " />
             <label for="name">Nombre</label>
-            <input id="name" name="name" type="text" autocomplete="name" required />
           </div>
-          <div class="field">
+          <div class="field field-float">
+            <input id="email" name="email" type="email" autocomplete="email" required placeholder=" " />
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
           </div>
-          <div class="field">
+          <div class="field field-float">
+            <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
             <label for="message">Mensaje</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
           </div>
-          <button class="btn btn-primary" type="submit">Enviar</button>
+          <button class="btn btn-primary btn-submit" type="submit">
+            <span class="btn-label">Enviar</span>
+            <span class="btn-spinner" aria-hidden="true"></span>
+            <svg class="btn-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>
+          </button>
           <p id="status" role="status" aria-live="polite"></p>
           <p id="privacidad" class="small">
             Al enviar, se abrirá tu cliente de correo con los datos. No almacenamos información en el sitio.
@@ -651,6 +700,7 @@
       </div>
     </section>
   </main>
+
   <footer class="site-footer" role="contentinfo">
     <div class="container foot">
       <p>© <span id="year">2025</span> ContaProNow · Infraestructura digital e integración de sistemas para empresas</p>
@@ -661,6 +711,7 @@
       </nav>
     </div>
   </footer>
+
   <script src="/assets/js/main.js" defer></script>
 </body>
 </html>
