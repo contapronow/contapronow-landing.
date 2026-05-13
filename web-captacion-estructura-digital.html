@@ -16,17 +16,28 @@
   <link rel="canonical" href="https://www.contapronow.com/web-captacion-estructura-digital.html" />
 
   <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+
   <link rel="preload" as="style" href="/assets/css/styles.css" />
   <link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <header class="site-header" role="banner">
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <header class="site-header site-header-glass" role="banner">
     <div class="container header-inner">
       <a class="logo" href="/index.html" aria-label="Inicio ContaProNow">
         <span class="logo-mark" aria-hidden="true">CPN</span>
-        <span class="logo-text">ContaProNow</span>
+        <span class="logo-text-wrap">
+          <span class="logo-text">ContaProNow</span>
+          <span class="logo-subtext">Infraestructura digital</span>
+        </span>
       </a>
 
       <nav class="site-nav" aria-label="Navegación principal">
@@ -47,36 +58,162 @@
     </div>
   </header>
 
-  <a class="whatsapp-fab" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20web%20orientada%20a%20captaci%C3%B3n%20y%20estructura%20digital." aria-label="Abrir WhatsApp">WA</a>
+  <a class="whatsapp-fab" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20web%20orientada%20a%20captaci%C3%B3n%20y%20estructura%20digital." aria-label="Abrir WhatsApp">
+    <span class="wa-pulse wa-pulse-1" aria-hidden="true"></span>
+    <span class="wa-pulse wa-pulse-2" aria-hidden="true"></span>
+    <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </svg>
+  </a>
 
   <main id="contenido">
-    <section class="hero" id="hero" aria-labelledby="hero-title">
-      <div class="container hero-inner">
-        <span class="section-tag" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.18);color:#fff;">Servicio</span>
-        <h1 id="hero-title">Web orientada a captación y estructura digital</h1>
-        <p class="sub">
-          Una web pensada para que tu negocio se presente mejor, transmita más confianza, facilite el contacto
-          y deje una base digital mucho más útil para captar oportunidades y crecer con más orden.
-        </p>
+    <section class="hero hero-premium service-hero-premium" id="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="hero-blur hero-blur-a"></span>
+        <span class="hero-blur hero-blur-b"></span>
+        <span class="hero-blur hero-blur-c"></span>
+        <span class="hero-grid-lines"></span>
+      </div>
 
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20solicitar%20una%20revisi%C3%B3n%20sobre%20web%20orientada%20a%20captaci%C3%B3n%20y%20estructura%20digital.">Solicitar revisión</a>
-          <a class="btn btn-secondary" href="#como-funciona">Ver cómo funciona</a>
+      <div class="container hero-layout service-hero-layout">
+        <div class="hero-copy">
+          <span class="section-tag section-tag-strong">Servicio · Presencia digital</span>
+
+          <div class="hero-title-wrap">
+            <h1 id="hero-title" class="hero-title-anim" data-split>
+              <span class="title-word"><span class="hl">Web</span></span>
+              <span class="title-word"><span class="hl">orientada</span></span>
+              <span class="title-word"><span class="hl">a</span></span>
+              <span class="title-word">captación</span>
+              <span class="title-word">y</span>
+              <span class="title-word">estructura</span>
+              <span class="title-word">digital</span>
+            </h1>
+            <p class="sub">
+              Una web pensada para que tu negocio se presente mejor, transmita más confianza, facilite el contacto
+              y deje una base digital mucho más útil para captar oportunidades y crecer con más orden.
+            </p>
+          </div>
+
+          <div class="cta-row hero-cta-row">
+            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20solicitar%20una%20revisi%C3%B3n%20sobre%20web%20orientada%20a%20captaci%C3%B3n%20y%20estructura%20digital.">Solicitar revisión</a>
+            <a class="btn btn-secondary" href="#como-funciona">Ver cómo funciona</a>
+          </div>
+
+          <div class="hero-benefits hero-benefits-pills" aria-label="Beneficios principales">
+            <span class="benefit-pill">Mejor presentación</span>
+            <span class="benefit-pill">Más claridad comercial</span>
+            <span class="benefit-pill">Mejor base digital</span>
+          </div>
+
+          <div class="hero-mini-metrics" aria-label="Puntos clave">
+            <article class="mini-metric-card reveal">
+              <span class="mini-metric-label">Mensaje</span>
+              <strong>Más claro</strong>
+              <p>Lo que haces y para quién, explicado mejor desde el primer vistazo.</p>
+            </article>
+            <article class="mini-metric-card reveal">
+              <span class="mini-metric-label">Contacto</span>
+              <strong>Más fácil</strong>
+              <p>Caminos claros para que quien llegue sepa cómo dar el siguiente paso.</p>
+            </article>
+            <article class="mini-metric-card reveal">
+              <span class="mini-metric-label">Base</span>
+              <strong>Más sólida</strong>
+              <p>Estructura preparada para crecer y conectar mejoras digitales con sentido.</p>
+            </article>
+          </div>
         </div>
 
-        <div class="hero-benefits" aria-label="Beneficios principales">
-          <span>Mejor presentación</span>
-          <span class="separator">|</span>
-          <span>Más claridad comercial</span>
-          <span class="separator">|</span>
-          <span>Mejor base digital</span>
+        <div class="hero-visual hero-visual-panel" aria-hidden="true">
+          <div class="hero-stack">
+            <article class="floating-panel panel-primary">
+              <div class="panel-top">
+                <span class="panel-dot"></span>
+                <span class="panel-dot"></span>
+                <span class="panel-dot"></span>
+              </div>
+              <div class="panel-body">
+                <div class="panel-header-row">
+                  <span class="panel-kicker">Presencia digital</span>
+                  <span class="panel-status">Activo</span>
+                </div>
+                <h2 class="panel-title">Base digital más sólida</h2>
+                <div class="panel-lines">
+                  <span class="line w-100"></span>
+                  <span class="line w-84"></span>
+                  <span class="line w-66"></span>
+                </div>
+                <div class="panel-metric-grid">
+                  <div class="panel-metric">
+                    <span class="metric-number">01</span>
+                    <span class="metric-text">Mensaje</span>
+                  </div>
+                  <div class="panel-metric">
+                    <span class="metric-number">02</span>
+                    <span class="metric-text">Contacto</span>
+                  </div>
+                  <div class="panel-metric">
+                    <span class="metric-number">03</span>
+                    <span class="metric-text">Conversión</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="floating-panel panel-secondary">
+              <div class="panel-chip-row">
+                <span class="ui-chip">WordPress</span>
+                <span class="ui-chip">Formularios</span>
+                <span class="ui-chip">SEO</span>
+              </div>
+              <div class="signal-list">
+                <span class="signal-pill">Captación</span>
+                <span class="signal-pill">Confianza</span>
+                <span class="signal-pill">Conversión</span>
+              </div>
+            </article>
+
+            <article class="floating-panel panel-tertiary">
+              <span class="panel-kicker">Estructura web</span>
+              <div class="flow-steps">
+                <span>Mensaje</span>
+                <span>Estructura</span>
+                <span>Contacto</span>
+                <span>Captación</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight metrics-strip-section" aria-label="Resumen del servicio">
+      <div class="container">
+        <div class="metrics-strip">
+          <article class="strip-card reveal">
+            <span class="strip-label">Problema</span>
+            <strong>Web que no transmite bien</strong>
+          </article>
+          <article class="strip-card reveal">
+            <span class="strip-label">Punto crítico</span>
+            <strong>Contacto mal planteado</strong>
+          </article>
+          <article class="strip-card reveal">
+            <span class="strip-label">Objetivo</span>
+            <strong>Mejor base digital</strong>
+          </article>
+          <article class="strip-card reveal">
+            <span class="strip-label">Resultado</span>
+            <strong>Más captación y confianza</strong>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section" id="problema" aria-labelledby="problema-title">
       <div class="container">
-        <div class="section-head compact-center">
+        <div class="section-head section-head-elevated compact-center reveal">
           <span class="section-tag">Problema habitual</span>
           <h2 id="problema-title">Muchas webs existen, pero no ayudan realmente a captar, ordenar ni sostener el crecimiento del negocio</h2>
           <p class="section-lead">
@@ -86,33 +223,39 @@
           </p>
         </div>
 
-        <div class="cards compact-4">
-          <article class="card icon-card reveal">
-            <div class="icon-badge" aria-hidden="true">
+        <div class="problem-grid">
+          <article class="card icon-card intro-card reveal">
+            <div class="icon-badge icon-badge-gradient" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="4" width="18" height="13" rx="2"></rect>
                 <path d="M8 20h8"></path>
                 <path d="M12 17v3"></path>
               </svg>
             </div>
+            <div class="card-topline">
+              <span class="card-kicker">Problema 01</span>
+            </div>
             <h3>Web que no transmite bien</h3>
             <p>Una presencia digital poco cuidada puede restar confianza incluso aunque el negocio funcione bien.</p>
           </article>
 
-          <article class="card icon-card reveal">
-            <div class="icon-badge" aria-hidden="true">
+          <article class="card icon-card intro-card reveal">
+            <div class="icon-badge icon-badge-gradient" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"></path>
                 <path d="M8 9h8"></path>
                 <path d="M8 13h5"></path>
               </svg>
             </div>
+            <div class="card-topline">
+              <span class="card-kicker">Problema 02</span>
+            </div>
             <h3>Contacto mal planteado</h3>
             <p>Muchos negocios tienen una web, pero no facilitan bien el siguiente paso para quien quiere escribir o pedir información.</p>
           </article>
 
-          <article class="card icon-card reveal">
-            <div class="icon-badge" aria-hidden="true">
+          <article class="card icon-card intro-card reveal">
+            <div class="icon-badge icon-badge-gradient" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 7h16"></path>
                 <path d="M4 12h10"></path>
@@ -120,16 +263,22 @@
                 <rect x="3" y="4" width="18" height="16" rx="2"></rect>
               </svg>
             </div>
+            <div class="card-topline">
+              <span class="card-kicker">Problema 03</span>
+            </div>
             <h3>Mensaje poco claro</h3>
             <p>Si en pocos segundos no se entiende qué haces, para quién y por qué deberían contactarte, la web pierde fuerza.</p>
           </article>
 
-          <article class="card icon-card reveal">
-            <div class="icon-badge" aria-hidden="true">
+          <article class="card icon-card intro-card reveal">
+            <div class="icon-badge icon-badge-gradient" aria-hidden="true">
               <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 3v18h18"></path>
                 <path d="m19 9-5 5-4-4-3 3"></path>
               </svg>
+            </div>
+            <div class="card-topline">
+              <span class="card-kicker">Problema 04</span>
             </div>
             <h3>Base digital débil</h3>
             <p>Sin una estructura clara, después cuesta conectar formularios, automatizaciones y mejoras futuras.</p>
@@ -138,88 +287,159 @@
       </div>
     </section>
 
-    <section class="section alt" id="solucion" aria-labelledby="solucion-title">
+    <section class="section section-dark-block" id="solucion" aria-labelledby="solucion-title">
       <div class="container">
-        <div class="section-head compact-center">
-          <span class="section-tag">Qué resolvemos</span>
-          <h2 id="solucion-title">Una web que no solo se vea bien, sino que sirva para presentar, captar y sostener mejor la operativa digital</h2>
-          <p class="section-lead">
-            No planteamos una web como algo puramente visual. La trabajamos como una pieza útil dentro del negocio:
-            para presentar mejor lo que haces, generar más confianza, orientar el contacto y dejar una base digital más sólida.
-          </p>
-        </div>
+        <div class="system-block">
+          <div class="system-copy reveal">
+            <span class="section-tag section-tag-invert">Qué resolvemos</span>
+            <h2 id="solucion-title">Una web que no solo se vea bien, sino que sirva para presentar, captar y sostener mejor la operativa digital</h2>
+            <p>
+              No planteamos una web como algo puramente visual. La trabajamos como una pieza útil dentro del negocio:
+              para presentar mejor lo que haces, generar más confianza, orientar el contacto y dejar una base digital más sólida.
+            </p>
+            <p>
+              El objetivo es que la web deje de ser un escaparate estático y pase a ser una herramienta real
+              que apoya mejor la captación, la presentación y el crecimiento del negocio.
+            </p>
+          </div>
 
-        <div class="cards compact-3 impact-cards">
-          <article class="card service feature-card reveal">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="13" rx="2"></rect>
-                <path d="M8 20h8"></path>
-                <path d="M12 17v3"></path>
-              </svg>
+          <div class="system-visual reveal" aria-hidden="true">
+            <div class="system-board">
+              <article class="board-card board-card-a">
+                <span class="board-kicker">Estructura</span>
+                <div class="board-bars">
+                  <span class="bar w-88"></span>
+                  <span class="bar w-72"></span>
+                  <span class="bar w-52"></span>
+                </div>
+              </article>
+              <article class="board-card board-card-b">
+                <span class="board-kicker">Elementos</span>
+                <div class="flow-links">
+                  <span class="flow-node">Mensaje</span>
+                  <span class="flow-node">Diseño</span>
+                  <span class="flow-node">Contacto</span>
+                  <span class="flow-node">Captación</span>
+                </div>
+              </article>
+              <article class="board-card board-card-c">
+                <span class="board-kicker">Resultado</span>
+                <div class="result-pills">
+                  <span>Más confianza</span>
+                  <span>Más contacto</span>
+                  <span>Más base</span>
+                </div>
+              </article>
             </div>
-            <h3>Presentación más profesional</h3>
-            <p>Una estructura clara y un mensaje más sólido para que el negocio se perciba mejor desde el primer vistazo.</p>
-          </article>
-
-          <article class="card service feature-card reveal">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"></path>
-                <path d="M8 9h8"></path>
-                <path d="M8 13h5"></path>
-              </svg>
-            </div>
-            <h3>Contacto mejor resuelto</h3>
-            <p>Una web pensada para facilitar el siguiente paso y reducir fricción a quien quiere pedir información.</p>
-          </article>
-
-          <article class="card service feature-card reveal">
-            <div class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 3v18h18"></path>
-                <path d="m19 9-5 5-4-4-3 3"></path>
-              </svg>
-            </div>
-            <h3>Base digital con recorrido</h3>
-            <p>Una estructura más preparada para integrar formularios, automatizaciones y mejoras futuras con sentido.</p>
-          </article>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="como-funciona" aria-labelledby="funciona-title">
+    <section class="section alt" id="como-funciona" aria-labelledby="funciona-title">
       <div class="container">
-        <div class="section-head compact-center">
+        <div class="section-head section-head-elevated compact-center reveal">
           <span class="section-tag">Qué puede incluir</span>
           <h2 id="funciona-title">Una web construida para ordenar mejor la presencia digital del negocio</h2>
+          <p class="section-lead">
+            El servicio se plantea sobre la realidad del negocio para que la estructura, el mensaje y el contacto
+            queden mucho más claros y con más recorrido.
+          </p>
         </div>
 
-        <div class="cards compact-3">
-          <article class="card reveal">
+        <div class="service-showcase service-showcase-3">
+          <article class="card service feature-card service-card-premium reveal tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
+            <div class="service-card-top">
+              <span class="service-badge">Bloque 01</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="13" rx="2"></rect>
+                  <path d="M8 20h8"></path>
+                  <path d="M12 17v3"></path>
+                </svg>
+              </div>
+            </div>
             <h3>Estructura clara</h3>
             <p>Páginas, bloques y mensajes ordenados para que la web se entienda rápido y tenga más lógica comercial.</p>
           </article>
-          <article class="card reveal">
+
+          <article class="card service feature-card service-card-premium reveal tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
+            <div class="service-card-top">
+              <span class="service-badge">Bloque 02</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                  <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path>
+                  <path d="M9 13h6"></path>
+                  <path d="M9 17h6"></path>
+                </svg>
+              </div>
+            </div>
             <h3>Mensaje mejor aterrizado</h3>
             <p>Una propuesta más clara para explicar qué haces, a quién ayudas y por qué deberían escribirte.</p>
           </article>
-          <article class="card reveal">
+
+          <article class="card service feature-card service-card-premium reveal tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
+            <div class="service-card-top">
+              <span class="service-badge">Bloque 03</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"></path>
+                  <path d="M8 9h8"></path>
+                  <path d="M8 13h5"></path>
+                </svg>
+              </div>
+            </div>
             <h3>Contacto bien planteado</h3>
             <p>Formularios, botones y llamadas a la acción mejor colocadas para facilitar la captación.</p>
           </article>
         </div>
 
-        <div class="cards compact-3" style="margin-top:1rem;">
-          <article class="card reveal">
+        <div class="service-showcase service-showcase-3 service-showcase-gap-top">
+          <article class="card service feature-card service-card-premium reveal tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
+            <div class="service-card-top">
+              <span class="service-badge">Bloque 04</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 8v4l3 3"></path>
+                </svg>
+              </div>
+            </div>
             <h3>Imagen más sólida</h3>
             <p>Una presencia digital más coherente con el nivel real del negocio y con mayor percepción profesional.</p>
           </article>
-          <article class="card reveal">
+
+          <article class="card service feature-card service-card-premium reveal service-card-featured tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
+            <div class="service-card-top">
+              <span class="service-badge">Bloque 05</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 17l6-6 4 4 7-8"></path>
+                  <path d="M14 7h6v6"></path>
+                </svg>
+              </div>
+            </div>
             <h3>Web útil para crecer</h3>
             <p>Una base mejor preparada para futuras mejoras, campañas, automatizaciones o integraciones internas.</p>
           </article>
-          <article class="card reveal">
+
+          <article class="card service feature-card service-card-premium reveal tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
+            <div class="service-card-top">
+              <span class="service-badge">Bloque 06</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"></path>
+                </svg>
+              </div>
+            </div>
             <h3>Mejor apoyo comercial</h3>
             <p>La web deja de ser un simple escaparate y pasa a apoyar mejor la captación y la presentación del negocio.</p>
           </article>
@@ -227,9 +447,9 @@
       </div>
     </section>
 
-    <section class="section alt" id="resultado" aria-labelledby="resultado-title">
+    <section class="section" id="resultado" aria-labelledby="resultado-title">
       <div class="container">
-        <div class="section-head compact-center">
+        <div class="section-head section-head-elevated compact-center reveal">
           <span class="section-tag">Resultado</span>
           <h2 id="resultado-title">No se trata solo de tener una web, sino de tener una base digital que realmente ayude al negocio</h2>
           <p class="section-lead">
@@ -238,37 +458,50 @@
           </p>
         </div>
 
-        <div class="cards compact-3">
-          <article class="card reveal">
-            <h3>Más confianza</h3>
+        <div class="cards compact-3 value-cards">
+          <article class="card reveal value-card">
+            <div class="value-card-head">
+              <span class="value-number">01</span>
+              <h3>Más confianza</h3>
+            </div>
             <p>Una web mejor planteada ayuda a que el negocio se perciba más serio, más claro y más sólido.</p>
           </article>
-          <article class="card reveal">
-            <h3>Más facilidad de contacto</h3>
+
+          <article class="card reveal value-card">
+            <div class="value-card-head">
+              <span class="value-number">02</span>
+              <h3>Más facilidad de contacto</h3>
+            </div>
             <p>Quien llega entiende mejor qué haces y encuentra un camino más claro para pedir información.</p>
           </article>
-          <article class="card reveal">
-            <h3>Más base para evolucionar</h3>
+
+          <article class="card reveal value-card">
+            <div class="value-card-head">
+              <span class="value-number">03</span>
+              <h3>Más base para evolucionar</h3>
+            </div>
             <p>Una estructura preparada para conectar otras mejoras digitales sin rehacer todo más adelante.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section service-cta" id="revision" aria-labelledby="revision-title">
+    <section class="section alt section-cta-premium" id="revision" aria-labelledby="revision-title">
       <div class="container">
-        <div class="section-head compact-center">
-          <span class="section-tag">Revisión</span>
-          <h2 id="revision-title">Si quieres revisar cómo debería plantearse la web de tu negocio, lo vemos contigo</h2>
-          <p class="section-lead">
-            Podemos revisar tu situación actual, detectar qué está fallando en tu presencia digital y plantear una web
-            más clara, más útil y mejor preparada para captar y crecer.
-          </p>
-        </div>
+        <div class="final-cta-shell reveal">
+          <div class="section-head compact-center">
+            <span class="section-tag">Revisión</span>
+            <h2 id="revision-title">Si quieres revisar cómo debería plantearse la web de tu negocio, lo vemos contigo</h2>
+            <p class="section-lead">
+              Podemos revisar tu situación actual, detectar qué está fallando en tu presencia digital y plantear una web
+              más clara, más útil y mejor preparada para captar y crecer.
+            </p>
+          </div>
 
-        <div class="cta-row" style="justify-content:center;">
-          <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20web%20orientada%20a%20captaci%C3%B3n%20y%20estructura%20digital.">Pedir revisión</a>
-          <a class="btn btn-secondary" href="/index.html#contacto">Ir a contacto</a>
+          <div class="cta-row final-cta-row">
+            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20web%20orientada%20a%20captaci%C3%B3n%20y%20estructura%20digital.">Pedir revisión</a>
+            <a class="btn btn-secondary" href="/index.html#contacto">Ir a contacto</a>
+          </div>
         </div>
       </div>
     </section>
