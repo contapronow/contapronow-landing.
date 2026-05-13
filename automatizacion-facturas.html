@@ -16,11 +16,21 @@
   <link rel="canonical" href="https://www.contapronow.com/automatizacion-facturas.html" />
 
   <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
+
+  <!-- FIX 08: Google Fonts preconnect + preload (igual que index) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+
   <link rel="preload" as="style" href="/assets/css/styles.css" />
   <link rel="stylesheet" href="/assets/css/styles.css" />
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- FIX 03: cursor-dot añadido -->
+  <div class="cursor-dot" aria-hidden="true"></div>
 
   <header class="site-header site-header-glass" role="banner">
     <div class="container header-inner">
@@ -50,13 +60,22 @@
     </div>
   </header>
 
-  <a class="whatsapp-fab" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20automatizaci%C3%B3n%20de%20facturas." aria-label="Abrir WhatsApp">WA</a>
+  <!-- FIX 01: WhatsApp FAB con SVG completo (igual que index) -->
+  <a class="whatsapp-fab" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20automatizaci%C3%B3n%20de%20facturas." aria-label="Abrir WhatsApp">
+    <span class="wa-pulse wa-pulse-1" aria-hidden="true"></span>
+    <span class="wa-pulse wa-pulse-2" aria-hidden="true"></span>
+    <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </svg>
+  </a>
 
   <main id="contenido">
     <section class="hero hero-premium service-hero-premium" id="hero" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true">
         <span class="hero-blur hero-blur-a"></span>
         <span class="hero-blur hero-blur-b"></span>
+        <!-- FIX 04: hero-blur-c añadido -->
+        <span class="hero-blur hero-blur-c"></span>
         <span class="hero-grid-lines"></span>
       </div>
 
@@ -65,7 +84,15 @@
           <span class="section-tag section-tag-strong">Servicio · Gestión administrativa</span>
 
           <div class="hero-title-wrap">
-            <h1 id="hero-title">Automatización de facturas y gestión administrativa</h1>
+            <!-- FIX 05: H1 con data-split y estructura title-word + hl -->
+            <h1 id="hero-title" class="hero-title-anim" data-split>
+              <span class="title-word"><span class="hl">Automatización</span></span>
+              <span class="title-word"><span class="hl">de</span></span>
+              <span class="title-word"><span class="hl">facturas</span></span>
+              <span class="title-word">y</span>
+              <span class="title-word">gestión</span>
+              <span class="title-word">administrativa</span>
+            </h1>
             <p class="sub">
               Una solución pensada para negocios que siguen gestionando facturas y documentación con demasiados pasos manuales,
               poca visibilidad y una carga administrativa que frena la operativa.
@@ -73,7 +100,8 @@
           </div>
 
           <div class="cta-row hero-cta-row">
-            <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20solicitar%20una%20revisi%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20facturas.">Solicitar revisión</a>
+            <!-- FIX 06: btn-magnetic añadido -->
+            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20solicitar%20una%20revisi%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20facturas.">Solicitar revisión</a>
             <a class="btn btn-secondary" href="#como-funciona">Ver cómo funciona</a>
           </div>
 
@@ -84,17 +112,18 @@
           </div>
 
           <div class="hero-mini-metrics" aria-label="Puntos clave">
-            <article class="mini-metric-card">
+            <!-- FIX 02: clase reveal añadida a los 3 artículos -->
+            <article class="mini-metric-card reveal">
               <span class="mini-metric-label">Entrada</span>
               <strong>Más clara</strong>
               <p>Facturas y documentos con una recepción mejor organizada.</p>
             </article>
-            <article class="mini-metric-card">
+            <article class="mini-metric-card reveal">
               <span class="mini-metric-label">Registro</span>
               <strong>Más útil</strong>
               <p>Información mejor estructurada para consultar y seguir.</p>
             </article>
-            <article class="mini-metric-card">
+            <article class="mini-metric-card reveal">
               <span class="mini-metric-label">Control</span>
               <strong>Más estable</strong>
               <p>Una operativa administrativa menos dependiente de pasos manuales.</p>
@@ -172,19 +201,20 @@
     <section class="section section-tight metrics-strip-section" aria-label="Resumen del servicio">
       <div class="container">
         <div class="metrics-strip">
-          <article class="strip-card">
+          <!-- FIX 10: reveal añadido a cada strip-card -->
+          <article class="strip-card reveal">
             <span class="strip-label">Problema</span>
             <strong>Demasiados pasos manuales</strong>
           </article>
-          <article class="strip-card">
+          <article class="strip-card reveal">
             <span class="strip-label">Punto crítico</span>
             <strong>Desorden documental</strong>
           </article>
-          <article class="strip-card">
+          <article class="strip-card reveal">
             <span class="strip-label">Objetivo</span>
             <strong>Más control administrativo</strong>
           </article>
-          <article class="strip-card">
+          <article class="strip-card reveal">
             <span class="strip-label">Resultado</span>
             <strong>Gestión más clara y útil</strong>
           </article>
@@ -194,7 +224,7 @@
 
     <section class="section" id="problema" aria-labelledby="problema-title">
       <div class="container">
-        <div class="section-head section-head-elevated compact-center">
+        <div class="section-head section-head-elevated compact-center reveal">
           <span class="section-tag">Problema habitual</span>
           <h2 id="problema-title">Cuando la gestión administrativa depende demasiado de tareas manuales, el negocio pierde tiempo y control</h2>
           <p class="section-lead">
@@ -270,7 +300,8 @@
     <section class="section section-dark-block" id="solucion" aria-labelledby="solucion-title">
       <div class="container">
         <div class="system-block">
-          <div class="system-copy">
+          <!-- FIX 09: reveal añadido a system-copy y system-visual -->
+          <div class="system-copy reveal">
             <span class="section-tag section-tag-invert">Qué resolvemos</span>
             <h2 id="solucion-title">Una forma más clara de gestionar facturas, registros y documentación administrativa</h2>
             <p>
@@ -283,7 +314,7 @@
             </p>
           </div>
 
-          <div class="system-visual" aria-hidden="true">
+          <div class="system-visual reveal" aria-hidden="true">
             <div class="system-board">
               <article class="board-card board-card-a">
                 <span class="board-kicker">Recepción</span>
@@ -320,7 +351,7 @@
 
     <section class="section alt" id="como-funciona" aria-labelledby="funciona-title">
       <div class="container">
-        <div class="section-head section-head-elevated compact-center">
+        <div class="section-head section-head-elevated compact-center reveal">
           <span class="section-tag">Qué puede incluir</span>
           <h2 id="funciona-title">Una solución práctica adaptada al funcionamiento real del negocio</h2>
           <p class="section-lead">
@@ -330,7 +361,9 @@
         </div>
 
         <div class="service-showcase service-showcase-3">
-          <article class="card service feature-card service-card-premium reveal">
+          <!-- FIX 12: tilt-card + tilt-glow añadidos a todas las service-cards -->
+          <article class="card service feature-card service-card-premium reveal tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
             <div class="service-card-top">
               <span class="service-badge">Bloque 01</span>
               <div class="feature-icon" aria-hidden="true">
@@ -345,7 +378,8 @@
             <p>Organizamos la entrada documental desde los canales que ya utiliza la empresa en el día a día.</p>
           </article>
 
-          <article class="card service feature-card service-card-premium reveal">
+          <article class="card service feature-card service-card-premium reveal tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
             <div class="service-card-top">
               <span class="service-badge">Bloque 02</span>
               <div class="feature-icon" aria-hidden="true">
@@ -361,7 +395,8 @@
             <p>Identificamos la información importante para facilitar el control y el registro posterior.</p>
           </article>
 
-          <article class="card service feature-card service-card-premium reveal">
+          <article class="card service feature-card service-card-premium reveal tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
             <div class="service-card-top">
               <span class="service-badge">Bloque 03</span>
               <div class="feature-icon" aria-hidden="true">
@@ -377,7 +412,8 @@
         </div>
 
         <div class="service-showcase service-showcase-3 service-showcase-gap-top">
-          <article class="card service feature-card service-card-premium reveal">
+          <article class="card service feature-card service-card-premium reveal tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
             <div class="service-card-top">
               <span class="service-badge">Bloque 04</span>
               <div class="feature-icon" aria-hidden="true">
@@ -393,7 +429,8 @@
             <p>Mejor organización de archivos y documentación para acceder a ellos con más rapidez y menos fricción.</p>
           </article>
 
-          <article class="card service feature-card service-card-premium reveal service-card-featured">
+          <article class="card service feature-card service-card-premium reveal service-card-featured tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
             <div class="service-card-top">
               <span class="service-badge">Bloque 05</span>
               <div class="feature-icon" aria-hidden="true">
@@ -408,7 +445,8 @@
             <p>Reducción de tareas repetitivas y del riesgo de fallos derivados de copiar, pegar y mover archivos a mano.</p>
           </article>
 
-          <article class="card service feature-card service-card-premium reveal">
+          <article class="card service feature-card service-card-premium reveal tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
             <div class="service-card-top">
               <span class="service-badge">Bloque 06</span>
               <div class="feature-icon" aria-hidden="true">
@@ -427,7 +465,8 @@
 
     <section class="section" id="resultado" aria-labelledby="resultado-title">
       <div class="container">
-        <div class="section-head section-head-elevated compact-center">
+        <!-- FIX 11: reveal añadido al section-head -->
+        <div class="section-head section-head-elevated compact-center reveal">
           <span class="section-tag">Resultado</span>
           <h2 id="resultado-title">No se trata solo de automatizar por automatizar, sino de trabajar con más orden y más control</h2>
           <p class="section-lead">
@@ -466,7 +505,8 @@
 
     <section class="section alt section-cta-premium" id="revision" aria-labelledby="revision-title">
       <div class="container">
-        <div class="final-cta-shell">
+        <!-- FIX 07: reveal añadido al final-cta-shell -->
+        <div class="final-cta-shell reveal">
           <div class="section-head compact-center">
             <span class="section-tag">Revisión</span>
             <h2 id="revision-title">Si quieres saber si este servicio encaja con tu negocio, lo revisamos contigo</h2>
@@ -477,7 +517,7 @@
           </div>
 
           <div class="cta-row final-cta-row">
-            <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20facturas%20y%20gesti%C3%B3n%20administrativa.">Pedir revisión</a>
+            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20facturas%20y%20gesti%C3%B3n%20administrativa.">Pedir revisión</a>
             <a class="btn btn-secondary" href="/index.html#contacto">Ir a contacto</a>
           </div>
         </div>
