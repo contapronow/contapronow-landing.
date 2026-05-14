@@ -1788,11 +1788,11 @@ button {
   }
 
   .whatsapp-fab {
-    width: 56px;
-    height: 56px;
-    right: 1rem;
-    bottom: 1rem;
-  }
+  width: 56px;
+  height: 56px;
+  right: 1rem;
+  bottom: 6rem;
+}
 
   .wa-icon {
     width: 26px;
