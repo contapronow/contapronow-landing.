@@ -10,7 +10,7 @@
   // ────────────────────────────────────────────────────────────────────
   // CONFIG
   // ────────────────────────────────────────────────────────────────────
-  const N8N_WEBHOOK_URL = 'https://n8n.contapronow.com/webhook/lead-chatbot';
+  const N8N_WEBHOOK_URL = 'https://n8n-production-2fd6c.up.railway.app/webhook/lead-chatbot';
   const CHAT_API_URL = '/api/chat';
 
   const SYSTEM_PROMPT = `Eres el asistente virtual de ContaProNow.
