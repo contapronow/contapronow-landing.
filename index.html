@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ContaProNow · Servicios de automatización y estructura digital para empresas</title>
-  <meta name="description" content="Servicios de automatización y estructura digital para empresas. Automatización de facturas, atención y captación, y webs orientadas a conversión y estructura digital." />
+  <title>ContaProNow · Infraestructura digital para empresas</title>
+  <meta name="description" content="Automatizamos procesos, ordenamos la operativa y construimos la base digital sobre la que crece tu negocio. Para autónomos y pymes." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#004080" />
 
-  <meta property="og:title" content="ContaProNow · Servicios de automatización y estructura digital para empresas" />
-  <meta property="og:description" content="Automatización de facturas, atención y captación, y webs orientadas a conversión y estructura digital." />
+  <meta property="og:title" content="ContaProNow · Infraestructura digital para empresas" />
+  <meta property="og:description" content="Automatizamos procesos, ordenamos la operativa y construimos la base digital sobre la que crece tu negocio." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.contapronow.com/" />
   <meta property="og:image" content="https://www.contapronow.com/assets/img/og-image.png" />
@@ -35,7 +35,7 @@
     "priceRange":"€€",
     "areaServed":"España",
     "address":{"@type":"PostalAddress","addressCountry":"ES","addressRegion":"España"},
-    "description":"Servicios de automatización y estructura digital para empresas.",
+    "description":"Infraestructura digital para empresas. Automatización de procesos, orden operativo y base digital para autónomos y pymes.",
     "knowsAbout":[
       "automatización de facturas",
       "automatización administrativa",
@@ -46,6 +46,37 @@
     ]
   }
   </script>
+
+  <!-- Premium overrides: cambios visuales sin tocar styles.css -->
+  <style id="premium-overrides">
+    /* Tipografía premium: balance de líneas y letter-spacing ajustado */
+    h1, h2, h3 { text-wrap: balance; }
+    p { text-wrap: pretty; }
+    .hero-title-anim { letter-spacing: -0.03em; }
+    .section-head h2 { letter-spacing: -0.02em; }
+
+    /* Bento asimétrico en servicios: el servicio destacado ocupa todo el ancho */
+    @media (min-width: 900px) {
+      .service-showcase {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(16px, 2vw, 24px);
+        align-items: stretch;
+      }
+      .service-showcase > .service-card-featured {
+        grid-column: 1 / -1;
+      }
+    }
+
+    /* Refinamiento sutil del kicker temático */
+    .service-kicker {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+      opacity: 0.7;
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -70,10 +101,10 @@
           <li><a href="#proceso">Cómo trabajamos</a></li>
           <li><a href="#herramientas">Herramientas</a></li>
           <li><a href="#para-quien">Para quién es</a></li>
-          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
           <li><a href="#contacto">Contacto</a></li>
           <li class="li-cta">
-            <a class="btn btn-primary sm" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20vuestros%20servicios.">
+            <a class="btn btn-primary sm" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20una%20revisi%C3%B3n%20gratuita%20de%20mi%20negocio.">
               Solicitar revisión
             </a>
           </li>
@@ -82,7 +113,7 @@
     </div>
   </header>
 
-  <a class="whatsapp-fab" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20vuestros%20servicios." aria-label="Abrir WhatsApp">
+  <a class="whatsapp-fab" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20una%20revisi%C3%B3n%20gratuita%20de%20mi%20negocio." aria-label="Abrir WhatsApp">
     <span class="wa-pulse wa-pulse-1" aria-hidden="true"></span>
     <span class="wa-pulse wa-pulse-2" aria-hidden="true"></span>
     <svg class="wa-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -91,6 +122,7 @@
   </a>
 
   <main id="contenido">
+    <!-- HERO: limpiado (sin mini-metrics duplicadas), sub más conciso, CTA con "gratuita" -->
     <section class="hero hero-premium" id="hero" aria-labelledby="hero-title">
       <div class="hero-bg" aria-hidden="true">
         <span class="hero-blur hero-blur-a"></span>
@@ -120,13 +152,12 @@
             </h1>
 
             <p class="sub">
-              Ayudamos a autónomos, pymes y negocios a organizar mejor su operativa, automatizar tareas clave
-              y mejorar su estructura digital con soluciones útiles para el día a día.
+              Automatizamos procesos, ordenamos la operativa y construimos la base digital sobre la que crece tu negocio. Para autónomos y pymes que ya no caben en hojas de cálculo.
             </p>
           </div>
 
           <div class="cta-row hero-cta-row">
-            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20solicitar%20una%20revisi%C3%B3n%20de%20mi%20negocio.">Solicitar revisión</a>
+            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20una%20revisi%C3%B3n%20gratuita%20de%20mi%20negocio.">Solicitar revisión gratuita</a>
             <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
           </div>
 
@@ -134,26 +165,6 @@
             <span class="benefit-pill">Menos carga manual</span>
             <span class="benefit-pill">Más control operativo</span>
             <span class="benefit-pill">Mejor seguimiento comercial</span>
-          </div>
-
-          <div class="hero-mini-metrics" aria-label="Puntos clave">
-            <article class="mini-metric-card reveal">
-              <span class="mini-metric-label">Operativa</span>
-              <strong>Más clara</strong>
-              <p>Procesos mejor estructurados para el día a día.</p>
-            </article>
-
-            <article class="mini-metric-card reveal">
-              <span class="mini-metric-label">Gestión</span>
-              <strong>Más conectada</strong>
-              <p>Herramientas que trabajan con más lógica entre sí.</p>
-            </article>
-
-            <article class="mini-metric-card reveal">
-              <span class="mini-metric-label">Negocio</span>
-              <strong>Más aprovechable</strong>
-              <p>Menos fricción y mejor base para seguir creciendo.</p>
-            </article>
           </div>
         </div>
 
@@ -172,16 +183,14 @@
       </div>
     </section>
 
+    <!-- INTRODUCCIÓN: H2 reescrito, copys de cards más concretos -->
     <section class="section" id="introduccion" aria-labelledby="introduccion-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Enfoque</span>
-          <h2 id="introduccion-title">No trabajamos con herramientas aisladas, sino con soluciones que encajan en la operativa real del negocio</h2>
+          <h2 id="introduccion-title">Tu negocio ya funciona. Lo que sobra es hacerlo a mano.</h2>
           <p class="section-lead">
-            Muchas empresas ya usan correo, hojas de cálculo, formularios, WhatsApp o una web,
-            pero siguen perdiendo tiempo entre tareas manuales, desorden interno y oportunidades
-            que no se siguen bien. Nuestro trabajo consiste en convertir esa base en un sistema
-            más claro, más útil y mejor conectado.
+            La mayoría de pymes ya usan WhatsApp, hojas de cálculo y formularios. El problema no son las herramientas — es el tiempo que se pierde entre ellas. Ahí es donde entramos.
           </p>
         </div>
 
@@ -197,8 +206,8 @@
             <div class="card-topline">
               <span class="card-kicker">Impacto</span>
             </div>
-            <h3>Menos carga manual</h3>
-            <p>Reducimos tareas repetitivas que consumen tiempo cada semana y ralentizan el negocio.</p>
+            <h3>Recuperas tu semana</h3>
+            <p>Tareas repetitivas dejan de comer horas. Cobros, registros y mensajes — en piloto automático.</p>
           </article>
 
           <article class="card icon-card intro-card reveal">
@@ -213,8 +222,8 @@
             <div class="card-topline">
               <span class="card-kicker">Control</span>
             </div>
-            <h3>Más orden y control</h3>
-            <p>Organizamos mejor la información, los procesos y los puntos clave para que todo esté más claro.</p>
+            <h3>Nada se pierde en el camino</h3>
+            <p>Mensajes, leads y citas quedan registrados y seguidos sin que tengas que recordarlos tú.</p>
           </article>
 
           <article class="card icon-card intro-card reveal">
@@ -227,60 +236,60 @@
             <div class="card-topline">
               <span class="card-kicker">Negocio</span>
             </div>
-            <h3>Mejor aprovechamiento comercial</h3>
-            <p>Te ayudamos a responder antes, seguir mejor tus oportunidades y no perder contactos por el camino.</p>
+            <h3>Cada oportunidad se contesta</h3>
+            <p>Respuestas inmediatas, agenda compartida y citas confirmadas. Sin esperar a que alguien esté libre.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-dark-block" aria-labelledby="bloque-operativa-title">
-      <div class="container">
-        <div class="system-block">
-          <div class="system-copy reveal">
-            <span class="section-tag section-tag-invert">Realidad habitual</span>
-            <h2 id="bloque-operativa-title">Muchos negocios ya tienen herramientas, pero siguen funcionando con demasiados pasos manuales</h2>
-            <p>
-              Correos, hojas de cálculo, WhatsApp, formularios, documentos y tareas internas conviven cada día,
-              pero sin una estructura clara. Eso genera pérdidas de tiempo, desorden y oportunidades mal aprovechadas.
-            </p>
-            <p>
-              El objetivo no es complicar más el negocio, sino ordenar mejor lo que ya ocurre y convertirlo en una
-              operativa más útil, más conectada y más fácil de gestionar.
-            </p>
-          </div>
+    <!-- SECCIÓN "Realidad habitual" ELIMINADA: duplicaba el mensaje de introducción -->
 
-          <div class="system-visual system-visual-image reveal" data-parallax>
-            <img
-              src="/assets/img/operativa-conectada.png"
-              alt="Diagrama de operativa conectada de ContaProNow integrando herramientas y datos del negocio"
-              width="1532"
-              height="1024"
-              loading="lazy"
-              decoding="async"
-              class="system-image"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <!-- SERVICIOS: reorganizados en Bento (destacado primero, full-width). Kickers temáticos en lugar de "Servicio 01/02/03" -->
     <section class="section alt" id="servicios" aria-labelledby="servicios-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Servicios</span>
-          <h2 id="servicios-title">Tres líneas de servicio pensadas para problemas reales de negocio</h2>
+          <h2 id="servicios-title">Tres líneas de servicio para problemas reales de negocio</h2>
           <p class="section-lead">
-            Cada servicio responde a una necesidad concreta. Puedes entrar directamente en el que más encaje contigo
-            o pedir una revisión si prefieres que lo valoremos contigo.
+            Cada servicio resuelve una necesidad concreta. Entra directamente en el que más encaje contigo o pide una revisión para que lo valoremos juntos.
           </p>
         </div>
 
         <div class="service-showcase">
+          <!-- SERVICIO DESTACADO (atención y captación) — ocupa ancho completo -->
+          <article class="card service feature-card service-card-premium service-card-featured reveal tilt-card">
+            <div class="tilt-glow" aria-hidden="true"></div>
+            <div class="service-card-top">
+              <span class="service-badge service-kicker">Captación</span>
+              <div class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"></path>
+                  <path d="M8 9h8"></path>
+                  <path d="M8 13h5"></path>
+                </svg>
+              </div>
+            </div>
+            <h3>Una agenda llena, sin contestar tú</h3>
+            <p>
+              Sistema con IA que responde, agenda citas y deriva 24/7 a través de WhatsApp. Pensado para clínicas, gestorías y negocios locales que pierden clientes por no contestar a tiempo.
+            </p>
+            <ul class="mini-points mini-points-elevated">
+              <li>Responde en segundos, todos los días, a todas horas</li>
+              <li>Reserva citas directamente sin intervención humana</li>
+              <li>Deriva a tu equipo solo cuando hace falta de verdad</li>
+            </ul>
+            <div class="service-card-footer">
+              <span class="service-footnote">Más continuidad comercial</span>
+              <a class="btn btn-secondary" href="/automatizacion-atencion-captacion.html">Ver servicio</a>
+            </div>
+          </article>
+
+          <!-- SERVICIO 01 — facturas -->
           <article class="card service feature-card service-card-premium reveal tilt-card">
             <div class="tilt-glow" aria-hidden="true"></div>
             <div class="service-card-top">
-              <span class="service-badge">Servicio 01</span>
+              <span class="service-badge service-kicker">Administración</span>
               <div class="feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
@@ -290,15 +299,14 @@
                 </svg>
               </div>
             </div>
-            <h3>Automatización de facturas y gestión administrativa</h3>
+            <h3>Facturas en piloto automático</h3>
             <p>
-              Diseñado para negocios que siguen moviendo facturas, documentos y registros de forma manual y
-              necesitan más orden, menos errores y mejor control administrativo.
+              Recibe, lee y registra tus facturas sin mover un dedo. Pensado para autónomos y pymes que aún las pasan a mano.
             </p>
             <ul class="mini-points mini-points-elevated">
-              <li>Recepción de facturas desde email o carpetas</li>
-              <li>Extracción de datos clave para registro y control</li>
-              <li>Menos tiempo manual y menos riesgo de errores</li>
+              <li>Lectura automática de facturas desde email o carpetas</li>
+              <li>Registro directo en tu hoja, ERP o gestoría</li>
+              <li>Sin papel, sin errores de tipeo, sin acumulación</li>
             </ul>
             <div class="service-card-footer">
               <span class="service-footnote">Gestión más ordenada</span>
@@ -306,38 +314,11 @@
             </div>
           </article>
 
-          <article class="card service feature-card service-card-premium reveal service-card-featured tilt-card">
-            <div class="tilt-glow" aria-hidden="true"></div>
-            <div class="service-card-top">
-              <span class="service-badge">Servicio 02</span>
-              <div class="feature-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"></path>
-                  <path d="M8 9h8"></path>
-                  <path d="M8 13h5"></path>
-                </svg>
-              </div>
-            </div>
-            <h3>Automatización de atención y captación</h3>
-            <p>
-              Pensado para empresas que reciben consultas, formularios o mensajes, pero no tienen un sistema claro
-              para responder a tiempo, organizar oportunidades y seguir bien cada contacto.
-            </p>
-            <ul class="mini-points mini-points-elevated">
-              <li>Mensajes y consultas mejor organizados</li>
-              <li>Leads registrados sin depender de pasos manuales</li>
-              <li>Menos oportunidades perdidas por falta de seguimiento</li>
-            </ul>
-            <div class="service-card-footer">
-              <span class="service-footnote">Más continuidad comercial</span>
-              <a class="btn btn-secondary" href="/automatizacion-atencion-captacion.html">Ver servicio</a>
-            </div>
-          </article>
-
+          <!-- SERVICIO 03 — web -->
           <article class="card service feature-card service-card-premium reveal tilt-card">
             <div class="tilt-glow" aria-hidden="true"></div>
             <div class="service-card-top">
-              <span class="service-badge">Servicio 03</span>
+              <span class="service-badge service-kicker">Presencia digital</span>
               <div class="feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                   <rect x="3" y="4" width="18" height="13" rx="2"></rect>
@@ -346,15 +327,14 @@
                 </svg>
               </div>
             </div>
-            <h3>Web orientada a captación y estructura digital</h3>
+            <h3>Una web que trae clientes, no que decora</h3>
             <p>
-              No planteamos una web como algo solo visual. La trabajamos como una pieza útil para presentar mejor
-              el negocio, generar confianza, facilitar el contacto y servir como base digital más sólida.
+              Web rápida, posicionada en Google local y conectada al resto de tus herramientas. Para negocios que necesitan que su web trabaje, no que solo exista.
             </p>
             <ul class="mini-points mini-points-elevated">
-              <li>Web con estructura clara y mensaje más sólido</li>
-              <li>Contacto mejor planteado para captar oportunidades</li>
-              <li>Mejor conversión y mejor apoyo comercial</li>
+              <li>SEO local listo desde el día uno</li>
+              <li>Formularios conectados a tu WhatsApp o CRM</li>
+              <li>Carga rápida y diseño orientado a contacto directo</li>
             </ul>
             <div class="service-card-footer">
               <span class="service-footnote">Mejor base digital</span>
@@ -365,13 +345,53 @@
       </div>
     </section>
 
+    <!-- FUNDAMENTOS: por qué funciona donde otros no llegan -->
+    <section class="section" id="fundamentos" aria-labelledby="fundamentos-title">
+      <div class="container">
+        <div class="section-head section-head-elevated compact-center">
+          <span class="section-tag">Fundamentos</span>
+          <h2 id="fundamentos-title">No es magia. Es buena ingeniería.</h2>
+          <p class="section-lead">
+            Cada sistema que entregamos se monta sobre cuatro principios técnicos no negociables. Esto es lo que separa una automatización seria de un parche con cinta.
+          </p>
+        </div>
+
+        <div class="fundamentos-grid">
+          <article class="card fundamento-card reveal">
+            <span class="fundamento-num">01</span>
+            <h3>Aislamiento real entre clientes</h3>
+            <p>Tu información, tus citas y tus datos viven en un espacio dedicado dentro del sistema. Multi-tenant de verdad, no carpetas compartidas con etiquetas.</p>
+          </article>
+
+          <article class="card fundamento-card reveal">
+            <span class="fundamento-num">02</span>
+            <h3>Stack abierto y mantenible</h3>
+            <p>n8n, Supabase, APIs oficiales de WhatsApp y modelos de IA estándar. Sin software propietario que te ate ni cajas negras que nadie pueda revisar después.</p>
+          </article>
+
+          <article class="card fundamento-card reveal">
+            <span class="fundamento-num">03</span>
+            <h3>La IA deriva cuando hace falta</h3>
+            <p>El sistema sabe lo que no sabe. Si una conversación se complica o detecta un caso fuera de su alcance, escala a tu equipo automáticamente. No pretende sustituirte — te libera.</p>
+          </article>
+
+          <article class="card fundamento-card reveal">
+            <span class="fundamento-num">04</span>
+            <h3>Encaja con tus herramientas actuales</h3>
+            <p>No te obligamos a cambiar tu CRM, tu hoja de cálculo, tu agenda o tu correo. Conectamos a lo que ya usas. Si algo conviene sustituirlo, lo decidimos juntos, no por defecto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO: textos reescritos más afilados -->
     <section class="section alt" id="proceso" aria-labelledby="proc-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Cómo trabajamos</span>
           <h2 id="proc-title">Un proceso claro, práctico y orientado a negocio</h2>
           <p class="section-lead">
-            El objetivo no es implantar algo por implantar, sino detectar qué tiene sentido mejorar y aterrizarlo de una forma útil.
+            El objetivo no es implantar algo por implantar. Detectamos qué tiene sentido mejorar y lo aterrizamos de forma útil.
           </p>
         </div>
 
@@ -387,7 +407,7 @@
               </svg>
             </div>
             <h3>Analizamos</h3>
-            <p>Vemos cómo funciona tu operativa actual y qué puntos merece la pena mejorar primero.</p>
+            <p>Revisamos qué procesos te están comiendo más tiempo y dónde está la fuga real de oportunidades.</p>
           </article>
 
           <article class="process-card process-card-premium reveal">
@@ -399,7 +419,7 @@
               </svg>
             </div>
             <h3>Diseñamos</h3>
-            <p>Definimos una solución útil, realista y alineada con el momento de tu negocio.</p>
+            <p>Te proponemos solo lo que tiene sentido implantar ya. Sin sobreingeniería ni herramientas que no vas a usar.</p>
           </article>
 
           <article class="process-card process-card-premium reveal">
@@ -411,7 +431,7 @@
               </svg>
             </div>
             <h3>Implantamos</h3>
-            <p>Ponemos en marcha la solución y la dejamos integrada de forma clara dentro del negocio.</p>
+            <p>Lo dejamos funcionando, conectado a tus herramientas actuales y operativo en semanas — no meses.</p>
           </article>
 
           <article class="process-card process-card-premium reveal">
@@ -423,20 +443,20 @@
               </svg>
             </div>
             <h3>Optimizamos</h3>
-            <p>Revisamos lo necesario para que la solución gane estabilidad, claridad y recorrido.</p>
+            <p>Lo ajustamos cuando hay datos reales del negocio en marcha. No antes.</p>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- HERRAMIENTAS: sin cambios -->
     <section class="section" id="herramientas" aria-labelledby="herramientas-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Herramientas y ecosistema</span>
           <h2 id="herramientas-title">Tecnología conectada a la operativa real del negocio</h2>
           <p class="section-lead">
-            Trabajamos con herramientas que muchas empresas ya utilizan y las conectamos para que aporten más orden,
-            eficiencia y continuidad.
+            Trabajamos con herramientas que muchas empresas ya utilizan y las conectamos para que aporten más orden, eficiencia y continuidad.
           </p>
         </div>
 
@@ -447,18 +467,9 @@
               <h3>Automatización</h3>
             </div>
             <div class="tools-grid" aria-label="Herramientas de automatización">
-              <span class="tool-pill">
-                <img src="/assets/icons/n8n.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />
-                n8n
-              </span>
-              <span class="tool-pill">
-                <img src="/assets/icons/make.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />
-                Make
-              </span>
-              <span class="tool-pill">
-                <img src="/assets/icons/openai.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />
-                OpenAI
-              </span>
+              <span class="tool-pill"><img src="/assets/icons/n8n.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />n8n</span>
+              <span class="tool-pill"><img src="/assets/icons/make.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Make</span>
+              <span class="tool-pill"><img src="/assets/icons/openai.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />OpenAI</span>
             </div>
           </article>
 
@@ -468,18 +479,9 @@
               <h3>Operativa y datos</h3>
             </div>
             <div class="tools-grid" aria-label="Herramientas de operativa y datos">
-              <span class="tool-pill">
-                <img src="/assets/icons/google-sheets.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />
-                Google Sheets
-              </span>
-              <span class="tool-pill">
-                <img src="/assets/icons/airtable.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />
-                Airtable
-              </span>
-              <span class="tool-pill">
-                <img src="/assets/icons/notion.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />
-                Notion
-              </span>
+              <span class="tool-pill"><img src="/assets/icons/google-sheets.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Google Sheets</span>
+              <span class="tool-pill"><img src="/assets/icons/airtable.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Airtable</span>
+              <span class="tool-pill"><img src="/assets/icons/notion.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Notion</span>
             </div>
           </article>
 
@@ -489,18 +491,9 @@
               <h3>Web y negocio</h3>
             </div>
             <div class="tools-grid" aria-label="Herramientas de web y negocio">
-              <span class="tool-pill">
-                <img src="/assets/icons/wordpress.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />
-                WordPress
-              </span>
-              <span class="tool-pill">
-                <img src="/assets/icons/woocommerce.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />
-                WooCommerce
-              </span>
-              <span class="tool-pill">
-                <img src="/assets/icons/stripe.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />
-                Stripe
-              </span>
+              <span class="tool-pill"><img src="/assets/icons/wordpress.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />WordPress</span>
+              <span class="tool-pill"><img src="/assets/icons/woocommerce.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />WooCommerce</span>
+              <span class="tool-pill"><img src="/assets/icons/stripe.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Stripe</span>
             </div>
           </article>
 
@@ -510,66 +503,57 @@
               <h3>Comunicación y gestión</h3>
             </div>
             <div class="tools-grid" aria-label="Herramientas de comunicación y gestión">
-              <span class="tool-pill">
-                <img src="/assets/icons/gmail.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />
-                Gmail
-              </span>
-              <span class="tool-pill">
-                <img src="/assets/icons/whatsapp.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />
-                WhatsApp
-              </span>
-              <span class="tool-pill">
-                <img src="/assets/icons/calendly.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />
-                Calendly
-              </span>
+              <span class="tool-pill"><img src="/assets/icons/gmail.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Gmail</span>
+              <span class="tool-pill"><img src="/assets/icons/whatsapp.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />WhatsApp</span>
+              <span class="tool-pill"><img src="/assets/icons/calendly.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Calendly</span>
             </div>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- PARA QUIÉN ES: 3 perfiles con copy más concreto -->
     <section class="section" id="para-quien" aria-labelledby="para-quien-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Para quién es</span>
-          <h2 id="para-quien-title">Pensado para negocios que necesitan más orden, conexión y eficiencia</h2>
+          <h2 id="para-quien-title">¿Esto es para ti?</h2>
         </div>
 
         <div class="cards compact-3 audience-cards">
           <article class="card reveal audience-card">
             <span class="audience-badge">Perfil</span>
             <h3>Autónomos y pequeños negocios</h3>
-            <p>Para quienes necesitan quitar carga manual, ordenar mejor su día a día y trabajar con más claridad.</p>
+            <p>Si te toca llevar facturas, mensajes y seguimiento entre el móvil y la cabeza, esto está pensado para ti.</p>
           </article>
 
           <article class="card reveal audience-card audience-card-highlight">
             <span class="audience-badge">Perfil</span>
-            <h3>Pymes en crecimiento</h3>
-            <p>Para empresas que ya tienen varias herramientas y quieren que todo funcione mejor entre sí.</p>
+            <h3>Clínicas, gestorías y comercios locales</h3>
+            <p>Si pierdes citas por no contestar a tiempo o tu equipo dedica horas a responder lo mismo cada día, encajas.</p>
           </article>
 
           <article class="card reveal audience-card">
             <span class="audience-badge">Perfil</span>
-            <h3>Negocios con procesos manuales o comerciales desordenados</h3>
-            <p>Para equipos que quieren mejorar facturación, seguimiento, atención o presencia digital sin complicarse de más.</p>
+            <h3>Pymes en crecimiento</h3>
+            <p>Si ya usas varias herramientas pero no se hablan entre sí, te ayudamos a que el conjunto funcione como un sistema.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section section-about-premium" id="sobre-mi" aria-labelledby="sobre-title">
+    <!-- SOBRE NOSOTROS: copy reescrito en plural -->
+    <section class="section section-about-premium" id="sobre-nosotros" aria-labelledby="sobre-title">
       <div class="container">
         <div class="about-shell">
           <div class="about-copy reveal">
-            <span class="section-tag">Sobre mí</span>
-            <h2 id="sobre-title">Un enfoque práctico para construir sistemas digitales con sentido</h2>
+            <span class="section-tag">Sobre nosotros</span>
+            <h2 id="sobre-title">Sistemas que se quedan funcionando, no presentaciones bonitas.</h2>
             <p>
-              En ContaProNow trabajo con un enfoque práctico: ayudar a empresas, pymes y autónomos
-              a organizar mejor su estructura digital para que su operativa sea más clara, conectada y eficiente.
+              En ContaProNow diseñamos e implantamos sistemas digitales que encajan en el día a día real de pymes y autónomos. No vendemos herramientas sueltas — entregamos operativa funcionando, conectada y mantenible.
             </p>
             <p>
-              Diseño e implanto soluciones que encajan en el día a día del negocio, desde necesidades concretas
-              hasta sistemas más completos.
+              Trabajamos desde Tenerife con negocios de toda España.
             </p>
           </div>
 
@@ -595,41 +579,21 @@
       </div>
     </section>
 
-    <section class="section alt section-cta-premium" id="cierre-servicios" aria-labelledby="cierre-title">
-      <div class="container">
-        <div class="final-cta-shell reveal">
-          <div class="section-head compact-center">
-            <span class="section-tag">Siguiente paso</span>
-            <h2 id="cierre-title">Si no tienes claro qué solución encaja mejor, podemos revisarlo contigo</h2>
-            <p class="section-lead">
-              No hace falta venir con todo definido. Podemos revisar tu situación actual, detectar dónde estás
-              perdiendo tiempo o control, y proponerte la mejora que tenga más sentido para tu negocio.
-            </p>
-          </div>
-
-          <div class="cta-row final-cta-row">
-            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20que%20revisemos%20qu%C3%A9%20servicio%20encaja%20mejor%20con%20mi%20negocio.">Pedir revisión</a>
-            <a class="btn btn-secondary" href="#contacto">Escribir directamente</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt" id="contacto" aria-labelledby="contacto-title">
+    <!-- CIERRE Y CONTACTO FUSIONADOS en una sola sección final -->
+    <section class="section alt section-cta-premium" id="contacto" aria-labelledby="contacto-title">
       <div class="container contact-shell">
         <div class="contact-copy reveal">
-          <span class="section-tag">Contacto</span>
-          <h2 id="contacto-title">Si quieres revisar qué mejora tiene más sentido, hablemos</h2>
+          <span class="section-tag">Siguiente paso</span>
+          <h2 id="contacto-title">¿No tienes claro qué encaja con tu negocio? Lo revisamos contigo.</h2>
           <p>
-            Podemos ayudarte a resolver una necesidad concreta o a plantear una mejora más completa,
-            según el punto en el que esté tu negocio.
+            Una conversación de 20 minutos para ver dónde estás perdiendo tiempo o clientes, y qué tiene sentido automatizar primero. Sin venta y sin compromiso.
           </p>
           <p>
-            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20hablar%20sobre%20vuestros%20servicios.">
-              Solicitar revisión
+            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20una%20revisi%C3%B3n%20gratuita%20de%20mi%20negocio.">
+              Solicitar revisión gratuita
             </a>
           </p>
-          <p class="small">Sin compromiso.</p>
+          <p class="small">Respondemos en menos de 24h laborables.</p>
         </div>
 
         <form id="contact-form" class="contact-form-card reveal" aria-describedby="privacidad" novalidate>
@@ -676,7 +640,7 @@
   </footer>
 
   <script src="/assets/js/main.js" defer></script>
-<script src="/assets/js/chatbot.js" defer></script>
+  <script src="/assets/js/chatbot.js" defer></script>
 </body>
 </html>
                   
