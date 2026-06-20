@@ -76,6 +76,118 @@
       font-weight: 600;
       opacity: 0.7;
     }
+
+    /* Stack badge bajo las pills del hero */
+    .hero-stack-badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+    .stack-label {
+      font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.55;
+    }
+    .stack-logos {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .stack-logos img {
+      height: 18px;
+      width: auto;
+      opacity: 0.7;
+      transition: opacity 200ms ease;
+    }
+    .stack-logos img:hover { opacity: 1; }
+
+    /* Fundamentos: grid 2x2 sobrio */
+    .fundamentos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(16px, 2vw, 24px);
+      margin-top: clamp(32px, 4vw, 48px);
+    }
+    @media (min-width: 720px) {
+      .fundamentos-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .fundamento-card { padding: clamp(20px, 2.5vw, 28px); }
+    .fundamento-num {
+      display: inline-block;
+      font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.55;
+      margin-bottom: 14px;
+    }
+    .fundamento-card h3 {
+      font-size: clamp(18px, 1.6vw, 21px);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin: 0 0 10px;
+    }
+    .fundamento-card p {
+      font-size: 15px;
+      line-height: 1.55;
+      opacity: 0.82;
+      margin: 0;
+    }
+    .fundamentos-guarantee {
+      margin-top: clamp(24px, 3vw, 36px);
+      padding: clamp(18px, 2vw, 22px) clamp(20px, 2.5vw, 28px);
+      border-left: 2px solid currentColor;
+      border-left-color: rgba(127,127,127,0.35);
+      font-size: 15px;
+      line-height: 1.55;
+      opacity: 0.92;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .fundamentos-guarantee strong {
+      display: block;
+      font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    /* FAQ: lista editorial, no acordeón */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      margin-top: clamp(32px, 4vw, 48px);
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .faq-item {
+      padding: clamp(20px, 2.5vw, 26px) 0;
+      border-top: 1px solid rgba(127,127,127,0.18);
+    }
+    .faq-item:last-child {
+      border-bottom: 1px solid rgba(127,127,127,0.18);
+    }
+    .faq-item dt {
+      font-size: clamp(17px, 1.4vw, 19px);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+    .faq-item dd {
+      font-size: 15px;
+      line-height: 1.6;
+      opacity: 0.82;
+      margin: 0;
+    }
   </style>
 </head>
 <body>
@@ -97,10 +209,10 @@
         <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menú</button>
         <ul id="menu" class="menu" hidden>
           <li><a href="#introduccion">Enfoque</a></li>
+          <li><a href="#para-quien">Para quién es</a></li>
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#proceso">Cómo trabajamos</a></li>
           <li><a href="#herramientas">Herramientas</a></li>
-          <li><a href="#para-quien">Para quién es</a></li>
           <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
           <li><a href="#contacto">Contacto</a></li>
           <li class="li-cta">
@@ -163,8 +275,19 @@
 
           <div class="hero-benefits hero-benefits-pills" aria-label="Beneficios principales">
             <span class="benefit-pill">Menos carga manual</span>
-            <span class="benefit-pill">Más control operativo</span>
-            <span class="benefit-pill">Mejor seguimiento comercial</span>
+            <span class="benefit-pill">Operación bajo control</span>
+            <span class="benefit-pill">Cero oportunidades perdidas</span>
+          </div>
+
+          <div class="hero-stack-badge" aria-label="Stack tecnológico sobre el que construimos">
+            <span class="stack-label">Construido sobre</span>
+            <div class="stack-logos">
+              <img src="/assets/icons/n8n.svg" alt="n8n" width="18" height="18" loading="lazy" />
+              <img src="/assets/icons/openai.svg" alt="OpenAI" width="18" height="18" loading="lazy" />
+              <img src="/assets/icons/wordpress.svg" alt="WordPress" width="18" height="18" loading="lazy" />
+              <img src="/assets/icons/stripe.svg" alt="Stripe" width="18" height="18" loading="lazy" />
+              <img src="/assets/icons/whatsapp.svg" alt="WhatsApp Business API" width="18" height="18" loading="lazy" />
+            </div>
           </div>
         </div>
 
@@ -207,7 +330,7 @@
               <span class="card-kicker">Impacto</span>
             </div>
             <h3>Recuperas tu semana</h3>
-            <p>Tareas repetitivas dejan de comer horas. Cobros, registros y mensajes — en piloto automático.</p>
+            <p>Tareas repetitivas dejan de consumir horas. Cobros, registros y mensajes pasan a ejecutarse de forma automática.</p>
           </article>
 
           <article class="card icon-card intro-card reveal">
@@ -243,6 +366,36 @@
       </div>
     </section>
 
+    <!-- PARA QUIÉN ES: movido al puesto 3 — el lector se auto-cualifica pronto antes de leer Servicios -->
+    <section class="section" id="para-quien" aria-labelledby="para-quien-title">
+      <div class="container">
+        <div class="section-head section-head-elevated compact-center">
+          <span class="section-tag">Para quién es</span>
+          <h2 id="para-quien-title">¿Esto es para ti?</h2>
+        </div>
+
+        <div class="cards compact-3 audience-cards">
+          <article class="card reveal audience-card">
+            <span class="audience-badge">Perfil</span>
+            <h3>Autónomos y pequeños negocios</h3>
+            <p>Si te toca llevar facturas, mensajes y seguimiento repartidos entre el móvil y la memoria personal, esto está pensado para ti.</p>
+          </article>
+
+          <article class="card reveal audience-card audience-card-highlight">
+            <span class="audience-badge">Perfil</span>
+            <h3>Clínicas, gestorías y comercios locales</h3>
+            <p>Si pierdes citas por no contestar a tiempo o tu equipo dedica horas a responder lo mismo cada día, encajas.</p>
+          </article>
+
+          <article class="card reveal audience-card">
+            <span class="audience-badge">Perfil</span>
+            <h3>Pymes en crecimiento</h3>
+            <p>Si ya usas varias herramientas pero no se comunican entre sí, te ayudamos a que el conjunto funcione como un sistema único.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- SECCIÓN "Realidad habitual" ELIMINADA: duplicaba el mensaje de introducción -->
 
     <!-- SERVICIOS: reorganizados en Bento (destacado primero, full-width). Kickers temáticos en lugar de "Servicio 01/02/03" -->
@@ -252,7 +405,7 @@
           <span class="section-tag">Servicios</span>
           <h2 id="servicios-title">Tres líneas de servicio para problemas reales de negocio</h2>
           <p class="section-lead">
-            Cada servicio resuelve una necesidad concreta. Entra directamente en el que más encaje contigo o pide una revisión para que lo valoremos juntos.
+            Cada servicio resuelve una necesidad concreta. Puedes acceder directamente al que más encaje con tu negocio o solicitar una revisión para valorarlo en conjunto.
           </p>
         </div>
 
@@ -275,9 +428,9 @@
               Sistema con IA que responde, agenda citas y deriva 24/7 a través de WhatsApp. Pensado para clínicas, gestorías y negocios locales que pierden clientes por no contestar a tiempo.
             </p>
             <ul class="mini-points mini-points-elevated">
-              <li>Responde en segundos, todos los días, a todas horas</li>
+              <li>Responde en segundos, los siete días de la semana</li>
               <li>Reserva citas directamente sin intervención humana</li>
-              <li>Deriva a tu equipo solo cuando hace falta de verdad</li>
+              <li>Deriva a tu equipo solo cuando la situación lo requiere</li>
             </ul>
             <div class="service-card-footer">
               <span class="service-footnote">Más continuidad comercial</span>
@@ -301,7 +454,7 @@
             </div>
             <h3>Facturas en piloto automático</h3>
             <p>
-              Recibe, lee y registra tus facturas sin mover un dedo. Pensado para autónomos y pymes que aún las pasan a mano.
+              Recibe, lee y registra tus facturas de forma automática. Pensado para autónomos y pymes que aún las gestionan manualmente.
             </p>
             <ul class="mini-points mini-points-elevated">
               <li>Lectura automática de facturas desde email o carpetas</li>
@@ -345,41 +498,46 @@
       </div>
     </section>
 
-    <!-- FUNDAMENTOS: por qué funciona donde otros no llegan -->
+    <!-- FUNDAMENTOS: principios técnicos paraguas que cubren las 3 líneas -->
     <section class="section" id="fundamentos" aria-labelledby="fundamentos-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Fundamentos</span>
-          <h2 id="fundamentos-title">No es magia. Es buena ingeniería.</h2>
+          <h2 id="fundamentos-title">Cómo construimos cada sistema.</h2>
           <p class="section-lead">
-            Cada sistema que entregamos se monta sobre cuatro principios técnicos no negociables. Esto es lo que separa una automatización seria de un parche con cinta.
+            Cuatro principios técnicos que aplicamos sin excepción en cada implantación, sea automatización administrativa, atención al cliente o presencia digital.
           </p>
         </div>
 
         <div class="fundamentos-grid">
           <article class="card fundamento-card reveal">
             <span class="fundamento-num">01</span>
-            <h3>Aislamiento real entre clientes</h3>
-            <p>Tu información, tus citas y tus datos viven en un espacio dedicado dentro del sistema. Multi-tenant de verdad, no carpetas compartidas con etiquetas.</p>
+            <h3>Construido sobre estándares de la industria</h3>
+            <p>Cada sistema se monta sobre herramientas reconocidas — n8n, WordPress, Supabase, Stripe, OpenAI, APIs oficiales. Sin software propietario que limite tu independencia ni componentes cerrados que dificulten su revisión posterior.</p>
           </article>
 
           <article class="card fundamento-card reveal">
             <span class="fundamento-num">02</span>
-            <h3>Stack abierto y mantenible</h3>
-            <p>n8n, Supabase, APIs oficiales de WhatsApp y modelos de IA estándar. Sin software propietario que te ate ni cajas negras que nadie pueda revisar después.</p>
+            <h3>Conectamos con lo que ya usas</h3>
+            <p>Trabajamos sobre tu CRM, tu hoja de cálculo, tu agenda y tu correo actuales. Nos integramos en tu entorno operativo, no lo reemplazamos. Si algo conviene sustituirlo, se decide en conjunto.</p>
           </article>
 
           <article class="card fundamento-card reveal">
             <span class="fundamento-num">03</span>
-            <h3>La IA deriva cuando hace falta</h3>
-            <p>El sistema sabe lo que no sabe. Si una conversación se complica o detecta un caso fuera de su alcance, escala a tu equipo automáticamente. No pretende sustituirte — te libera.</p>
+            <h3>Diseñado para operar, no para demostrar</h3>
+            <p>Todo lo que entregamos está pensado para el día a día del negocio: datos reales, carga real, personas reales usándolo. No prototipos pulidos que pierden estabilidad cuando entran en producción.</p>
           </article>
 
           <article class="card fundamento-card reveal">
             <span class="fundamento-num">04</span>
-            <h3>Encaja con tus herramientas actuales</h3>
-            <p>No te obligamos a cambiar tu CRM, tu hoja de cálculo, tu agenda o tu correo. Conectamos a lo que ya usas. Si algo conviene sustituirlo, lo decidimos juntos, no por defecto.</p>
+            <h3>Sin dependencia obligatoria</h3>
+            <p>Cada implantación se entrega documentada y operable por otro técnico si fuera necesario. El sistema funciona contigo, no atado a un contrato perpetuo. El mantenimiento es una opción, no una imposición.</p>
           </article>
+        </div>
+
+        <div class="fundamentos-guarantee reveal">
+          <strong>Garantía operativa</strong>
+          Cada implantación incluye un periodo de calibración hasta que el sistema funciona como acordamos. No dejamos un sistema que no encaje con tu operativa real.
         </div>
       </div>
     </section>
@@ -391,7 +549,7 @@
           <span class="section-tag">Cómo trabajamos</span>
           <h2 id="proc-title">Un proceso claro, práctico y orientado a negocio</h2>
           <p class="section-lead">
-            El objetivo no es implantar algo por implantar. Detectamos qué tiene sentido mejorar y lo aterrizamos de forma útil.
+            El objetivo no es implantar por implantar. Detectamos qué tiene sentido mejorar y lo ejecutamos.
           </p>
         </div>
 
@@ -407,7 +565,7 @@
               </svg>
             </div>
             <h3>Analizamos</h3>
-            <p>Revisamos qué procesos te están comiendo más tiempo y dónde está la fuga real de oportunidades.</p>
+            <p>Revisamos qué procesos te consumen más tiempo y dónde se pierden oportunidades reales.</p>
           </article>
 
           <article class="process-card process-card-premium reveal">
@@ -456,7 +614,7 @@
           <span class="section-tag">Herramientas y ecosistema</span>
           <h2 id="herramientas-title">Tecnología conectada a la operativa real del negocio</h2>
           <p class="section-lead">
-            Trabajamos con herramientas que muchas empresas ya utilizan y las conectamos para que aporten más orden, eficiencia y continuidad.
+            Trabajamos con herramientas que muchas empresas ya utilizan y las integramos entre sí para que aporten orden operativo, eficiencia y continuidad real.
           </p>
         </div>
 
@@ -512,45 +670,18 @@
       </div>
     </section>
 
-    <!-- PARA QUIÉN ES: 3 perfiles con copy más concreto -->
-    <section class="section" id="para-quien" aria-labelledby="para-quien-title">
-      <div class="container">
-        <div class="section-head section-head-elevated compact-center">
-          <span class="section-tag">Para quién es</span>
-          <h2 id="para-quien-title">¿Esto es para ti?</h2>
-        </div>
-
-        <div class="cards compact-3 audience-cards">
-          <article class="card reveal audience-card">
-            <span class="audience-badge">Perfil</span>
-            <h3>Autónomos y pequeños negocios</h3>
-            <p>Si te toca llevar facturas, mensajes y seguimiento entre el móvil y la cabeza, esto está pensado para ti.</p>
-          </article>
-
-          <article class="card reveal audience-card audience-card-highlight">
-            <span class="audience-badge">Perfil</span>
-            <h3>Clínicas, gestorías y comercios locales</h3>
-            <p>Si pierdes citas por no contestar a tiempo o tu equipo dedica horas a responder lo mismo cada día, encajas.</p>
-          </article>
-
-          <article class="card reveal audience-card">
-            <span class="audience-badge">Perfil</span>
-            <h3>Pymes en crecimiento</h3>
-            <p>Si ya usas varias herramientas pero no se hablan entre sí, te ayudamos a que el conjunto funcione como un sistema.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- SOBRE NOSOTROS: copy reescrito en plural -->
     <section class="section section-about-premium" id="sobre-nosotros" aria-labelledby="sobre-title">
       <div class="container">
         <div class="about-shell">
           <div class="about-copy reveal">
             <span class="section-tag">Sobre nosotros</span>
-            <h2 id="sobre-title">Sistemas que se quedan funcionando, no presentaciones bonitas.</h2>
+            <h2 id="sobre-title">Sistemas que se quedan funcionando, no presentaciones.</h2>
             <p>
-              En ContaProNow diseñamos e implantamos sistemas digitales que encajan en el día a día real de pymes y autónomos. No vendemos herramientas sueltas — entregamos operativa funcionando, conectada y mantenible.
+              ContaProNow lo formamos dos personas: <strong>Abián</strong> (técnico, responsable del diseño e implantación) y <strong>Ancor</strong> (comercial, responsable del primer contacto y seguimiento). Diseñamos e implantamos sistemas digitales que encajan en el día a día real de pymes y autónomos.
+            </p>
+            <p>
+              Entregamos operativa funcionando, conectada y mantenible. No herramientas sueltas.
             </p>
             <p>
               Trabajamos desde Tenerife con negocios de toda España.
@@ -568,14 +699,51 @@
                 <span class="about-kicker">ContaProNow</span>
                 <h3>Sistemas digitales con sentido</h3>
                 <div class="about-panel-list">
-                  <span>Operativa más clara</span>
-                  <span>Procesos mejor conectados</span>
-                  <span>Implantación útil para negocio</span>
+                  <span>Operativa ordenada</span>
+                  <span>Procesos integrados</span>
+                  <span>Implantación documentada</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- FAQ: dudas frecuentes antes de pedir revisión -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-head section-head-elevated compact-center">
+          <span class="section-tag">Preguntas frecuentes</span>
+          <h2 id="faq-title">Lo que la gente pregunta antes de empezar</h2>
+        </div>
+
+        <dl class="faq-list">
+          <div class="faq-item reveal">
+            <dt>¿Esto sustituye a mi equipo?</dt>
+            <dd>No. Lo que automatizamos es la parte repetitiva: responder consultas básicas, registrar facturas, agendar citas o enviar recordatorios. Tu equipo se libera para las conversaciones y decisiones que requieren persona.</dd>
+          </div>
+
+          <div class="faq-item reveal">
+            <dt>¿Tengo que cambiar las herramientas que ya uso?</dt>
+            <dd>En la mayoría de casos, no. Nos integramos con tu correo, WhatsApp, hoja de cálculo o CRM actual. Si detectamos que algo conviene cambiar, lo proponemos con argumentos, no por defecto.</dd>
+          </div>
+
+          <div class="faq-item reveal">
+            <dt>¿Cuánto tarda en estar funcionando?</dt>
+            <dd>La mayoría de implantaciones quedan operativas entre dos y seis semanas, según el alcance. En la revisión inicial damos un plazo concreto para tu caso, no un rango genérico.</dd>
+          </div>
+
+          <div class="faq-item reveal">
+            <dt>¿Y si una vez implantado no funciona como esperaba?</dt>
+            <dd>Lo ajustamos. Cada implantación incluye un periodo de calibración en el que revisamos cómo funciona en tu día a día real. No dejamos un sistema que no encaje.</dd>
+          </div>
+
+          <div class="faq-item reveal">
+            <dt>¿Hay casos en los que no encajamos?</dt>
+            <dd>Sí. Si necesitas algo operativo en menos de dos semanas, si buscas únicamente una herramienta sin acompañamiento, o si tu operativa todavía no genera suficiente volumen para que automatizar tenga retorno claro — probablemente no seamos el partner adecuado. Lo evaluamos contigo en la revisión inicial y te lo decimos directamente.</dd>
+          </div>
+        </dl>
       </div>
     </section>
 
@@ -586,7 +754,7 @@
           <span class="section-tag">Siguiente paso</span>
           <h2 id="contacto-title">¿No tienes claro qué encaja con tu negocio? Lo revisamos contigo.</h2>
           <p>
-            Una conversación de 20 minutos para ver dónde estás perdiendo tiempo o clientes, y qué tiene sentido automatizar primero. Sin venta y sin compromiso.
+            Una conversación de 20 minutos para identificar dónde estás perdiendo tiempo o clientes, y qué tiene sentido automatizar primero. Sin compromiso y sin presión comercial.
           </p>
           <p>
             <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20una%20revisi%C3%B3n%20gratuita%20de%20mi%20negocio.">
