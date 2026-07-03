@@ -2,6 +2,7 @@
    ContaProNow — Chatbot widget de captación de leads
    Ubicación en el repo: /assets/js/chatbot.js
    Incluir en cada página con: <script src="/assets/js/chatbot.js" defer></script>
+   v2: paleta unificada con la identidad del sitio (azul corporativo)
    ──────────────────────────────────────────────────────────────────── */
 
 (function () {
@@ -74,15 +75,15 @@ RECORDATORIO FINAL: Tras confirmar nombre y email, tu último mensaje SIEMPRE te
   let typing = false;
 
   // ────────────────────────────────────────────────────────────────────
-  // ESTILOS
+  // ESTILOS — paleta del sitio: azul corporativo sobre superficie clara
   // ────────────────────────────────────────────────────────────────────
   const styles = `
     .cpn-chat-bubble {
       position: fixed; bottom: 24px; right: 24px;
       width: 56px; height: 56px;
-      background: #5dffb8; border-radius: 50%;
+      background: linear-gradient(135deg, #004080, #0b63c9); border-radius: 50%;
       cursor: pointer; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 24px rgba(93,255,184,0.35), 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 14px 32px rgba(0,64,128,0.32), 0 2px 8px rgba(16,24,40,0.14);
       border: none; z-index: 9999;
       transition: transform 0.2s;
     }
@@ -90,8 +91,8 @@ RECORDATORIO FINAL: Tras confirmar nombre y email, tu último mensaje SIEMPRE te
     .cpn-chat-window {
       position: fixed; bottom: 92px; right: 24px;
       width: 375px; max-height: 600px;
-      background: #141414; border: 1px solid #232323; border-radius: 20px;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+      background: #ffffff; border: 1px solid rgba(15,23,36,0.1); border-radius: 20px;
+      box-shadow: 0 24px 64px rgba(16,24,40,0.18);
       display: flex; flex-direction: column; overflow: hidden;
       z-index: 9998;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -103,57 +104,58 @@ RECORDATORIO FINAL: Tras confirmar nombre y email, tu último mensaje SIEMPRE te
       }
     }
     .cpn-chat-header {
-      background: #111; border-bottom: 1px solid #222;
+      background: #f8fbff; border-bottom: 1px solid rgba(15,23,36,0.08);
       padding: 16px 18px; display: flex; align-items: center; gap: 12px;
     }
     .cpn-chat-avatar {
-      width: 36px; height: 36px; background: #5dffb8; border-radius: 10px;
+      width: 36px; height: 36px; background: linear-gradient(135deg, #004080, #0b63c9); border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 11px; color: #0d0d0d;
+      font-weight: 700; font-size: 11px; color: #ffffff;
     }
     .cpn-chat-title { flex: 1; }
-    .cpn-chat-title strong { display: block; font-size: 14px; color: #f0f0f0; }
-    .cpn-chat-title span { font-size: 11px; color: #5dffb8; }
+    .cpn-chat-title strong { display: block; font-size: 14px; color: #0f1724; }
+    .cpn-chat-title span { font-size: 11px; color: #0b63c9; }
     .cpn-chat-close {
-      background: none; border: none; color: #666; cursor: pointer; font-size: 18px;
+      background: none; border: none; color: #667085; cursor: pointer; font-size: 18px;
     }
     .cpn-chat-messages {
       flex: 1; overflow-y: auto; padding: 18px 14px;
       display: flex; flex-direction: column; gap: 10px;
+      background: #ffffff;
     }
     .cpn-msg-row { display: flex; align-items: flex-end; gap: 8px; }
     .cpn-msg-row.user { justify-content: flex-end; }
     .cpn-msg-avatar {
-      width: 26px; height: 26px; background: #5dffb8; border-radius: 8px;
+      width: 26px; height: 26px; background: linear-gradient(135deg, #004080, #0b63c9); border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 10px; color: #0d0d0d; flex-shrink: 0;
+      font-weight: 700; font-size: 10px; color: #ffffff; flex-shrink: 0;
     }
     .cpn-msg-bubble {
       max-width: 80%; padding: 10px 13px; border-radius: 14px;
       font-size: 13.5px; line-height: 1.55;
     }
     .cpn-msg-bubble.bot {
-      background: #1c1c1c; color: #d8d8d8; border: 1px solid #2a2a2a;
+      background: #f1f5fa; color: #0f1724; border: 1px solid rgba(15,23,36,0.06);
     }
     .cpn-msg-bubble.user {
-      background: #5dffb8; color: #0a0a0a; font-weight: 500;
+      background: linear-gradient(135deg, #004080, #0b63c9); color: #ffffff; font-weight: 500;
     }
     .cpn-quick-options {
       display: flex; flex-wrap: wrap; gap: 6px; padding-left: 34px;
     }
     .cpn-quick-btn {
-      background: transparent; border: 1px solid #2e2e2e; color: #a0a0a0;
+      background: rgba(0,64,128,0.04); border: 1px solid rgba(0,64,128,0.18); color: #004080;
       padding: 6px 12px; border-radius: 20px; font-size: 12px; cursor: pointer;
-      font-family: inherit;
+      font-family: inherit; font-weight: 600;
     }
-    .cpn-quick-btn:hover { border-color: #5dffb8; color: #5dffb8; }
+    .cpn-quick-btn:hover { border-color: #0b63c9; background: rgba(0,64,128,0.08); }
     .cpn-typing { display: flex; gap: 8px; }
     .cpn-typing-bubble {
-      background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 14px;
+      background: #f1f5fa; border: 1px solid rgba(15,23,36,0.06); border-radius: 14px;
       padding: 11px 14px; display: flex; gap: 4px;
     }
     .cpn-typing-dot {
-      width: 6px; height: 6px; background: #5dffb8; border-radius: 50%;
+      width: 6px; height: 6px; background: #0b63c9; border-radius: 50%;
       animation: cpnblink 1.2s infinite;
     }
     .cpn-typing-dot:nth-child(2) { animation-delay: 0.2s; }
@@ -163,23 +165,23 @@ RECORDATORIO FINAL: Tras confirmar nombre y email, tu último mensaje SIEMPRE te
       40%           { opacity: 1;   transform: scale(1.3); }
     }
     .cpn-chat-form {
-      padding: 12px 14px; border-top: 1px solid #1e1e1e;
-      display: flex; gap: 8px;
+      padding: 12px 14px; border-top: 1px solid rgba(15,23,36,0.08);
+      display: flex; gap: 8px; background: #ffffff;
     }
     .cpn-chat-input {
-      flex: 1; background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 22px;
-      padding: 9px 16px; color: #f0f0f0; font-size: 13.5px; outline: none;
+      flex: 1; background: #ffffff; border: 1px solid rgba(15,23,36,0.14); border-radius: 22px;
+      padding: 9px 16px; color: #0f1724; font-size: 13.5px; outline: none;
       font-family: inherit;
     }
-    .cpn-chat-input:focus { border-color: #5dffb8; }
+    .cpn-chat-input:focus { border-color: rgba(0,64,128,0.45); box-shadow: 0 0 0 3px rgba(0,64,128,0.08); }
     .cpn-chat-send {
-      width: 38px; height: 38px; background: #5dffb8; border: none; border-radius: 50%;
+      width: 38px; height: 38px; background: linear-gradient(135deg, #004080, #0b63c9); border: none; border-radius: 50%;
       cursor: pointer; display: flex; align-items: center; justify-content: center;
     }
     .cpn-lead-confirm {
-      margin: 0 14px 12px; background: rgba(93,255,184,0.08);
-      border: 1px solid rgba(93,255,184,0.2); color: #5dffb8;
-      padding: 8px 12px; border-radius: 8px; font-size: 12px; text-align: center;
+      margin: 0 14px 12px; background: rgba(0,64,128,0.06);
+      border: 1px solid rgba(0,64,128,0.18); color: #004080;
+      padding: 8px 12px; border-radius: 8px; font-size: 12px; text-align: center; font-weight: 600;
     }
   `;
 
@@ -194,7 +196,7 @@ RECORDATORIO FINAL: Tras confirmar nombre y email, tu último mensaje SIEMPRE te
     const bubble = document.createElement('button');
     bubble.className = 'cpn-chat-bubble';
     bubble.setAttribute('aria-label', 'Abrir chat');
-    bubble.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="#0d0d0d"/></svg>';
+    bubble.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="#ffffff"/></svg>';
     bubble.addEventListener('click', toggleChat);
     document.body.appendChild(bubble);
 
@@ -216,7 +218,7 @@ RECORDATORIO FINAL: Tras confirmar nombre y email, tu último mensaje SIEMPRE te
         <input type="text" class="cpn-chat-input" id="cpn-input" placeholder="Escribe tu mensaje..." autocomplete="off" />
         <button type="submit" class="cpn-chat-send" aria-label="Enviar">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-            <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="#0d0d0d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
       </form>
