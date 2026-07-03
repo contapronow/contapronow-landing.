@@ -113,40 +113,6 @@ button {
   box-shadow: var(--shadow-sm);
 }
 
-/* ============= CURSOR DOT ============= */
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--brand);
-  pointer-events: none;
-  z-index: 9999;
-  transition: width 0.25s var(--ease-premium), height 0.25s var(--ease-premium), background 0.25s var(--ease-premium), opacity 0.25s ease;
-  mix-blend-mode: difference;
-  opacity: 0;
-  will-change: transform;
-}
-
-.cursor-dot.visible {
-  opacity: 1;
-}
-
-.cursor-dot.hover {
-  width: 32px;
-  height: 32px;
-  background: var(--brand-3);
-  opacity: 0.6;
-}
-
-@media (max-width: 980px), (pointer: coarse) {
-  .cursor-dot {
-    display: none;
-  }
-}
-
 /* ============= HEADER ============= */
 .site-header {
   position: sticky;
@@ -647,10 +613,6 @@ button {
   transform: translateY(-2px);
 }
 
-.btn-magnetic:hover {
-  transform: none;
-}
-
 .btn.sm {
   min-height: 42px;
   padding: 0.72rem 1rem;
@@ -693,12 +655,6 @@ button {
   background: #fff;
   border-color: rgba(0, 64, 128, 0.2);
   box-shadow: 0 10px 24px rgba(0, 64, 128, 0.08);
-}
-
-.btn-magnetic {
-  transition:
-    transform 0.15s var(--ease-premium),
-    box-shadow 0.3s var(--ease-premium);
 }
 
 .benefit-pill {
@@ -1026,44 +982,13 @@ button {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.4rem;
-  perspective: 1200px;
 }
 
 .service-card-premium {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  transform-style: preserve-3d;
   position: relative;
-  will-change: transform;
-}
-
-.tilt-card {
-  transition: transform 0.5s var(--ease-premium), box-shadow 0.5s var(--ease-premium), border-color 0.5s ease;
-}
-
-.tilt-glow {
-  position: absolute;
-  inset: 0;
-  border-radius: 22px;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  background: radial-gradient(
-    circle at var(--mx, 50%) var(--my, 50%),
-    rgba(11, 99, 201, 0.15),
-    transparent 50%
-  );
-  z-index: 0;
-}
-
-.tilt-card:hover .tilt-glow {
-  opacity: 1;
-}
-
-.tilt-card > * {
-  position: relative;
-  z-index: 1;
 }
 
 .service-badge {
@@ -1172,6 +1097,89 @@ button {
   color: var(--brand);
   font-size: 0.9rem;
   border: 1px solid rgba(0, 64, 128, 0.1);
+}
+
+/* ============= AUDIENCE SLIDER ============= */
+.audience-slider {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0.5rem 0.25rem 1.4rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.audience-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.audience-slide {
+  flex: 0 0 min(420px, 85%);
+  scroll-snap-align: center;
+  border-radius: 22px;
+  padding: 2rem 1.8rem;
+  background:
+    radial-gradient(circle at top right, rgba(11, 99, 201, 0.16), transparent 45%),
+    linear-gradient(180deg, var(--surface-dark) 0%, var(--surface-dark-2) 100%);
+  color: var(--text-invert);
+  border: 1px solid var(--line-invert);
+  box-shadow: 0 20px 48px rgba(9, 18, 31, 0.22);
+}
+
+.audience-slide h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.audience-slide p {
+  margin: 0;
+  color: rgba(248, 251, 255, 0.78);
+  font-size: 0.98rem;
+}
+
+.audience-num {
+  display: block;
+  margin-bottom: 1.1rem;
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brand-3);
+}
+
+.audience-slide-highlight {
+  border-color: rgba(59, 143, 245, 0.4);
+  box-shadow: 0 26px 60px rgba(0, 64, 128, 0.3);
+}
+
+.audience-nav {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 0.2rem;
+}
+
+.audience-arrow {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  display: grid;
+  place-items: center;
+  color: var(--brand);
+  box-shadow: var(--shadow-xs);
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s var(--ease-spring);
+}
+
+.audience-arrow:hover {
+  border-color: rgba(0, 64, 128, 0.3);
+  background: #fff;
+  transform: translateY(-2px);
 }
 
 /* ============= PROCESS TIMELINE ============= */
@@ -1315,7 +1323,7 @@ button {
     border-color 0.4s ease;
 }
 
-/* ============= AUDIENCE ============= */
+/* ============= AUDIENCE (legacy cards en subpáginas) ============= */
 .audience-card {
   position: relative;
 }
@@ -1673,12 +1681,6 @@ button {
   transform: none;
 }
 
-/* Cuando un elemento es tilt-card Y reveal, una vez visible el tilt JS toma control:
-   limpia transition de transform para evitar lag con el mousemove */
-.tilt-card.reveal.visible {
-  transition: opacity 0.8s var(--ease-premium), box-shadow 0.5s var(--ease-premium), border-color 0.5s ease;
-}
-
 /* ============= MOBILE ============= */
 @media (max-width: 980px) {
   .nav-toggle {
@@ -1785,6 +1787,11 @@ button {
   .foot {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .audience-slide {
+    flex-basis: 88%;
+    padding: 1.6rem 1.4rem;
   }
 
   .whatsapp-fab {
