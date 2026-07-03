@@ -193,8 +193,6 @@
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <div class="cursor-dot" aria-hidden="true"></div>
-
   <header class="site-header site-header-glass" role="banner">
     <div class="container header-inner">
       <a class="logo" href="#hero" aria-label="Inicio ContaProNow">
@@ -269,7 +267,7 @@
           </div>
 
           <div class="cta-row hero-cta-row">
-            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20una%20revisi%C3%B3n%20gratuita%20de%20mi%20negocio.">Solicitar revisión gratuita</a>
+            <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20una%20revisi%C3%B3n%20gratuita%20de%20mi%20negocio.">Solicitar revisión gratuita</a>
             <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
           </div>
 
@@ -374,24 +372,33 @@
           <h2 id="para-quien-title">¿Esto es para ti?</h2>
         </div>
 
-        <div class="cards compact-3 audience-cards">
-          <article class="card reveal audience-card">
-            <span class="audience-badge">Perfil</span>
+        <div class="audience-slider" id="audience-slider" aria-label="Perfiles de negocio">
+          <article class="audience-slide reveal">
+            <span class="audience-num">Perfil / 01</span>
             <h3>Autónomos y pequeños negocios</h3>
             <p>Si te toca llevar facturas, mensajes y seguimiento repartidos entre el móvil y la memoria personal, esto está pensado para ti.</p>
           </article>
 
-          <article class="card reveal audience-card audience-card-highlight">
-            <span class="audience-badge">Perfil</span>
+          <article class="audience-slide audience-slide-highlight reveal">
+            <span class="audience-num">Perfil / 02</span>
             <h3>Clínicas, gestorías y comercios locales</h3>
             <p>Si pierdes citas por no contestar a tiempo o tu equipo dedica horas a responder lo mismo cada día, encajas.</p>
           </article>
 
-          <article class="card reveal audience-card">
-            <span class="audience-badge">Perfil</span>
+          <article class="audience-slide reveal">
+            <span class="audience-num">Perfil / 03</span>
             <h3>Pymes en crecimiento</h3>
             <p>Si ya usas varias herramientas pero no se comunican entre sí, te ayudamos a que el conjunto funcione como un sistema único.</p>
           </article>
+        </div>
+
+        <div class="audience-nav">
+          <button class="audience-arrow" type="button" data-dir="-1" aria-label="Perfil anterior">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="audience-arrow" type="button" data-dir="1" aria-label="Perfil siguiente">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -411,8 +418,7 @@
 
         <div class="service-showcase">
           <!-- SERVICIO DESTACADO (atención y captación) — ocupa ancho completo -->
-          <article class="card service feature-card service-card-premium service-card-featured reveal tilt-card">
-            <div class="tilt-glow" aria-hidden="true"></div>
+          <article class="card service feature-card service-card-premium service-card-featured reveal">
             <div class="service-card-top">
               <span class="service-badge service-kicker">Captación</span>
               <div class="feature-icon" aria-hidden="true">
@@ -439,8 +445,7 @@
           </article>
 
           <!-- SERVICIO 01 — facturas -->
-          <article class="card service feature-card service-card-premium reveal tilt-card">
-            <div class="tilt-glow" aria-hidden="true"></div>
+          <article class="card service feature-card service-card-premium reveal">
             <div class="service-card-top">
               <span class="service-badge service-kicker">Administración</span>
               <div class="feature-icon" aria-hidden="true">
@@ -468,8 +473,7 @@
           </article>
 
           <!-- SERVICIO 03 — web -->
-          <article class="card service feature-card service-card-premium reveal tilt-card">
-            <div class="tilt-glow" aria-hidden="true"></div>
+          <article class="card service feature-card service-card-premium reveal">
             <div class="service-card-top">
               <span class="service-badge service-kicker">Presencia digital</span>
               <div class="feature-icon" aria-hidden="true">
@@ -757,7 +761,7 @@
             Una conversación de 20 minutos para identificar dónde estás perdiendo tiempo o clientes, y qué tiene sentido automatizar primero. Sin compromiso y sin presión comercial.
           </p>
           <p>
-            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20una%20revisi%C3%B3n%20gratuita%20de%20mi%20negocio.">
+            <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20una%20revisi%C3%B3n%20gratuita%20de%20mi%20negocio.">
               Solicitar revisión gratuita
             </a>
           </p>
@@ -810,8 +814,7 @@
   <script src="/assets/js/main.js" defer></script>
   <script src="/assets/js/chatbot.js" defer></script>
 </body>
-</html>      
-
+</html>
 
 
 
