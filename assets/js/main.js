@@ -12,10 +12,8 @@
     setupHeaderScroll();
     setupTitleAnimation();
     setupRevealObserver();
-    setupTiltCards();
-    setupMagneticButtons();
     setupHeroParallax();
-    setupCursorDot();
+    setupAudienceSlider();
     setupContactForm();
     setupProcessLine();
   }
@@ -157,94 +155,6 @@
     elements.forEach((el) => observer.observe(el));
   }
 
-  function setupTiltCards() {
-    if (reduceMotion) return;
-    if (window.matchMedia('(pointer: coarse)').matches) return;
-
-    document.querySelectorAll('.tilt-card').forEach((card) => {
-      let rafId = null;
-      const maxTilt = 5;
-
-      function isReady() {
-        if (!card.classList.contains('reveal')) return true;
-        return card.classList.contains('visible');
-      }
-
-      function onMove(e) {
-        if (!isReady()) return;
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const cx = rect.width / 2;
-        const cy = rect.height / 2;
-        const rx = ((y - cy) / cy) * -maxTilt;
-        const ry = ((x - cx) / cx) * maxTilt;
-        const mx = (x / rect.width) * 100;
-        const my = (y / rect.height) * 100;
-
-        if (rafId) cancelAnimationFrame(rafId);
-        rafId = requestAnimationFrame(() => {
-          card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
-          card.style.setProperty('--mx', `${mx}%`);
-          card.style.setProperty('--my', `${my}%`);
-        });
-      }
-
-      function onLeave() {
-        if (rafId) cancelAnimationFrame(rafId);
-        card.style.transform = '';
-      }
-
-      card.addEventListener('mousemove', onMove);
-      card.addEventListener('mouseleave', onLeave);
-    });
-  }
-
-  function setupMagneticButtons() {
-    if (reduceMotion) return;
-    if (window.matchMedia('(pointer: coarse)').matches) return;
-
-    document.querySelectorAll('.btn-magnetic').forEach((btn) => {
-      let targetX = 0;
-      let targetY = 0;
-      let curX = 0;
-      let curY = 0;
-      let rafId = null;
-      let active = false;
-
-      function loop() {
-        curX += (targetX - curX) * 0.18;
-        curY += (targetY - curY) * 0.18;
-        btn.style.transform = `translate(${curX.toFixed(2)}px, ${curY.toFixed(2)}px)`;
-        if (Math.abs(curX - targetX) > 0.1 || Math.abs(curY - targetY) > 0.1 || active) {
-          rafId = requestAnimationFrame(loop);
-        } else {
-          btn.style.transform = '';
-          rafId = null;
-        }
-      }
-
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const cx = rect.left + rect.width / 2;
-        const cy = rect.top + rect.height / 2;
-        const dx = e.clientX - cx;
-        const dy = e.clientY - cy;
-        targetX = dx * 0.25;
-        targetY = dy * 0.4;
-        active = true;
-        if (!rafId) rafId = requestAnimationFrame(loop);
-      });
-
-      btn.addEventListener('mouseleave', () => {
-        targetX = 0;
-        targetY = 0;
-        active = false;
-        if (!rafId) rafId = requestAnimationFrame(loop);
-      });
-    });
-  }
-
   function setupHeroParallax() {
     if (reduceMotion) return;
     if (window.matchMedia('(pointer: coarse)').matches) return;
@@ -286,48 +196,20 @@
     });
   }
 
-  function setupCursorDot() {
-    if (reduceMotion) return;
-    if (window.matchMedia('(pointer: coarse)').matches) return;
+  function setupAudienceSlider() {
+    const slider = document.getElementById('audience-slider');
+    if (!slider) return;
 
-    const dot = document.querySelector('.cursor-dot');
-    if (!dot) return;
-
-    let mx = -100;
-    let my = -100;
-    let dx = -100;
-    let dy = -100;
-    let started = false;
-    let rafId = null;
-
-    function loop() {
-      dx += (mx - dx) * 0.18;
-      dy += (my - dy) * 0.18;
-      dot.style.transform = `translate3d(${dx.toFixed(2)}px, ${dy.toFixed(2)}px, 0) translate(-50%, -50%)`;
-      rafId = requestAnimationFrame(loop);
-    }
-
-    document.addEventListener('mousemove', (e) => {
-      mx = e.clientX;
-      my = e.clientY;
-      if (!started) {
-        dx = mx;
-        dy = my;
-        started = true;
-        dot.classList.add('visible');
-        if (!rafId) rafId = requestAnimationFrame(loop);
-      }
-    });
-
-    document.addEventListener('mouseleave', () => dot.classList.remove('visible'));
-    document.addEventListener('mouseenter', () => {
-      if (started) dot.classList.add('visible');
-    });
-
-    const interactiveSelector = 'a, button, .btn, .tool-pill, .benefit-pill, .card, .tool-group, .capability-card, .strip-card, .mini-metric-card';
-    document.querySelectorAll(interactiveSelector).forEach((el) => {
-      el.addEventListener('mouseenter', () => dot.classList.add('hover'));
-      el.addEventListener('mouseleave', () => dot.classList.remove('hover'));
+    document.querySelectorAll('.audience-arrow').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const card = slider.querySelector('.audience-slide');
+        const gap = 20;
+        const step = card ? card.getBoundingClientRect().width + gap : 380;
+        slider.scrollBy({
+          left: step * Number(btn.dataset.dir || 1),
+          behavior: reduceMotion ? 'auto' : 'smooth'
+        });
+      });
     });
   }
 
