@@ -1,0 +1,2 @@
+[81502.163] GET https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap (Stylesheet) 200
+[81502.181] GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2 (Font) 200
