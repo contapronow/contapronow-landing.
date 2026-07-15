@@ -1,0 +1,12 @@
+[D9DC774AA1451A4B2F18B6B953907669] GET https://www.contapronow.com/ (Document) 200
+[81502.84] GET https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap (Stylesheet) 200
+[81502.86] GET https://www.contapronow.com/assets/css/styles.css (Stylesheet) 200
+[81502.88] GET https://www.contapronow.com/assets/img/hero-dashboard.png (Image) 200
+[81502.89] GET https://www.contapronow.com/assets/js/main.js (Script) 200
+[81502.90] GET https://www.contapronow.com/assets/js/chatbot.js (Script) 200
+[81502.121] GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2 (Font) 200
+[81502.96] GET https://www.contapronow.com/assets/icons/n8n.svg (Image) 200
+[81502.97] GET https://www.contapronow.com/assets/icons/openai.svg (Image) 200
+[81502.98] GET https://www.contapronow.com/assets/icons/wordpress.svg (Image) 200
+[81502.99] GET https://www.contapronow.com/assets/icons/stripe.svg (Image) 200
+[81502.100] GET https://www.contapronow.com/assets/icons/whatsapp.svg (Image) 200

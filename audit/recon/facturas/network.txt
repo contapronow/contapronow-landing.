@@ -1,0 +1,6 @@
+[FFD6476F923D0C6DFBE10FD365882B27] GET https://www.contapronow.com/automatizacion-facturas.html (Document) 200
+[81502.183] GET https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap (Stylesheet) 200
+[81502.185] GET https://www.contapronow.com/assets/css/styles.css (Stylesheet) 304
+[81502.187] GET https://www.contapronow.com/assets/js/main.js (Script) 304
+[81502.188] GET https://www.contapronow.com/assets/js/chatbot.js (Script) 304
+[81502.201] GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2 (Font) 200

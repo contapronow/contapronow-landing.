@@ -1,0 +1,6 @@
+[26849C124741415255EB873D7A2CDE17] GET https://www.contapronow.com/automatizacion-atencion-captacion.html (Document) 200
+[81502.163] GET https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap (Stylesheet) 200
+[81502.165] GET https://www.contapronow.com/assets/css/styles.css (Stylesheet) 304
+[81502.167] GET https://www.contapronow.com/assets/js/main.js (Script) 304
+[81502.168] GET https://www.contapronow.com/assets/js/chatbot.js (Script) 304
+[81502.181] GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2 (Font) 200

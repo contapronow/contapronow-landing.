@@ -1,0 +1,42 @@
+{
+  "date": "2026-07-15",
+  "branch": "audit/2026-07-15-fullscan",
+  "canonical_host_used": "https://www.contapronow.com",
+  "critical_findings": [
+    {
+      "id": "apex-domain-404",
+      "severity": "CRITICO",
+      "description": "El dominio apex https://contapronow.com/ (sin www) resuelve DNS correctamente a IPs de Vercel (76.76.21.21, 3.33.251.168, 15.197.225.128) pero devuelve HTTP 404 'Not Found' generico de Vercel en vez de servir el sitio. www.contapronow.com funciona perfectamente (HTTP 200, header server: Vercel).",
+      "evidence": "curl -sD - https://contapronow.com/ -> HTTP/2 404, body '<title>Not Found</title>'; curl -sD - https://www.contapronow.com/ -> HTTP/2 200",
+      "likely_cause": "El dominio apex probablemente no esta anadido/verificado como dominio del proyecto en el dashboard de Vercel, o esta asignado a otro proyecto. No es un problema de codigo del repo.",
+      "business_impact": "Cualquier usuario, backlink, o resultado de busqueda que use contapronow.com sin www ve una pagina de error en blanco. Perdida directa de trafico/conversion y dano de imagen de marca.",
+      "fix_location": "Vercel dashboard (Project Settings > Domains), NO en este repo",
+      "requires_user_confirmation": true
+    }
+  ],
+  "high_findings": [
+    {
+      "id": "broken-anchor-sobre-nosotros",
+      "severity": "ALTO",
+      "description": "El enlace de navegacion 'Sobre nosotros' en las 3 paginas de servicio apunta a /index.html#sobre-mi, pero el id real de la seccion en index.html es #sobre-nosotros (index.html:678). El enlace navega a index.html pero no hace scroll a la seccion (scrollY queda en 0).",
+      "affected_pages": ["automatizacion-facturas.html", "automatizacion-atencion-captacion.html", "web-captacion-estructura-digital.html"],
+      "evidence": "audit/recon/_findings/broken-anchor-sobre-mi.png + broken-anchor-sobre-mi.txt (verificado en vivo con agent-browser: click en 'Sobre nosotros' desde automatizacion-facturas.html -> URL final index.html#sobre-mi, window.scrollY = 0)",
+      "root_cause": "index.html en si mismo usa el anchor correcto (#sobre-nosotros, index.html:214). El nav duplicado en las 3 paginas de servicio quedo desincronizado."
+    },
+    {
+      "id": "legal-pages-unstyled-orphan",
+      "severity": "ALTO",
+      "description": "aviso-legal.html y privacidad.html no comparten ningun elemento del sitio: sin header/nav/footer, sin assets/css/styles.css, sin favicon, sin meta description/OG/canonical, sin chatbot. Son HTML plano con estilos inline minimos. Un usuario que llega ahi no tiene forma de volver al sitio salvo el boton atras del navegador.",
+      "affected_pages": ["aviso-legal.html", "privacidad.html"],
+      "evidence": "Lectura directa de archivos; recon confirma 1 sola request de red (el documento) vs 6-12 en el resto de paginas"
+    }
+  ],
+  "clean_checks": [
+    "Los 8 enlaces/recursos internos comprobados devuelven HTTP 200 en www.contapronow.com (/, 3 paginas de servicio, aviso-legal, privacidad, styles.css, favicon.svg)",
+    "Sin errores de consola JS en ninguna de las 6 paginas durante carga (networkidle)",
+    "Sin requests de red con status 4xx/5xx reales en ninguna pagina (se revisaron todas las respuestas no-200/304)",
+    "Chatbot widget (assets/js/chatbot.js) y CTA de WhatsApp presentes en home + 3 paginas de servicio; nav dice 'Sobre nosotros' consistentemente (aunque el href difiere, ver hallazgo ALTO)"
+  ],
+  "pages_captured": ["home", "atencion", "facturas", "web", "aviso", "privacidad"],
+  "artifacts_per_page": ["title.txt", "console.txt", "errors.txt", "network.txt", "network_4xx.txt", "network_5xx.txt", "desktop_1440.png", "mobile_390.png"]
+}

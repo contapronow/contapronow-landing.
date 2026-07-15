@@ -1,0 +1,6 @@
+[431787F658341B971BFF006A0247F0BB] GET https://www.contapronow.com/web-captacion-estructura-digital.html (Document) 200
+[81502.203] GET https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap (Stylesheet) 200
+[81502.205] GET https://www.contapronow.com/assets/css/styles.css (Stylesheet) 304
+[81502.207] GET https://www.contapronow.com/assets/js/main.js (Script) 304
+[81502.208] GET https://www.contapronow.com/assets/js/chatbot.js (Script) 304
+[81502.221] GET https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2 (Font) 200
