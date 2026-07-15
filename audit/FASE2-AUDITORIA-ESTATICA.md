@@ -2,6 +2,8 @@
 
 Fecha: 2026-07-15 · Rama: `audit/2026-07-15-fullscan`
 
+> **Actualización 2026-07-15**: C2, A1, A3 y el nivel "mínimo + rate limiting básico" de C1 ya están **implementados y verificados** en esta rama (ver commit siguiente). M1 se resolvió también (reencodeado `hero-dashboard.png` a WebP real, `hero.webp` era una foto de stock sin relación, no una versión ligera — corrección respecto a la nota original de M1). Pendiente: push de la rama + preview de Vercel antes de cualquier merge a `main`.
+
 ## CRÍTICO
 
 ### C1. Endpoint /api/chat es un proxy abierto a OpenAI (sin validar) + system prompt NO es server-side
@@ -33,12 +35,12 @@ Nav de las 3 páginas de servicio apunta a `/index.html#sobre-mi`; el id real es
 
 ## MEDIO
 
-### M1. LCP de portada no usa WebP/AVIF pese a tener ya un WebP más ligero sin usar
-- **Archivo**: `index.html:294` usa `hero-dashboard.png` (985 KB). Ya existe `assets/img/hero.webp` (685 KB) en el repo pero **no está referenciado en ningún HTML** — parece un asset huérfano de una iteración anterior.
-- **Sugerencia**: confirmar cuál es la imagen hero vigente y servirla en WebP/AVIF con `<picture>` + fallback PNG.
+### M1. ~~LCP de portada no usa WebP/AVIF~~ — RESUELTO
+- **Corrección respecto a la nota original**: `assets/img/hero.webp` **no es una versión ligera de `hero-dashboard.png`** — es una foto de stock sin relación (persona firmando un formulario, 6016×4016px, 685 KB) que no se usa en ningún HTML. Fue un error de mi primera lectura del repo, no una alternativa válida.
+- **Fix aplicado**: reencodeado el `hero-dashboard.png` real (985 KB, 1536×1024) a WebP genuino con Pillow → `assets/img/hero-dashboard.webp` (58.5 KB, **-94%**). `index.html` ahora sirve `<picture><source type="image/webp">` + fallback `<img>` PNG idéntico al original. Verificado en el preview local: el navegador carga el `.webp`.
 
 ### M2. ~11 MB de imágenes huérfanas en el repo
-No referenciadas en ningún HTML: `hero.webp`, `sobre-mi.webp`, `sobre-mi.jpg` (**4.4 MB**, sospechosamente pesado), `hero-operativa.jpg` (1.6 MB), `servicio-captacion-leads.png`, `operativa-conectada.png`, `servicio-facturas.png`, `servicio-web.png` (~1.1-1.2 MB cada una). No afectan al rendimiento en producción (no se descargan), pero inflan el repo/despliegue. Confirmar si son necesarias antes de borrarlas.
+No referenciadas en ningún HTML: `hero.webp` (foto de stock sin relación, ver M1), `sobre-mi.webp`, `sobre-mi.jpg` (**4.4 MB**, sospechosamente pesado), `hero-operativa.jpg` (1.6 MB), `servicio-captacion-leads.png`, `operativa-conectada.png`, `servicio-facturas.png`, `servicio-web.png` (~1.1-1.2 MB cada una). No afectan al rendimiento en producción (no se descargan), pero inflan el repo/despliegue. Confirmar si son necesarias antes de borrarlas — no se ha tocado nada aquí todavía.
 
 ### M3. Falta cabecera Content-Security-Policy
 `vercel.json` tiene X-Content-Type-Options, X-Frame-Options, Referrer-Policy, Permissions-Policy y HSTS, pero no CSP. Dado que el sitio carga Google Fonts, llama a `/api/chat` y a un webhook externo de n8n, una CSP añadiría una capa extra de defensa (aunque no se detectó ninguna inyección XSS explotable — el chat widget usa `textContent`, no `innerHTML`, para pintar mensajes).
