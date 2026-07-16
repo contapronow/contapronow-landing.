@@ -1,0 +1,19 @@
+{
+  "name": "@its-thepoe/design-motion-principles",
+  "version": "1.0.1",
+  "description": "Agent Skill: motion and interaction design audit (Emil Kowalski, Jakub Krehel, Jhey Tompkins lenses).",
+  "license": "MIT",
+  "keywords": ["agent-skills", "motion", "animation", "accessibility", "cursor"],
+  "files": [
+    "README.md",
+    "SKILL.md",
+    "audit-checklist.md",
+    "package.json",
+    "references"
+  ],
+  "exports": {
+    ".": "./SKILL.md",
+    "./SKILL.md": "./SKILL.md",
+    "./audit-checklist.md": "./audit-checklist.md"
+  }
+}
