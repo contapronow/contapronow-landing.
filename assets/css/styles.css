@@ -4,8 +4,8 @@
   --bg-alt: #ECE4D4;
   --surface: #FBF8F1;
   --surface-2: #F6F0E5;
-  --surface-dark: #1A1210;  /* Tinta */
-  --surface-dark-2: #251B17;
+  --surface-dark: #181E1E;  /* Basalto — gris volcanico */
+  --surface-dark-2: #20282A;
 
   --text: #1A1210;          /* Tinta */
   --text-soft: #4D4038;
@@ -18,6 +18,8 @@
   --accent: #B85838;        /* Teide — solo highlighter/alertas */
   --brand-soft: rgba(42, 58, 40, 0.08);
   --brand-soft-2: rgba(122, 140, 111, 0.15);
+  --bruma: #2E4450;         /* Azul-gris atlantico — fondos suaves/social */
+  --basalto: #181E1E;       /* Gris volcanico oscuro — fondos intermedios */
 
   --line: rgba(26, 18, 16, 0.1);
   --line-strong: rgba(26, 18, 16, 0.16);
