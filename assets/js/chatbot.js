@@ -11,7 +11,10 @@
   // ────────────────────────────────────────────────────────────────────
   // CONFIG
   // ────────────────────────────────────────────────────────────────────
-  const N8N_WEBHOOK_URL = 'https://n8n-production-2fd6c.up.railway.app/webhook/lead-chatbot';
+  // El lead se envía a nuestro propio endpoint serverless (/api/lead), que
+  // valida y reenvía a n8n desde el servidor. Así la URL de n8n ya no vive
+  // en el cliente ni es invocable directamente desde el navegador.
+  const LEAD_API_URL = '/api/lead';
   const CHAT_API_URL = '/api/chat';
 
   // NOTA DE SEGURIDAD: el SYSTEM_PROMPT ya NO vive aquí. Lo impone el servidor
@@ -316,15 +319,15 @@
       });
       if (params.email && params.email.includes('@')) {
         leadDone = true;
-        sendLeadToN8n(params);
+        sendLead(params);
         setTimeout(showLeadConfirm, 600);
       }
     }
   }
 
-  async function sendLeadToN8n(lead) {
+  async function sendLead(lead) {
     try {
-      await fetch(N8N_WEBHOOK_URL, {
+      await fetch(LEAD_API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -333,9 +336,8 @@
           interes: lead.interes || 'No especificado'
         })
       });
-      console.log('✅ Lead enviado a n8n:', lead);
     } catch (err) {
-      console.error('Error enviando lead a n8n:', err);
+      console.error('Error enviando lead:', err);
     }
   }
 
