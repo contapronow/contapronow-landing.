@@ -1,0 +1,122 @@
+{
+  "name": "voz-agente_cleanup-30d",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "cronExpression", "expression": "0 3 * * *" }]
+        }
+      },
+      "id": "cron-trigger",
+      "name": "Cron — 3:00 AM diario",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://tvkdhjxatkehuryvnjmu.supabase.co/rest/v1/rpc/va_purge_expired_recordings",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $credentials.value }}" },
+            { "name": "Authorization", "value": "=Bearer {{ $credentials.value }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {}
+      },
+      "id": "purge-recordings",
+      "name": "Purgar grabaciones expiradas (SQL)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [480, 300],
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "voz_supabase_service_role"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const purgedCount = $input.first().json;\nconsole.log(`[voz-agente cleanup] Grabaciones purgadas: ${purgedCount}`);\nreturn [{ json: { purged: purgedCount, ts: new Date().toISOString() } }];"
+      },
+      "id": "log-result",
+      "name": "Log resultado",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Limpiar rate_limits antiguos (>5 minutos)\nreturn [{ json: { action: 'cleanup_rate_limits' } }];"
+      },
+      "id": "cleanup-rate-limits",
+      "name": "Limpiar rate_limits",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [720, 460]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://tvkdhjxatkehuryvnjmu.supabase.co/rest/v1/rpc/va_cleanup_rate_limits",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $credentials.value }}" },
+            { "name": "Authorization", "value": "=Bearer {{ $credentials.value }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{}",
+        "options": {}
+      },
+      "id": "run-cleanup-fn",
+      "name": "Ejecutar va_cleanup_rate_limits",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [960, 460],
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "voz_supabase_service_role"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Cron — 3:00 AM diario": {
+      "main": [
+        [
+          { "node": "Purgar grabaciones expiradas (SQL)", "type": "main", "index": 0 },
+          { "node": "Limpiar rate_limits", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Purgar grabaciones expiradas (SQL)": {
+      "main": [[{ "node": "Log resultado", "type": "main", "index": 0 }]]
+    },
+    "Limpiar rate_limits": {
+      "main": [[{ "node": "Ejecutar va_cleanup_rate_limits", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true
+  },
+  "staticData": null,
+  "tags": [{ "name": "voz-agente" }],
+  "triggerCount": 1,
+  "updatedAt": "2026-07-25T00:00:00.000Z",
+  "versionId": "1"
+}

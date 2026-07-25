@@ -1,0 +1,48 @@
+# Fly.io config para voz-agente-tools
+# Desplegar con: fly deploy (desde /voz-agente/src)
+
+app = "voz-agente-tools"
+primary_region = "mad"  # Madrid — más cerca de Canarias
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8080"
+  NODE_ENV = "production"
+  LOG_LEVEL = "info"
+  TZ = "Atlantic/Canary"
+
+[[services]]
+  protocol = "tcp"
+  internal_port = 8080
+  auto_stop_machines = false   # CRÍTICO: siempre warm para latencia <200ms
+  auto_start_machines = true
+  min_machines_running = 1
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+
+  [services.concurrency]
+    type = "requests"
+    hard_limit = 100
+    soft_limit = 80
+
+  [[services.http_checks]]
+    interval = "15s"
+    timeout = "5s"
+    grace_period = "10s"
+    method = "GET"
+    path = "/health"
+
+[resources]
+  [resources.compute]
+    # shared-1x-256mb es suficiente para el microservicio. Escalar si llega tráfico real.
+    cpu_kind = "shared"
+    cpus = 1
+    memory_mb = 256

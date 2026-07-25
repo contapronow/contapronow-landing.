@@ -1,0 +1,24 @@
+# Secretos — NUNCA al repo
+.env
+.env.local
+.env.production
+secrets/
+*.pem
+*.key
+google-sa.json
+
+# Node
+node_modules/
+dist/
+.cache/
+
+# Fly.io estado local
+.fly/
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
