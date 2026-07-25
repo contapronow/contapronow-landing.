@@ -42,7 +42,7 @@
   "backchannelingEnabled": true,
   "backgroundDenoisingEnabled": true,
   "server": {
-    "url": "{{MICROSERVICE_URL}}/tools",
+    "url": "{{MICROSERVICE_URL}}/webhook/post-call",
     "secret": "{{VAPI_WEBHOOK_SECRET}}",
     "timeoutSeconds": 0.9
   },

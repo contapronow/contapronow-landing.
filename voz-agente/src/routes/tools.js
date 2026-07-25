@@ -55,6 +55,10 @@ async function toolsRoutes(fastify) {
     const toolCallId = toolCallList?.[0]?.id;
     const args = toolCallList?.[0]?.function?.arguments ?? {};
 
+    if (!call?.assistantId) {
+      return reply.send(toolResult(toolCallId, { status: 'error', message: CORTESIA.info }));
+    }
+
     try {
       const business = await withTimeout(
         getBusinessByAssistantId(call.assistantId),
@@ -94,6 +98,10 @@ async function toolsRoutes(fastify) {
     const { call, toolCallList } = req.body?.message ?? {};
     const toolCallId = toolCallList?.[0]?.id;
     const args = toolCallList?.[0]?.function?.arguments ?? {};
+
+    if (!call?.assistantId) {
+      return reply.send(toolResult(toolCallId, { status: 'error', message: CORTESIA.availability }));
+    }
 
     try {
       const business = await withTimeout(
@@ -150,6 +158,10 @@ async function toolsRoutes(fastify) {
     const { call, toolCallList } = req.body?.message ?? {};
     const toolCallId = toolCallList?.[0]?.id;
     const args = toolCallList?.[0]?.function?.arguments ?? {};
+
+    if (!call?.assistantId) {
+      return reply.send(toolResult(toolCallId, { status: 'error', message: CORTESIA.booking }));
+    }
 
     try {
       const business = await withTimeout(
@@ -296,11 +308,15 @@ function getNextWorkday(business) {
 }
 
 function toTzDate(date, timeStr, tz) {
-  const [h, m] = timeStr.split(':').map(Number);
-  const d = new Date(date);
-  // Crear fecha en la timezone del negocio
-  const str = `${d.toLocaleDateString('en-CA', { timeZone: tz })}T${timeStr}:00`;
-  return new Date(new Date(str).toLocaleString('en-US', { timeZone: tz }) + ' UTC+0');
+  // Obtener la fecha local en la timezone del negocio ("YYYY-MM-DD")
+  const dateStr = new Date(date).toLocaleDateString('en-CA', { timeZone: tz });
+  // Tratar timeStr como si fuera UTC (naive)
+  const naive = new Date(`${dateStr}T${timeStr}:00Z`);
+  // ¿Qué hora local muestra naive en la tz del negocio?
+  const localIso = naive.toLocaleString('sv-SE', { timeZone: tz }).replace(' ', 'T');
+  // Diferencia = cuánto hay que corregir para que el local sea exactamente timeStr
+  const diffMs = naive.getTime() - new Date(`${localIso}Z`).getTime();
+  return new Date(naive.getTime() + diffMs);
 }
 
 export default toolsRoutes;
