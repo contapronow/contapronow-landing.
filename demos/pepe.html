@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pepe · demo · ContaProNow</title>
+<meta name="description" content="Preparé esta demo para que veas cómo un comercial inmobiliario deja de perder leads fuera de oficina. Chatbot real y agente de voz en directo — pruébalos tú mismo.">
+<meta name="robots" content="noindex,nofollow">
+
+<!-- OG para preview bonita en WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pepe · una demo hecha para ti">
+<meta property="og:description" content="Chatbot real y asistente de voz en directo. Pruébalos como si fueras un cliente de Piso Barato.">
+<meta property="og:site_name" content="ContaProNow">
+<meta property="og:locale" content="es_ES">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,800;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --arena:#F2EBE0; --laurisilva:#2A3A28; --sage:#7A8C6F; --teide:#B85838;
+  --noche:#0A0A0A; --basalto:#181E1E; --calima:#C8924A; --polvorienta:#A89880; --arena2:#E8DFCF;
+  --display:'Fraunces',Georgia,serif;
+  --body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --gut:24px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--noche);color:var(--arena);font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+
+/* Uso transform:scaleX en vez de animar width para no disparar layout thrash
+   en cada scroll. El puntero del compañero (CONTAPRONOW_GUIA.html) usa width
+   por simplicidad; aquí subimos la calidad porque esta demo va a producción. */
+#bar{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--teide);z-index:99;transform:scaleX(0);transform-origin:0 50%;transition:transform .1s linear;will-change:transform}
+
+.sec{padding:76px var(--gut);position:relative;border-top:1px solid rgba(242,235,224,.09)}
+.sec:first-of-type{border-top:none}
+.wrap{max-width:640px;margin:0 auto}
+@media(min-width:900px){
+  .sec{padding:104px 40px}
+  .wrap{max-width:940px;display:grid;grid-template-columns:118px 1fr;gap:44px}
+  .gutter{grid-column:1}
+  .col{grid-column:2;max-width:640px}
+}
+.gutter{margin-bottom:26px}
+@media(min-width:900px){.gutter{margin-bottom:0;position:sticky;top:60px;align-self:start}}
+
+.tag{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--sage)}
+.num{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--polvorienta);opacity:.65;display:block;margin-bottom:8px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(38px,10.5vw,78px);line-height:.96;letter-spacing:-.025em}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,7.2vw,50px);line-height:1.02;letter-spacing:-.02em;margin-bottom:22px}
+h3{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.15;letter-spacing:-.01em}
+.it{font-style:italic;font-weight:300;color:var(--teide)}
+p{font-size:16.5px;line-height:1.62;color:var(--polvorienta);margin-bottom:17px;max-width:56ch}
+p strong{color:var(--arena);font-weight:600}
+p.lead{font-size:18.5px;color:var(--arena);font-weight:500}
+.src{font-family:var(--mono);font-size:11px;opacity:.6;letter-spacing:.04em}
+
+.cp{font-family:var(--display);font-weight:800;letter-spacing:-.04em;line-height:1;display:inline-block}
+.cp i{font-style:normal;color:var(--teide)}
+
+#hero{min-height:88vh;display:flex;flex-direction:column;justify-content:space-between;padding-top:34px;padding-bottom:40px}
+#hero .top{display:flex;justify-content:space-between;align-items:baseline}
+#hero .top .cp{font-size:27px}
+#hero .greeting{font-family:var(--mono);font-size:12.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--calima);margin-bottom:16px;display:block}
+#hero h1{margin:auto 0 0}
+.mark{position:relative;display:inline-block}
+.mark svg{position:absolute;left:-2%;bottom:-.13em;width:104%;height:.28em;overflow:visible}
+.mark path{stroke:var(--teide);stroke-width:8;stroke-linecap:round;fill:none;
+  stroke-dasharray:340;stroke-dashoffset:340;animation:draw 1.1s cubic-bezier(.6,0,.2,1) 1.1s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+#hero .sub{margin-top:34px;padding-top:22px;border-top:1px solid rgba(242,235,224,.14);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* ── Chatbot embebido ───────────────────────────────────────────── */
+.frame{border-left:2px solid var(--teide);padding:14px 0 14px 18px;margin:18px 0 26px;font-family:var(--mono);font-size:13px;color:var(--arena);letter-spacing:.02em;line-height:1.55}
+.chatbox{background:var(--basalto);border:1px solid rgba(242,235,224,.1);border-radius:4px;overflow:hidden;margin-top:22px}
+.chatbox .chead{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid rgba(242,235,224,.08);background:rgba(184,88,56,.06)}
+.chatbox .dot{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 3px rgba(74,222,128,.15);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.55}}
+.chatbox .ctitle{font-family:var(--display);font-weight:700;font-size:15px;color:var(--arena)}
+.chatbox .cmeta{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);margin-left:auto}
+.chatbox .clog{min-height:220px;max-height:400px;overflow-y:auto;padding:20px 18px;display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth}
+.chatbox .msg{max-width:88%;padding:10px 14px;border-radius:14px;font-size:14.5px;line-height:1.5;word-wrap:break-word;white-space:pre-wrap}
+.chatbox .msg.bot{align-self:flex-start;background:rgba(242,235,224,.08);color:var(--arena);border-bottom-left-radius:4px}
+.chatbox .msg.you{align-self:flex-end;background:var(--arena);color:var(--noche);border-bottom-right-radius:4px}
+.chatbox .msg.sys{align-self:center;background:transparent;color:var(--polvorienta);font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;text-align:center;max-width:100%;padding:6px 10px}
+.chatbox .typing{align-self:flex-start;display:flex;gap:4px;padding:12px 14px;background:rgba(242,235,224,.08);border-radius:14px;border-bottom-left-radius:4px}
+.chatbox .typing span{width:6px;height:6px;background:var(--polvorienta);border-radius:50%;animation:typ 1.2s ease-in-out infinite}
+.chatbox .typing span:nth-child(2){animation-delay:.15s}
+.chatbox .typing span:nth-child(3){animation-delay:.3s}
+@keyframes typ{0%,60%,100%{opacity:.3}30%{opacity:1;transform:translateY(-2px)}}
+.chatbox .cinput{display:flex;gap:8px;padding:14px 18px;border-top:1px solid rgba(242,235,224,.08);background:rgba(0,0,0,.25)}
+.chatbox .cinput input{flex:1;background:rgba(242,235,224,.05);border:1px solid rgba(242,235,224,.12);border-radius:3px;padding:11px 14px;color:var(--arena);font-family:var(--body);font-size:14.5px;outline:none;transition:border .15s}
+.chatbox .cinput input:focus{border-color:var(--sage)}
+.chatbox .cinput input::placeholder{color:var(--polvorienta);opacity:.7}
+.chatbox .cinput button{background:var(--teide);color:var(--arena);border:0;padding:0 20px;border-radius:3px;font-family:var(--body);font-weight:600;font-size:14px;cursor:pointer;transition:opacity .15s}
+.chatbox .cinput button:hover{opacity:.88}
+.chatbox .cinput button:disabled{opacity:.35;cursor:not-allowed}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:12px 18px 4px}
+.chip{font-family:var(--body);font-size:12.5px;color:var(--polvorienta);background:transparent;border:1px solid rgba(242,235,224,.16);border-radius:3px;padding:7px 11px;cursor:pointer;transition:all .15s;text-align:left;line-height:1.3}
+.chip:hover{border-color:var(--sage);color:var(--arena)}
+.captured{margin-top:14px;padding:14px 18px;border-top:1px solid rgba(74,222,128,.25);background:rgba(74,222,128,.06);color:#a7f3d0;font-family:var(--mono);font-size:12px;letter-spacing:.05em;line-height:1.55}
+.captured b{color:#4ade80}
+
+/* ── Bloque llamada agente voz ──────────────────────────────────── */
+.callcard{background:var(--basalto);border:1px solid rgba(242,235,224,.1);border-radius:4px;padding:32px 28px;margin-top:22px}
+.callcard h3{margin-bottom:14px;color:var(--arena)}
+.callcard p{font-size:15px;margin-bottom:22px}
+.callcard .cbtn{display:inline-flex;align-items:center;gap:12px;background:var(--calima);color:var(--noche);font-family:var(--body);font-weight:700;font-size:16px;padding:16px 26px;border-radius:3px;text-decoration:none;transition:all .15s;border:0;cursor:pointer}
+.callcard .cbtn:hover{background:#d9a25a}
+.callcard .cbtn svg{width:20px;height:20px;flex-shrink:0}
+.callcard .cnote{margin-top:18px;font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--polvorienta);line-height:1.55;max-width:100%}
+
+/* ── Cómo encajaría ─────────────────────────────────────────────── */
+.scen{padding:22px 0;border-bottom:1px solid rgba(242,235,224,.09)}
+.scen:last-child{border-bottom:none}
+.scen .sk{font-family:var(--mono);font-size:11px;letter-spacing:.11em;color:var(--sage);display:block;margin-bottom:6px;text-transform:uppercase}
+.scen h3{margin-bottom:6px}
+.scen p{font-size:15px;margin:0}
+
+/* ── Método CP ──────────────────────────────────────────────────── */
+.step{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:19px 0;border-bottom:1px solid rgba(242,235,224,.09)}
+.step:last-child{border-bottom:none}
+.step .n{font-family:var(--mono);font-size:13px;color:var(--calima);padding-top:4px}
+.step h3{margin-bottom:5px}
+.step p{font-size:15px;margin:0}
+
+/* ── Cierre ─────────────────────────────────────────────────────── */
+#cierre{position:relative;overflow:hidden;padding-top:96px;padding-bottom:96px;background:var(--basalto);border-top:none}
+#cierre .ghost{position:absolute;right:-6%;bottom:-16%;font-family:var(--display);font-weight:800;
+  font-size:clamp(230px,54vw,430px);letter-spacing:-.05em;color:var(--arena);opacity:.045;pointer-events:none;line-height:1}
+#cierre .wrap{position:relative;z-index:2}
+.acts{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.btn{font-family:var(--body);font-weight:600;font-size:15px;padding:15px 26px;border-radius:2px;
+  border:1px solid var(--arena);background:var(--arena);color:var(--noche);cursor:pointer;
+  text-decoration:none;display:inline-block;transition:all .15s;text-align:center}
+.btn:hover{background:var(--arena2);border-color:var(--arena2)}
+.btn.ghost{background:transparent;color:var(--arena);border-color:rgba(242,235,224,.35)}
+.btn.ghost:hover{border-color:var(--arena)}
+.btn:focus-visible{outline:2px solid var(--teide);outline-offset:2px}
+.sig{margin-top:34px;padding-top:22px;border-top:1px solid rgba(242,235,224,.14);
+  font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--polvorienta);line-height:2}
+.sig a{color:var(--arena);text-decoration:none;border-bottom:1px solid var(--teide);padding-bottom:1px}
+
+.rev{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.rev.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<!-- 01 · Hero personalizado -->
+<section class="sec" id="hero">
+  <div class="top">
+    <span class="cp">cp<i>.</i></span>
+    <span class="tag">01/07</span>
+  </div>
+  <div>
+    <span class="greeting">Pepe · una demo hecha para ti</span>
+    <h1>Te preparé esto para que veas cómo un comercial inmobiliario deja de <span class="mark">perder leads<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 13 Q 78 4, 152 11 T 296 8"/></svg></span> fuera de oficina.</h1>
+    <div class="sub">
+      <span class="tag">Piso Barato · Tenerife</span>
+      <span class="tag">2026 · demo</span>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · El problema -->
+<section class="sec">
+  <div class="wrap">
+    <div class="gutter"><span class="num">02/07</span><span class="tag">Lo que pasa</span></div>
+    <div class="col">
+      <h2>Un lead que no contestas en cinco minutos es un lead <span class="it">perdido</span>.</h2>
+      <p class="lead">Piso Barato tiene <strong>cuatro oficinas y más de dos mil propiedades activas</strong>. Y aun así, la mitad del trabajo llega fuera de horario o en momentos donde el comercial no puede coger el móvil.</p>
+      <p>El turista de Alemania escribe a las once de la noche. El comprador que ha visto un piso en Idealista llama un sábado por la tarde. Y las mismas preguntas de siempre (<em>"¿precio?", "¿disponible?", "¿zona?"</em>) se responden veinte veces al día, quitándole tiempo al comercial para lo que de verdad cierra: la visita.</p>
+      <p>El resultado se ve en Google: <strong>el que no encuentra respuesta no espera. Llama al siguiente.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · Chatbot demo -->
+<section class="sec">
+  <div class="wrap">
+    <div class="gutter"><span class="num">03/07</span><span class="tag">Chatbot · demo real</span></div>
+    <div class="col">
+      <h2>Habla con Sara como si fueras un cliente.</h2>
+      <p>El chatbot de abajo es <strong>real</strong>, no una simulación. Está entrenado con perfil de inmobiliaria canaria genérica. Pregúntale lo que le preguntaría un comprador de verdad. Cuando termines, sigue bajando.</p>
+      <div class="frame">Ejemplos: <em>"busco piso 2 hab en La Laguna hasta 200k"</em> · <em>"¿tenéis alquileres en Los Cristianos?"</em> · <em>"¿hacéis hipotecas?"</em></div>
+
+      <div class="chatbox" id="chatbox">
+        <div class="chead">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="ctitle">Sara · asistente virtual</span>
+          <span class="cmeta">en línea</span>
+        </div>
+        <div class="clog" id="clog" aria-live="polite" aria-label="Conversación con el asistente">
+          <div class="msg bot">Hola, soy Sara, del equipo de Piso Barato Inmobiliaria. Estoy 24 horas al día para atender lo que necesites. ¿Buscas piso, alquiler, o quieres información sobre hipoteca?</div>
+        </div>
+        <div class="chips" id="chips">
+          <button class="chip" type="button" data-q="Busco piso de 2 habitaciones en La Laguna, hasta 200.000 €">Piso 2 hab · La Laguna · 200k</button>
+          <button class="chip" type="button" data-q="¿Tenéis alquileres en Los Cristianos?">Alquileres en Los Cristianos</button>
+          <button class="chip" type="button" data-q="¿Hacéis hipotecas?">¿Hacéis hipotecas?</button>
+          <button class="chip" type="button" data-q="Quiero poner mi piso a la venta">Vender mi piso</button>
+        </div>
+        <form class="cinput" id="cinput" autocomplete="off">
+          <label for="cmsg" class="tag" style="position:absolute;left:-9999px">Escribe tu mensaje</label>
+          <input id="cmsg" type="text" placeholder="Escribe algo o toca una sugerencia arriba…" maxlength="500" required>
+          <button type="submit" id="csend">Enviar</button>
+        </form>
+        <div class="captured" id="captured" hidden></div>
+      </div>
+
+      <p class="src" style="margin-top:22px">Cada respuesta la genera el asistente en tiempo real. Nada guionizado.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · Agente de voz real -->
+<section class="sec">
+  <div class="wrap">
+    <div class="gutter"><span class="num">04/07</span><span class="tag">Voz · demo real</span></div>
+    <div class="col">
+      <h2>Y ahora, <span class="it">llámala</span>.</h2>
+      <p>Este botón abre una llamada real con el mismo asistente, pero por voz. No hace falta ningún número ni marcar. Habla con ella como si fueras un comprador interesado en un piso. Cuelga cuando quieras.</p>
+
+      <div class="callcard">
+        <h3>Llama a Sara ahora</h3>
+        <p>Filtra al interesado, coge datos, y en producción te pasa la llamada al comercial de guardia. Aquí solo escucha y responde — es la misma tecnología, en modo demo.</p>
+        <a class="cbtn" href="https://voz-agente-tools.fly.dev/prueba/b2747521b552953661ff682ede84347e" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span>Abrir llamada · voz castellana</span>
+        </a>
+        <p class="cnote">Usa auriculares. La llamada dura menos de 3 minutos. Es la misma voz que atiende el teléfono de una tienda real que tenemos ya en producción en Tenerife.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · Cómo encajaría en Piso Barato -->
+<section class="sec">
+  <div class="wrap">
+    <div class="gutter"><span class="num">05/07</span><span class="tag">Cómo encaja</span></div>
+    <div class="col">
+      <h2>Lo que esto tapa, en tu día a día.</h2>
+      <p style="margin-bottom:28px">Sin cambiar el CRM, sin tocar los portales, sin que ningún comercial tenga que aprender nada nuevo.</p>
+
+      <div class="scen">
+        <span class="sk">Escenario 01</span>
+        <h3>WhatsApp 24/7 para leads internacionales</h3>
+        <p>Atiende al alemán que escribe a las once de la noche, al inglés del sábado, y al comprador local del domingo. Filtra los serios, te los pasa por la mañana ya con nombre, teléfono, zona y presupuesto.</p>
+      </div>
+
+      <div class="scen">
+        <span class="sk">Escenario 02</span>
+        <h3>Agente de voz para llamadas fuera de oficina</h3>
+        <p>Coge las llamadas que hoy se quedan sin coger. Responde lo básico, agenda visita cuando toca, y cuando el asunto es serio te pasa el aviso al comercial de guardia. Las cuatro sedes, un solo sistema.</p>
+      </div>
+
+      <div class="scen">
+        <span class="sk">Escenario 03</span>
+        <h3>Multi-oficina con enrutado por zona</h3>
+        <p>El que pregunta por Los Cristianos va al comercial de Los Cristianos. El de La Laguna, al de La Laguna. No se cruzan leads. Ni se pierden por confusión.</p>
+      </div>
+
+      <div class="scen">
+        <span class="sk">Escenario 04</span>
+        <h3>Se conecta con lo que ya tenéis</h3>
+        <p>Con el CRM, con la agenda, con el WhatsApp Business que ya usa el equipo. No sustituye nada; añade una capa que trabaja las 24 horas y no cobra comisión por venta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · Método CP (copiado de la guía del compañero) -->
+<section class="sec">
+  <div class="wrap">
+    <div class="gutter"><span class="num">06/07</span><span class="tag">Cómo trabajamos</span></div>
+    <div class="col">
+      <h2>Seis pasos. En una semana está todo funcionando.</h2>
+      <p style="margin-bottom:26px">Así trabajamos, siempre, con todo el mundo. Sin excepciones.</p>
+      <div class="step"><span class="n">01</span><div><h3>Primera llamada</h3><p>Treinta minutos. Entendemos vuestro negocio, vuestros números y qué queréis conseguir. Sin objetivos definidos, no empezamos.</p></div></div>
+      <div class="step"><span class="n">02</span><div><h3>Contrato y factura</h3><p>Firmados el mismo día. Condiciones claras, garantía incluida, sin letra pequeña.</p></div></div>
+      <div class="step"><span class="n">03</span><div><h3>Arrancamos · día 1</h3><p>El primer día ya hay trabajo hecho. No hay reunión de presentación: el día uno es trabajo.</p></div></div>
+      <div class="step"><span class="n">04</span><div><h3>Primeros resultados · 72 horas</h3><p>Prioridades definidas, correcciones críticas aplicadas, sistemas conectados y primer informe entregado.</p></div></div>
+      <div class="step"><span class="n">05</span><div><h3>Sistema completo · semana 1</h3><p>Todo activo y documentado: presencia digital, reservas, procesos automáticos, panel de control e informe mensual.</p></div></div>
+      <div class="step"><span class="n">06</span><div><h3>Garantía · 30 días</h3><p>Si no cumplimos los objetivos que fijamos contigo en la primera llamada, se devuelve el dinero.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 · Cierre + 2 CTAs -->
+<section class="sec" id="cierre">
+  <div class="ghost">cp.</div>
+  <div class="wrap">
+    <div class="gutter"><span class="cp" style="font-size:24px">cp<i>.</i></span></div>
+    <div class="col">
+      <h2>Pepe · si esto te ha sonado a algo real, hablamos.</h2>
+      <p class="lead" style="color:var(--arena)">Media hora, sin compromiso. Voy a la oficina que te venga bien o hablamos por teléfono. Tú eliges.</p>
+      <p>Y si a ti no te encaja pero <strong>conoces a alguien del sector</strong> a quien le pete la cabeza esto, pásale este link. No hay pitch, no hay presión: solo la demo que acabas de ver.</p>
+
+      <div class="acts" id="acts"></div>
+
+      <div class="sig" id="sig"></div>
+    </div>
+  </div>
+</section>
+
+<script src="./pepe.js" defer></script>
+</body>
+</html>
