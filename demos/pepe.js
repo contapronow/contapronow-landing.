@@ -148,13 +148,13 @@ chipsBox.addEventListener('click', (e) => {
 
 const tel = CONFIG.whatsapp.replace(/[^0-9]/g, '');
 
-const msgWa = '¡Hola Abián! Soy Pepe, vi la demo que preparaste. Me encajaría hablar contigo 30 min.';
+// Solo CTA de reenvío. El CTA de "hablamos" se quitó a propósito: Abián se lo
+// dice a Pepe verbalmente por WhatsApp cuando le mande el enlace, así la
+// landing no repite lo que ya está en el mensaje. Menos ruido, más señal.
 const msgRe = 'Oye, mira esta demo que me pasó Abián de ContaProNow. Es una inmobiliaria y va con IA. Piensa que puede encajarte: ' + CONFIG.landingUrl;
 
 document.getElementById('acts').innerHTML =
-  '<a class="btn" target="_blank" rel="noopener" href="https://wa.me/' + tel +
-    '?text=' + encodeURIComponent(msgWa) + '">Le echamos un ojo juntos · WhatsApp</a>' +
-  '<a class="btn ghost" target="_blank" rel="noopener" href="https://wa.me/?text=' +
+  '<a class="btn" target="_blank" rel="noopener" href="https://wa.me/?text=' +
     encodeURIComponent(msgRe) + '">Pasarle esto a alguien del sector</a>';
 
 document.getElementById('sig').innerHTML =
