@@ -4,12 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ContaProNow · demo</title>
-<meta name="description" content="Un asistente de WhatsApp y otro de llamada. Los dos hablan por tu negocio. Prueba las dos demos.">
+<meta name="description" content="Chatbot y asistente de voz — los dos reales, configurados para Piso Barato Inmobiliaria. Pruébalos.">
 <meta name="robots" content="noindex,nofollow">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="ContaProNow · asistentes de WhatsApp y voz">
-<meta property="og:description" content="Dos demos reales — pruébalas.">
+<meta property="og:title" content="Chatbot + asistente de voz · demo">
+<meta property="og:description" content="Configurados para Piso Barato Inmobiliaria. Los dos reales.">
 <meta property="og:site_name" content="ContaProNow">
 <meta property="og:locale" content="es_ES">
 
@@ -48,18 +48,18 @@ body{background:var(--noche);color:var(--arena);font-family:var(--body);line-hei
 .tag{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--sage)}
 .num{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--polvorienta);opacity:.65;display:block;margin-bottom:8px}
 h1{font-family:var(--display);font-weight:800;font-size:clamp(38px,10.5vw,78px);line-height:.96;letter-spacing:-.025em}
-h2{font-family:var(--display);font-weight:800;font-size:clamp(30px,7.2vw,50px);line-height:1.02;letter-spacing:-.02em;margin-bottom:22px}
-h3{font-family:var(--display);font-weight:700;font-size:22px;line-height:1.15;letter-spacing:-.01em}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,6.4vw,44px);line-height:1.04;letter-spacing:-.02em;margin-bottom:20px}
+h3{font-family:var(--display);font-weight:700;font-size:20px;line-height:1.15;letter-spacing:-.01em}
 .it{font-style:italic;font-weight:300;color:var(--teide)}
-p{font-size:16.5px;line-height:1.62;color:var(--polvorienta);margin-bottom:17px;max-width:56ch}
+p{font-size:16px;line-height:1.62;color:var(--polvorienta);margin-bottom:14px;max-width:56ch}
 p strong{color:var(--arena);font-weight:600}
-p.lead{font-size:18.5px;color:var(--arena);font-weight:500}
+p.lead{font-size:17.5px;color:var(--arena);font-weight:500}
 .src{font-family:var(--mono);font-size:11px;opacity:.6;letter-spacing:.04em}
 
 .cp{font-family:var(--display);font-weight:800;letter-spacing:-.04em;line-height:1;display:inline-block}
 .cp i{font-style:normal;color:var(--teide)}
 
-#hero{min-height:82vh;display:flex;flex-direction:column;justify-content:space-between;padding-top:34px;padding-bottom:40px}
+#hero{min-height:76vh;display:flex;flex-direction:column;justify-content:space-between;padding-top:34px;padding-bottom:40px}
 #hero .top{display:flex;justify-content:space-between;align-items:baseline}
 #hero .top .cp{font-size:27px}
 #hero h1{margin:auto 0 0}
@@ -70,22 +70,25 @@ p.lead{font-size:18.5px;color:var(--arena);font-weight:500}
 @keyframes draw{to{stroke-dashoffset:0}}
 #hero .sub{margin-top:34px;padding-top:22px;border-top:1px solid rgba(242,235,224,.14);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
-/* ── Servicios ──────────────────────────────────────────────────── */
-.svc{border-top:1px solid rgba(242,235,224,.14);padding:26px 0}
-.svc:last-of-type{border-bottom:1px solid rgba(242,235,224,.14)}
-.svc .k{font-family:var(--mono);font-size:11px;letter-spacing:.11em;color:var(--sage);display:block;margin-bottom:7px}
-.svc h3{margin-bottom:8px;color:var(--arena)}
-.svc p{font-size:15px;margin:0;color:var(--polvorienta)}
+/* Índice pequeño en el hero */
+.indice{display:flex;flex-direction:column;gap:8px;margin-top:24px;padding-top:20px;border-top:1px solid rgba(242,235,224,.14)}
+.indice a{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--polvorienta);text-decoration:none;padding:6px 0;transition:color .15s;display:flex;align-items:center;gap:10px}
+.indice a:hover{color:var(--arena)}
+.indice a::before{content:'↓';color:var(--teide);font-size:14px}
+@media(min-width:600px){.indice{flex-direction:row;gap:22px}.indice a{padding:0}}
+
+/* ── Etiqueta grande de recurso (heading de cada card) ──────────── */
+.reshead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid rgba(242,235,224,.14)}
+.reshead .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--calima)}
 
 /* ── Chatbot embebido ───────────────────────────────────────────── */
-.frame{border-left:2px solid var(--teide);padding:14px 0 14px 18px;margin:18px 0 26px;font-family:var(--mono);font-size:13px;color:var(--arena);letter-spacing:.02em;line-height:1.55}
-.chatbox{background:var(--basalto);border:1px solid rgba(242,235,224,.1);border-radius:4px;overflow:hidden;margin-top:22px}
-.chatbox .chead{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid rgba(242,235,224,.08);background:rgba(184,88,56,.06)}
+.chatbox{background:var(--basalto);border:1px solid rgba(242,235,224,.1);border-radius:6px;overflow:hidden;margin-top:6px;box-shadow:0 24px 60px -30px rgba(0,0,0,.6)}
+.chatbox .chead{display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid rgba(242,235,224,.08);background:linear-gradient(180deg,rgba(184,88,56,.08) 0%,rgba(184,88,56,.02) 100%)}
 .chatbox .dot{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 3px rgba(74,222,128,.15);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{50%{opacity:.55}}
 .chatbox .ctitle{font-family:var(--display);font-weight:700;font-size:15px;color:var(--arena)}
 .chatbox .cmeta{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);margin-left:auto}
-.chatbox .clog{min-height:220px;max-height:400px;overflow-y:auto;padding:20px 18px;display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth}
+.chatbox .clog{min-height:220px;max-height:400px;overflow-y:auto;padding:22px 18px;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth}
 .chatbox .msg{max-width:88%;padding:10px 14px;border-radius:14px;font-size:14.5px;line-height:1.5;word-wrap:break-word;white-space:pre-wrap}
 .chatbox .msg.bot{align-self:flex-start;background:rgba(242,235,224,.08);color:var(--arena);border-bottom-left-radius:4px}
 .chatbox .msg.you{align-self:flex-end;background:var(--arena);color:var(--noche);border-bottom-right-radius:4px}
@@ -105,20 +108,31 @@ p.lead{font-size:18.5px;color:var(--arena);font-weight:500}
 .chips{display:flex;flex-wrap:wrap;gap:8px;padding:12px 18px 4px}
 .chip{font-family:var(--body);font-size:12.5px;color:var(--polvorienta);background:transparent;border:1px solid rgba(242,235,224,.16);border-radius:3px;padding:7px 11px;cursor:pointer;transition:all .15s;text-align:left;line-height:1.3}
 .chip:hover{border-color:var(--sage);color:var(--arena)}
-.captured{margin-top:14px;padding:14px 18px;border-top:1px solid rgba(74,222,128,.25);background:rgba(74,222,128,.06);color:#a7f3d0;font-family:var(--mono);font-size:12px;letter-spacing:.05em;line-height:1.55}
+.captured{margin:0;padding:14px 18px;border-top:1px solid rgba(74,222,128,.25);background:rgba(74,222,128,.06);color:#a7f3d0;font-family:var(--mono);font-size:12px;letter-spacing:.05em;line-height:1.55}
 .captured b{color:#4ade80}
 
+.hint{font-family:var(--mono);font-size:11.5px;color:var(--polvorienta);letter-spacing:.04em;margin-top:14px;opacity:.85}
+
 /* ── Bloque llamada agente voz ──────────────────────────────────── */
-.callcard{background:var(--basalto);border:1px solid rgba(242,235,224,.1);border-radius:4px;padding:32px 28px;margin-top:22px}
-.callcard h3{margin-bottom:14px;color:var(--arena)}
+.callcard{background:var(--basalto);border:1px solid rgba(242,235,224,.1);border-radius:6px;padding:34px 28px;margin-top:6px;box-shadow:0 24px 60px -30px rgba(0,0,0,.6)}
 .callcard p{font-size:15px;margin-bottom:22px}
 .callcard .cbtn{display:inline-flex;align-items:center;gap:12px;background:var(--calima);color:var(--noche);font-family:var(--body);font-weight:700;font-size:16px;padding:16px 26px;border-radius:3px;text-decoration:none;transition:all .15s;border:0;cursor:pointer}
 .callcard .cbtn:hover{background:#d9a25a}
 .callcard .cbtn svg{width:20px;height:20px;flex-shrink:0}
-.callcard .cnote{margin-top:18px;font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--polvorienta);line-height:1.55;max-width:100%}
+.callcard .cnote{margin-top:20px;font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--polvorienta);line-height:1.55;max-width:100%}
+
+/* ── Diagrama Línea Uno ─────────────────────────────────────────── */
+.diagram{background:var(--basalto);border:1px solid rgba(242,235,224,.1);border-radius:6px;padding:36px 24px;margin-top:6px;box-shadow:0 24px 60px -30px rgba(0,0,0,.6)}
+.diagram svg{display:block;width:100%;height:auto;max-width:640px;margin:0 auto}
+.diagram-legend{display:grid;grid-template-columns:1fr;gap:18px;margin-top:32px;padding-top:26px;border-top:1px solid rgba(242,235,224,.1)}
+@media(min-width:600px){.diagram-legend{grid-template-columns:1fr 1fr}}
+.dl-item{display:flex;gap:14px;align-items:flex-start}
+.dl-num{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--calima);flex-shrink:0;padding-top:3px;width:22px}
+.dl-body h4{font-family:var(--display);font-weight:700;font-size:15.5px;color:var(--arena);margin-bottom:4px;letter-spacing:-.005em}
+.dl-body p{font-size:13.5px;margin:0;line-height:1.55;color:var(--polvorienta)}
 
 /* ── Cierre ─────────────────────────────────────────────────────── */
-#cierre{position:relative;overflow:hidden;padding-top:96px;padding-bottom:96px;background:var(--basalto);border-top:none}
+#cierre{position:relative;overflow:hidden;padding-top:88px;padding-bottom:88px;background:var(--basalto);border-top:none}
 #cierre .ghost{position:absolute;right:-6%;bottom:-16%;font-family:var(--display);font-weight:800;
   font-size:clamp(230px,54vw,430px);letter-spacing:-.05em;color:var(--arena);opacity:.045;pointer-events:none;line-height:1}
 #cierre .wrap{position:relative;z-index:2}
@@ -143,71 +157,42 @@ p.lead{font-size:18.5px;color:var(--arena);font-weight:500}
 <section class="sec" id="hero">
   <div class="top">
     <span class="cp">cp<i>.</i></span>
-    <span class="tag">01/04</span>
+    <span class="tag">Configurada para Piso Barato</span>
   </div>
   <div>
-    <h1>Un asistente de WhatsApp y otro de <span class="mark">llamada<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 13 Q 78 4, 152 11 T 296 8"/></svg></span>. Los dos hablan por tu negocio.</h1>
-    <div class="sub">
-      <span class="tag">Demo configurada para Piso Barato</span>
-      <span class="tag">ContaProNow · Tenerife</span>
+    <h1>Dos asistentes que hablan por tu <span class="mark">inmobiliaria<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M4 13 Q 78 4, 152 11 T 296 8"/></svg></span>. Los tienes debajo.</h1>
+    <div class="indice">
+      <a href="#chatbot">Chatbot</a>
+      <a href="#voz">Voz</a>
+      <a href="#linea-uno">Línea Uno</a>
     </div>
   </div>
 </section>
 
-<!-- 02 · Qué hago -->
-<section class="sec">
+<!-- 02 · Chatbot -->
+<section class="sec" id="chatbot">
   <div class="wrap">
-    <div class="gutter"><span class="num">02/04</span><span class="tag">Qué hago</span></div>
+    <div class="gutter"><span class="num">01/03</span><span class="tag">Recurso</span></div>
     <div class="col">
-      <h2>Tres servicios. Sueltos o juntos.</h2>
-      <p>Monto infraestructura digital para negocios locales. El mismo perfil del negocio se configura una vez, y desde ahí atienden los asistentes.</p>
-
-      <div class="svc">
-        <span class="k">Servicio 01</span>
-        <h3>Asistente de WhatsApp</h3>
-        <p>Contesta 24/7 con la voz del negocio. Coge datos, resuelve las preguntas de siempre y pasa el aviso cuando toca hablar con una persona.</p>
+      <div class="reshead">
+        <h2 style="margin:0">Chatbot</h2>
+        <span class="kicker">demo funcional</span>
       </div>
-
-      <div class="svc">
-        <span class="k">Servicio 02</span>
-        <h3>Asistente de llamada</h3>
-        <p>Coge el teléfono cuando el equipo no puede: fuera de horario, con las líneas ocupadas o cuando llaman varios a la vez.</p>
-      </div>
-
-      <div class="svc">
-        <span class="k">Servicio 03</span>
-        <h3>Web y captación</h3>
-        <p>Web, reservas online, chatbot y posicionamiento local en Google. La base para que te encuentren y te reserven sin tener que llamar.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 03 · Las dos demos -->
-<section class="sec">
-  <div class="wrap">
-    <div class="gutter"><span class="num">03/04</span><span class="tag">Demos</span></div>
-    <div class="col">
-      <h2>Dos asistentes que puedes probar ahora.</h2>
-      <p>Los dos son reales, ninguno es una simulación. Para que los pruebes con contexto, están configurados con el perfil de <strong>Piso Barato Inmobiliaria</strong>: sus cuatro oficinas de Tenerife, su catálogo, y las preguntas típicas de un comprador. En producción se configuran igual para cualquier negocio.</p>
-
-      <h3 style="margin-top:36px;margin-bottom:10px">Chatbot</h3>
-      <div class="frame">Prueba: <em>"busco piso 2 hab en La Laguna"</em> · <em>"¿tenéis alquileres en Los Cristianos?"</em> · <em>"¿hacéis hipotecas?"</em></div>
 
       <div class="chatbox" id="chatbox">
         <div class="chead">
           <span class="dot" aria-hidden="true"></span>
-          <span class="ctitle">Sara · asistente virtual</span>
+          <span class="ctitle">Sara · Piso Barato Inmobiliaria</span>
           <span class="cmeta">en línea</span>
         </div>
         <div class="clog" id="clog" aria-live="polite" aria-label="Conversación con el asistente">
-          <div class="msg bot">Hola, soy Sara. Estoy 24 horas al día para atender lo que necesites. ¿Buscas piso, alquiler, o quieres información sobre hipoteca?</div>
+          <div class="msg bot">Hola, soy Sara, del equipo de Piso Barato. ¿Qué está buscando: venta, alquiler, o quiere información sobre financiación?</div>
         </div>
         <div class="chips" id="chips">
-          <button class="chip" type="button" data-q="Busco piso de 2 habitaciones en La Laguna, hasta 200.000 €">Piso 2 hab · La Laguna · 200k</button>
-          <button class="chip" type="button" data-q="¿Tenéis alquileres en Los Cristianos?">Alquileres en Los Cristianos</button>
-          <button class="chip" type="button" data-q="¿Hacéis hipotecas?">¿Hacéis hipotecas?</button>
-          <button class="chip" type="button" data-q="Quiero poner mi piso a la venta">Vender mi piso</button>
+          <button class="chip" type="button" data-q="Busco piso de 2 dormitorios en La Laguna, hasta 200.000 €">2 dormitorios · La Laguna · 200k</button>
+          <button class="chip" type="button" data-q="¿Tenéis alquileres en Los Cristianos?">Alquiler · Los Cristianos</button>
+          <button class="chip" type="button" data-q="Necesito hipoteca">Hipoteca</button>
+          <button class="chip" type="button" data-q="Quiero vender mi piso, ¿cómo funciona?">Vender mi piso</button>
         </div>
         <form class="cinput" id="cinput" autocomplete="off">
           <label for="cmsg" class="tag" style="position:absolute;left:-9999px">Escribe tu mensaje</label>
@@ -217,26 +202,170 @@ p.lead{font-size:18.5px;color:var(--arena);font-weight:500}
         <div class="captured" id="captured" hidden></div>
       </div>
 
-      <h3 style="margin-top:44px;margin-bottom:10px">Asistente de llamada</h3>
+      <p class="hint">Sara sabe de dormitorios, superficie útil, IBI, comunidad, arras, e hipoteca. Cualifica y cierra con datos de contacto — sin cerrar visita, eso lo hace un comercial.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · Voz -->
+<section class="sec" id="voz">
+  <div class="wrap">
+    <div class="gutter"><span class="num">02/03</span><span class="tag">Recurso</span></div>
+    <div class="col">
+      <div class="reshead">
+        <h2 style="margin:0">Voz</h2>
+        <span class="kicker">demo funcional</span>
+      </div>
+
       <div class="callcard">
-        <p>Es el mismo perfil que el chatbot pero por voz. Habla con él como si fueras un cliente. Cuelga cuando quieras.</p>
+        <p>El mismo perfil por teléfono. Habla con ella como si fueras un cliente. Cuelga cuando quieras.</p>
         <a class="cbtn" href="https://voz-agente-tools.fly.dev/prueba/b2747521b552953661ff682ede84347e" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span>Abrir llamada</span>
         </a>
-        <p class="cnote">Usa auriculares. La llamada dura menos de 3 minutos. En producción atiende a un número real del negocio.</p>
+        <p class="cnote">Usa auriculares · dura hasta 3 min · voz castellana con acento canario</p>
+      </div>
+
+      <p class="hint">En producción atiende un número real. Enruta al comercial de la oficina de la zona, deriva a Hipoteca Tenerife cuando toca, y deja el resumen de la llamada en el panel del cliente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · Línea Uno — diagrama -->
+<section class="sec" id="linea-uno">
+  <div class="wrap">
+    <div class="gutter"><span class="num">03/03</span><span class="tag">Recurso</span></div>
+    <div class="col">
+      <div class="reshead">
+        <h2 style="margin:0">Línea Uno</h2>
+        <span class="kicker">web + Google local</span>
+      </div>
+
+      <div class="diagram">
+        <svg viewBox="0 0 640 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagrama: Búsqueda en Google llega a la ficha de Google Business, después a la web, y termina en un lead que entra en tu CRM. La ficha se alimenta de reseñas activas y de SEO local.">
+          <!-- Fondo sutil -->
+          <defs>
+            <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#B85838" stop-opacity="0"/>
+              <stop offset="50%" stop-color="#B85838" stop-opacity=".55"/>
+              <stop offset="100%" stop-color="#B85838" stop-opacity="0"/>
+            </linearGradient>
+            <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#B85838"/>
+            </marker>
+          </defs>
+
+          <!-- Fila 1: Google + Ficha + Web + Lead (flujo horizontal principal) -->
+          <!-- Nodo 1: Búsqueda en Google -->
+          <g transform="translate(20,110)">
+            <rect x="0" y="0" width="130" height="72" rx="4" fill="#181E1E" stroke="#F2EBE0" stroke-opacity=".2" stroke-width="1"/>
+            <text x="65" y="27" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#7A8C6F" letter-spacing="1.3">01 · BÚSQUEDA</text>
+            <text x="65" y="47" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="15" fill="#F2EBE0">Google</text>
+            <text x="65" y="61" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#A89880">"inmobiliaria La Laguna"</text>
+          </g>
+
+          <!-- Flecha 1 → 2 -->
+          <line x1="150" y1="146" x2="185" y2="146" stroke="#B85838" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+          <!-- Nodo 2: Ficha Google Business -->
+          <g transform="translate(190,110)">
+            <rect x="0" y="0" width="130" height="72" rx="4" fill="#181E1E" stroke="#C8924A" stroke-opacity=".55" stroke-width="1.3"/>
+            <text x="65" y="27" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#C8924A" letter-spacing="1.3">02 · FICHA</text>
+            <text x="65" y="47" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="15" fill="#F2EBE0">Google Business</text>
+            <text x="65" y="61" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#A89880">horario · fotos · web</text>
+          </g>
+
+          <!-- Flecha 2 → 3 -->
+          <line x1="320" y1="146" x2="355" y2="146" stroke="#B85838" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+          <!-- Nodo 3: Web con captación -->
+          <g transform="translate(360,110)">
+            <rect x="0" y="0" width="130" height="72" rx="4" fill="#181E1E" stroke="#F2EBE0" stroke-opacity=".2" stroke-width="1"/>
+            <text x="65" y="27" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#7A8C6F" letter-spacing="1.3">03 · WEB</text>
+            <text x="65" y="47" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="15" fill="#F2EBE0">Formulario</text>
+            <text x="65" y="61" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#A89880">catálogo + captación</text>
+          </g>
+
+          <!-- Flecha 3 → 4 -->
+          <line x1="490" y1="146" x2="525" y2="146" stroke="#B85838" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+          <!-- Nodo 4: Lead -->
+          <g transform="translate(530,110)">
+            <rect x="0" y="0" width="90" height="72" rx="4" fill="#2A3A28" stroke="#F2EBE0" stroke-opacity=".35" stroke-width="1"/>
+            <text x="45" y="27" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#F2EBE0" fill-opacity=".7" letter-spacing="1.3">04 · SALIDA</text>
+            <text x="45" y="50" text-anchor="middle" font-family="Fraunces,serif" font-weight="800" font-size="17" fill="#F2EBE0">Lead</text>
+            <text x="45" y="63" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#F2EBE0" fill-opacity=".7">al CRM</text>
+          </g>
+
+          <!-- Línea sutil de "flujo" bajo la fila -->
+          <line x1="20" y1="200" x2="620" y2="200" stroke="url(#glow)" stroke-width="1"/>
+
+          <!-- Fila 2: alimentadores de la ficha (SEO local + reseñas) -->
+          <!-- SEO local (izq abajo) → apunta a la ficha -->
+          <g transform="translate(140,255)">
+            <rect x="0" y="0" width="120" height="56" rx="4" fill="#0A0A0A" stroke="#7A8C6F" stroke-opacity=".5" stroke-width="1" stroke-dasharray="3 3"/>
+            <text x="60" y="22" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#7A8C6F" letter-spacing="1.3">ALIMENTA</text>
+            <text x="60" y="42" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="13" fill="#F2EBE0">SEO local</text>
+          </g>
+          <path d="M 200 255 Q 220 220, 240 190" fill="none" stroke="#7A8C6F" stroke-width="1" stroke-dasharray="3 3"/>
+
+          <!-- Reseñas (der abajo) → apunta a la ficha -->
+          <g transform="translate(280,255)">
+            <rect x="0" y="0" width="120" height="56" rx="4" fill="#0A0A0A" stroke="#7A8C6F" stroke-opacity=".5" stroke-width="1" stroke-dasharray="3 3"/>
+            <text x="60" y="22" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#7A8C6F" letter-spacing="1.3">ALIMENTA</text>
+            <text x="60" y="42" text-anchor="middle" font-family="Fraunces,serif" font-weight="700" font-size="13" fill="#F2EBE0">Reseñas activas</text>
+          </g>
+          <path d="M 340 255 Q 310 220, 280 190" fill="none" stroke="#7A8C6F" stroke-width="1" stroke-dasharray="3 3"/>
+
+          <!-- Encabezado del diagrama -->
+          <text x="20" y="40" font-family="Fraunces,serif" font-weight="700" font-size="20" fill="#F2EBE0">Cómo llega un cliente nuevo</text>
+          <text x="20" y="62" font-family="Inter,sans-serif" font-size="12" fill="#A89880">Los cuatro pasos que van del buscador al lead. Los dos de abajo son lo que hace que la ficha aparezca arriba.</text>
+        </svg>
+
+        <div class="diagram-legend">
+          <div class="dl-item">
+            <span class="dl-num">01</span>
+            <div class="dl-body">
+              <h4>Búsqueda en Google</h4>
+              <p>Alguien busca "inmobiliaria en La Laguna" o "pisos Los Cristianos". Aquí no controlamos nada: es lo que hace el usuario.</p>
+            </div>
+          </div>
+          <div class="dl-item">
+            <span class="dl-num">02</span>
+            <div class="dl-body">
+              <h4>Ficha de Google Business</h4>
+              <p>La ficha se optimiza (horarios, fotos, servicios, web) para aparecer en los resultados y en el mapa.</p>
+            </div>
+          </div>
+          <div class="dl-item">
+            <span class="dl-num">03</span>
+            <div class="dl-body">
+              <h4>Web con captación</h4>
+              <p>La ficha lleva a la web. Formulario claro, catálogo integrado con los portales y bot para responder al instante.</p>
+            </div>
+          </div>
+          <div class="dl-item">
+            <span class="dl-num">04</span>
+            <div class="dl-body">
+              <h4>Lead al CRM</h4>
+              <p>El interesado entra ya con nombre, teléfono y qué busca. Sin transcribir a mano ni volver a llamar para preguntar lo básico.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="hint" style="margin-top:24px">Debajo, los dos alimentadores: <strong style="color:var(--arena)">SEO local</strong> (que Google entienda que trabajas en las cuatro zonas) y <strong style="color:var(--arena)">reseñas activas</strong> (que suban la ficha frente a la competencia).</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 04 · Cierre -->
+<!-- 05 · Cierre -->
 <section class="sec" id="cierre">
   <div class="ghost">cp.</div>
   <div class="wrap">
     <div class="gutter"><span class="cp" style="font-size:24px">cp<i>.</i></span></div>
     <div class="col">
-      <h2>¿Conoces a alguien a quien le encaje?</h2>
+      <h2>¿Le encaja a alguien de tu red?</h2>
       <p class="lead" style="color:var(--arena)">Pásale este link. Es la misma demo que acabas de ver.</p>
 
       <div class="acts" id="acts"></div>
