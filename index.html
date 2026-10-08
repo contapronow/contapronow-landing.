@@ -3,16 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ContaProNow · Infraestructura digital para empresas</title>
-  <meta name="description" content="Automatizamos procesos, ordenamos la operativa y construimos la base digital sobre la que crece tu negocio. Para autónomos y pymes." />
+  <title>Automatización para pymes y autónomos en Tenerife · ContaProNow</title>
+  <meta name="description" content="Automatizamos facturas, atención por WhatsApp y captación web para autónomos y pymes. Desde Tenerife, para toda España. Revisión gratuita de 20 minutos." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#2A3A28" />
 
-  <meta property="og:title" content="ContaProNow · Infraestructura digital para empresas" />
-  <meta property="og:description" content="Automatizamos procesos, ordenamos la operativa y construimos la base digital sobre la que crece tu negocio." />
+  <meta property="og:site_name" content="ContaProNow" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:title" content="Automatización para pymes y autónomos en Tenerife · ContaProNow" />
+  <meta property="og:description" content="Menos tareas manuales, cero clientes sin respuesta. Automatizamos facturas, atención por WhatsApp y captación web." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.contapronow.com/" />
   <meta property="og:image" content="https://www.contapronow.com/assets/img/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ContaProNow · Infraestructura digital para autónomos y pymes" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://www.contapronow.com/" />
 
   <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
@@ -30,12 +36,26 @@
     "name":"ContaProNow",
     "image":"https://www.contapronow.com/assets/img/og-image.png",
     "url":"https://www.contapronow.com/",
-    "telephone":"+34 634753021",
+    "telephone":"+34634753021",
     "email":"contapronoww@gmail.com",
     "priceRange":"€€",
-    "areaServed":"España",
-    "address":{"@type":"PostalAddress","addressCountry":"ES","addressRegion":"España"},
-    "description":"Infraestructura digital para empresas. Automatización de procesos, orden operativo y base digital para autónomos y pymes.",
+    "areaServed":[
+      {"@type":"AdministrativeArea","name":"Tenerife"},
+      {"@type":"AdministrativeArea","name":"Islas Canarias"},
+      {"@type":"Country","name":"España"}
+    ],
+    "address":{"@type":"PostalAddress","addressRegion":"Santa Cruz de Tenerife","addressCountry":"ES"},
+    "sameAs":["https://www.instagram.com/abiaanperez"],
+    "description":"Infraestructura digital y automatización para autónomos y pymes: facturas, atención y captación por WhatsApp y webs orientadas a captación. Desde Tenerife, para toda España.",
+    "hasOfferCatalog":{
+      "@type":"OfferCatalog",
+      "name":"Servicios de ContaProNow",
+      "itemListElement":[
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Automatización de atención y captación","url":"https://www.contapronow.com/automatizacion-atencion-captacion.html"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Automatización de facturas y gestión administrativa","url":"https://www.contapronow.com/automatizacion-facturas.html"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Web orientada a captación y estructura digital","url":"https://www.contapronow.com/web-captacion-estructura-digital.html"}}
+      ]
+    },
     "knowsAbout":[
       "automatización de facturas",
       "automatización administrativa",
@@ -43,6 +63,19 @@
       "web orientada a captación",
       "estructura digital",
       "integración de sistemas"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"¿Esto sustituye a mi equipo?","acceptedAnswer":{"@type":"Answer","text":"No. Lo que automatizamos es la parte repetitiva: responder consultas básicas, registrar facturas, agendar citas o enviar recordatorios. Tu equipo se libera para las conversaciones y decisiones que requieren persona."}},
+      {"@type":"Question","name":"¿Tengo que cambiar las herramientas que ya uso?","acceptedAnswer":{"@type":"Answer","text":"En la mayoría de casos, no. Nos integramos con tu correo, WhatsApp, hoja de cálculo o CRM actual. Si detectamos que algo conviene cambiar, lo proponemos con argumentos, no por defecto."}},
+      {"@type":"Question","name":"¿Cuánto tarda en estar funcionando?","acceptedAnswer":{"@type":"Answer","text":"La mayoría de implantaciones quedan operativas entre dos y seis semanas, según el alcance. En la revisión inicial damos un plazo concreto para tu caso, no un rango genérico."}},
+      {"@type":"Question","name":"¿Y si una vez implantado no funciona como esperaba?","acceptedAnswer":{"@type":"Answer","text":"Lo ajustamos. Cada implantación incluye un periodo de calibración en el que revisamos cómo funciona en tu día a día real. No dejamos un sistema que no encaje."}},
+      {"@type":"Question","name":"¿Hay casos en los que no encajamos?","acceptedAnswer":{"@type":"Answer","text":"Sí. Si necesitas algo operativo en menos de dos semanas, si buscas únicamente una herramienta sin acompañamiento, o si tu operativa todavía no genera suficiente volumen para que automatizar tenga retorno claro, probablemente no seamos el partner adecuado. Lo evaluamos contigo en la revisión inicial y te lo decimos directamente."}}
     ]
   }
   </script>
@@ -86,11 +119,11 @@
       flex-wrap: wrap;
     }
     .stack-label {
-      font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+      font-family: var(--font-mono);
       font-size: 11px;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      opacity: 0.55;
+      color: var(--text-muted);
     }
     .stack-logos {
       display: flex;
@@ -118,11 +151,10 @@
     .fundamento-card { padding: clamp(20px, 2.5vw, 28px); }
     .fundamento-num {
       display: inline-block;
-      font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+      font-family: var(--font-mono);
       font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      opacity: 0.55;
+      letter-spacing: 0.14em;
+      color: var(--brand-2);
       margin-bottom: 14px;
     }
     .fundamento-card h3 {
@@ -134,30 +166,31 @@
     .fundamento-card p {
       font-size: 15px;
       line-height: 1.55;
-      opacity: 0.82;
+      color: var(--text-soft);
       margin: 0;
     }
     .fundamentos-guarantee {
       margin-top: clamp(24px, 3vw, 36px);
       padding: clamp(18px, 2vw, 22px) clamp(20px, 2.5vw, 28px);
-      border-left: 2px solid currentColor;
-      border-left-color: rgba(127,127,127,0.35);
+      border: 1px solid rgba(42, 58, 40, 0.18);
+      border-radius: var(--radius-md);
+      background: var(--brand-soft);
       font-size: 15px;
       line-height: 1.55;
-      opacity: 0.92;
+      color: var(--text);
       max-width: 760px;
       margin-left: auto;
       margin-right: auto;
     }
     .fundamentos-guarantee strong {
       display: block;
-      font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+      font-family: var(--font-mono);
       font-size: 11px;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      opacity: 0.7;
+      color: var(--brand);
       margin-bottom: 6px;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     /* FAQ: lista editorial, no acordeón */
@@ -171,10 +204,10 @@
     }
     .faq-item {
       padding: clamp(20px, 2.5vw, 26px) 0;
-      border-top: 1px solid rgba(127,127,127,0.18);
+      border-top: 1px solid var(--line-strong);
     }
     .faq-item:last-child {
-      border-bottom: 1px solid rgba(127,127,127,0.18);
+      border-bottom: 1px solid var(--line-strong);
     }
     .faq-item dt {
       font-size: clamp(17px, 1.4vw, 19px);
@@ -185,8 +218,9 @@
     .faq-item dd {
       font-size: 15px;
       line-height: 1.6;
-      opacity: 0.82;
+      color: var(--text-soft);
       margin: 0;
+      max-width: 68ch;
     }
   </style>
 </head>
@@ -232,22 +266,14 @@
   </a>
 
   <main id="contenido">
-    <!-- HERO: limpiado (sin mini-metrics duplicadas), sub más conciso, CTA con "gratuita" -->
     <section class="hero hero-premium" id="hero" aria-labelledby="hero-title">
-      <div class="hero-bg" aria-hidden="true">
-        <span class="hero-blur hero-blur-a"></span>
-        <span class="hero-blur hero-blur-b"></span>
-        <span class="hero-blur hero-blur-c"></span>
-        <span class="hero-grid-lines"></span>
-      </div>
-
       <div class="container hero-layout">
         <div class="hero-copy">
-          <span class="section-tag section-tag-strong section-tag-shimmer">Infraestructura digital para empresas</span>
+          <span class="section-tag section-tag-strong">Infraestructura digital para empresas</span>
 
           <div class="hero-title-wrap">
             <h1 id="hero-title" class="hero-title-anim" data-split>
-              <span class="title-word"><span class="hl">Menos</span></span>
+              <span class="title-word">Menos</span>
               <span class="title-word"><span class="hl">tareas</span></span>
               <span class="title-word"><span class="hl">manuales,</span></span>
               <span class="title-word">más</span>
@@ -289,22 +315,53 @@
           </div>
         </div>
 
-        <div class="hero-visual hero-visual-image" data-parallax>
-          <img
-            src="/assets/img/hero-dashboard.png"
-            alt="Panel de control de ContaProNow con dashboard de operativa y herramientas conectadas"
-            width="1532"
-            height="1024"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-            class="hero-image"
-          />
-        </div>
+        <figure class="hero-visual">
+          <div class="ops-board" role="img" aria-label="Ejemplo de un día con el sistema en marcha: un WhatsApp respondido con cita agendada, una factura registrada en Google Sheets, un contacto de la web guardado con aviso al equipo y un recordatorio de cita enviado.">
+            <div class="ops-head">
+              <p class="ops-title">Tu negocio, hoy</p>
+              <span class="ops-live">En marcha</span>
+            </div>
+            <ol class="ops-feed">
+              <li class="ops-row" style="--i:0">
+                <span class="ops-time">08:57</span>
+                <span class="ops-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg></span>
+                <div>
+                  <p class="ops-what">WhatsApp: “¿Tenéis hueco el jueves?”</p>
+                  <p class="ops-done">Respondido al momento · cita el jueves a las 10:30</p>
+                </div>
+              </li>
+              <li class="ops-row" style="--i:1">
+                <span class="ops-time">09:14</span>
+                <span class="ops-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span>
+                <div>
+                  <p class="ops-what">Factura de proveedor por email</p>
+                  <p class="ops-done">Leída y registrada en Google Sheets</p>
+                </div>
+              </li>
+              <li class="ops-row" style="--i:2">
+                <span class="ops-time">11:02</span>
+                <span class="ops-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 20h8"/><path d="M12 17v3"/></svg></span>
+                <div>
+                  <p class="ops-what">Contacto desde tu web</p>
+                  <p class="ops-done">Guardado y aviso enviado a tu equipo</p>
+                </div>
+              </li>
+              <li class="ops-row" style="--i:3">
+                <span class="ops-time">18:30</span>
+                <span class="ops-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3.2-6.9"/><path d="M21 3v6h-6"/><path d="M12 7v5l3 3"/></svg></span>
+                <div>
+                  <p class="ops-what">Recordatorio de la cita de mañana</p>
+                  <p class="ops-done">Enviado por WhatsApp al cliente</p>
+                </div>
+              </li>
+            </ol>
+            <p class="ops-foot">Sin abrir el móvil. Sin copiar nada a mano.</p>
+          </div>
+          <figcaption class="ops-caption">Ejemplo de un día con el sistema en marcha.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- INTRODUCCIÓN: H2 reescrito, copys de cards más concretos -->
     <section class="section" id="introduccion" aria-labelledby="introduccion-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
@@ -364,7 +421,6 @@
       </div>
     </section>
 
-    <!-- PARA QUIÉN ES: movido al puesto 3 — el lector se auto-cualifica pronto antes de leer Servicios -->
     <section class="section" id="para-quien" aria-labelledby="para-quien-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
@@ -403,9 +459,6 @@
       </div>
     </section>
 
-    <!-- SECCIÓN "Realidad habitual" ELIMINADA: duplicaba el mensaje de introducción -->
-
-    <!-- SERVICIOS: reorganizados en Bento (destacado primero, full-width). Kickers temáticos en lugar de "Servicio 01/02/03" -->
     <section class="section alt" id="servicios" aria-labelledby="servicios-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
@@ -418,7 +471,7 @@
 
         <div class="service-showcase">
           <!-- SERVICIO DESTACADO (atención y captación) — ocupa ancho completo -->
-          <article class="card service feature-card service-card-premium service-card-featured reveal">
+          <article class="card service feature-card service-card-premium service-card-featured reveal" data-flag="Recomendado para empezar">
             <div class="service-card-top">
               <span class="service-badge service-kicker">Captación</span>
               <div class="feature-icon" aria-hidden="true">
@@ -546,12 +599,11 @@
       </div>
     </section>
 
-    <!-- PROCESO: textos reescritos más afilados -->
     <section class="section alt" id="proceso" aria-labelledby="proc-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Cómo trabajamos</span>
-          <h2 id="proc-title">Un proceso claro, práctico y orientado a negocio</h2>
+          <h2 id="proc-title">Cuatro pasos. Operativo en semanas, no en meses.</h2>
           <p class="section-lead">
             El objetivo no es implantar por implantar. Detectamos qué tiene sentido mejorar y lo ejecutamos.
           </p>
@@ -611,21 +663,19 @@
       </div>
     </section>
 
-    <!-- HERRAMIENTAS: sin cambios -->
     <section class="section" id="herramientas" aria-labelledby="herramientas-title">
       <div class="container">
         <div class="section-head section-head-elevated compact-center">
           <span class="section-tag">Herramientas y ecosistema</span>
-          <h2 id="herramientas-title">Tecnología conectada a la operativa real del negocio</h2>
+          <h2 id="herramientas-title">Herramientas profesionales, conectadas entre sí</h2>
           <p class="section-lead">
-            Trabajamos con herramientas que muchas empresas ya utilizan y las integramos entre sí para que aporten orden operativo, eficiencia y continuidad real.
+            Trabajamos con las herramientas que tu negocio ya usa — o con las que mejor encajan — y las conectamos para que funcionen como un solo sistema.
           </p>
         </div>
 
         <div class="tool-groups tool-groups-premium">
           <article class="tool-group reveal">
             <div class="tool-group-top">
-              <span class="tool-group-label">Área</span>
               <h3>Automatización</h3>
             </div>
             <div class="tools-grid" aria-label="Herramientas de automatización">
@@ -637,7 +687,6 @@
 
           <article class="tool-group reveal">
             <div class="tool-group-top">
-              <span class="tool-group-label">Área</span>
               <h3>Operativa y datos</h3>
             </div>
             <div class="tools-grid" aria-label="Herramientas de operativa y datos">
@@ -649,7 +698,6 @@
 
           <article class="tool-group reveal">
             <div class="tool-group-top">
-              <span class="tool-group-label">Área</span>
               <h3>Web y negocio</h3>
             </div>
             <div class="tools-grid" aria-label="Herramientas de web y negocio">
@@ -661,7 +709,6 @@
 
           <article class="tool-group reveal">
             <div class="tool-group-top">
-              <span class="tool-group-label">Área</span>
               <h3>Comunicación y gestión</h3>
             </div>
             <div class="tools-grid" aria-label="Herramientas de comunicación y gestión">
@@ -674,7 +721,6 @@
       </div>
     </section>
 
-    <!-- SOBRE NOSOTROS: copy reescrito en plural -->
     <section class="section section-about-premium" id="sobre-nosotros" aria-labelledby="sobre-title">
       <div class="container">
         <div class="about-shell">
@@ -692,24 +738,29 @@
             </p>
           </div>
 
-          <div class="about-visual reveal" aria-hidden="true">
-            <div class="about-panel">
-              <div class="about-panel-top">
-                <span class="panel-dot"></span>
-                <span class="panel-dot"></span>
-                <span class="panel-dot"></span>
-              </div>
-              <div class="about-panel-body">
-                <span class="about-kicker">ContaProNow</span>
-                <h3>Sistemas digitales con sentido</h3>
-                <div class="about-panel-list">
-                  <span>Operativa ordenada</span>
-                  <span>Procesos integrados</span>
-                  <span>Implantación documentada</span>
+          <aside class="team-card reveal" aria-label="Equipo de ContaProNow">
+            <ul class="team-list">
+              <li class="team-member">
+                <span class="team-initials" aria-hidden="true">Ab</span>
+                <div>
+                  <p class="team-name">Abián</p>
+                  <p class="team-role">Diseño e implantación técnica</p>
                 </div>
-              </div>
-            </div>
-          </div>
+              </li>
+              <li class="team-member">
+                <span class="team-initials" aria-hidden="true">An</span>
+                <div>
+                  <p class="team-name">Ancor</p>
+                  <p class="team-role">Primer contacto y seguimiento</p>
+                </div>
+              </li>
+            </ul>
+            <dl class="team-facts">
+              <div><dt>Base</dt><dd>Tenerife</dd></div>
+              <div><dt>Clientes</dt><dd>Toda España</dd></div>
+              <div><dt>Entrega</dt><dd>Documentada</dd></div>
+            </dl>
+          </aside>
         </div>
       </div>
     </section>
@@ -751,49 +802,48 @@
       </div>
     </section>
 
-    <!-- CIERRE Y CONTACTO FUSIONADOS en una sola sección final -->
-    <section class="section alt section-cta-premium" id="contacto" aria-labelledby="contacto-title">
+    <section class="section section-brand section-cta-premium" id="contacto" aria-labelledby="contacto-title">
       <div class="container contact-shell">
         <div class="contact-copy reveal">
           <span class="section-tag">Siguiente paso</span>
-          <h2 id="contacto-title">¿No tienes claro qué encaja con tu negocio? Lo revisamos contigo.</h2>
+          <h2 id="contacto-title">Revisamos tu negocio gratis y te decimos qué automatizar primero.</h2>
           <p>
             Una conversación de 20 minutos para identificar dónde estás perdiendo tiempo o clientes, y qué tiene sentido automatizar primero. Sin compromiso y sin presión comercial.
           </p>
-          <p>
+          <div class="cta-row">
             <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20una%20revisi%C3%B3n%20gratuita%20de%20mi%20negocio.">
               Solicitar revisión gratuita
             </a>
-          </p>
-          <p class="small">Respondemos en menos de 24h laborables.</p>
+            <a class="btn btn-secondary" href="tel:+34634753021">Llamar al 634 753 021</a>
+          </div>
+          <p class="small">Respondemos en menos de 24 h laborables.</p>
         </div>
 
-        <form id="contact-form" class="contact-form-card reveal" aria-describedby="privacidad" novalidate>
+        <form id="contact-form" class="contact-form-card reveal" aria-labelledby="form-title" aria-describedby="form-nota" novalidate>
+          <p id="form-title" class="form-title">Cuéntanos qué quieres resolver</p>
+
           <div class="field field-float">
-            <input id="name" name="name" type="text" autocomplete="name" required placeholder=" " />
-            <label for="name">Nombre</label>
+            <input id="name" name="name" type="text" autocomplete="name" required maxlength="80" placeholder=" " aria-describedby="name-error" />
+            <label for="name">Tu nombre</label>
+            <p id="name-error" class="field-error">Escribe tu nombre para que sepamos con quién hablamos.</p>
           </div>
 
           <div class="field field-float">
-            <input id="email" name="email" type="email" autocomplete="email" required placeholder=" " />
-            <label for="email">Email</label>
-          </div>
-
-          <div class="field field-float">
-            <textarea id="message" name="message" rows="4" required placeholder=" "></textarea>
-            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="4" required maxlength="1000" placeholder=" " aria-describedby="message-error"></textarea>
+            <label for="message">¿Qué te gustaría mejorar?</label>
+            <p id="message-error" class="field-error">Cuéntanos en una frase qué quieres resolver.</p>
           </div>
 
           <button class="btn btn-primary btn-submit" type="submit">
-            <span class="btn-label">Enviar</span>
-            <span class="btn-spinner" aria-hidden="true"></span>
+            <span class="btn-label">Enviar por WhatsApp</span>
             <svg class="btn-check" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg>
           </button>
 
           <p id="status" role="status" aria-live="polite"></p>
 
-          <p id="privacidad" class="small">
-            Al enviar, se abrirá tu cliente de correo con los datos. No almacenamos información en el sitio.
+          <p id="form-nota" class="small">
+            Se abrirá WhatsApp con tu mensaje ya escrito; solo tienes que pulsar enviar. Esta web no guarda tus datos.
+            ¿Prefieres email? <a href="mailto:contapronoww@gmail.com">contapronoww@gmail.com</a>
           </p>
         </form>
       </div>
@@ -802,12 +852,29 @@
 
   <footer class="site-footer" role="contentinfo">
     <div class="container foot">
-      <p>© <span id="year">2025</span> ContaProNow · Infraestructura digital e integración de sistemas para empresas</p>
-      <nav aria-label="Enlaces legales">
+      <div class="foot-brand">
+        <p class="foot-name">conta<em>pro</em>now<span class="logo-dot">.</span></p>
+        <p>Infraestructura digital y automatización para autónomos y pymes. Desde Tenerife, para toda España.</p>
+      </div>
+      <nav class="foot-col" aria-label="Contacto">
+        <p class="foot-label">Contacto</p>
+        <a href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20una%20revisi%C3%B3n%20gratuita%20de%20mi%20negocio.">WhatsApp</a>
+        <a href="tel:+34634753021">+34 634 753 021</a>
+        <a href="mailto:contapronoww@gmail.com">contapronoww@gmail.com</a>
+      </nav>
+      <nav class="foot-col" aria-label="Servicios">
+        <p class="foot-label">Servicios</p>
+        <a href="/automatizacion-atencion-captacion.html">Atención y captación</a>
+        <a href="/automatizacion-facturas.html">Facturas y administración</a>
+        <a href="/web-captacion-estructura-digital.html">Web de captación</a>
+      </nav>
+      <nav class="foot-col" aria-label="Legal y redes">
+        <p class="foot-label">Legal</p>
         <a href="/privacidad.html">Privacidad</a>
         <a href="/aviso-legal.html">Aviso legal</a>
-        <a href="https://www.instagram.com/abiaanperez" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.instagram.com/abiaanperez" target="_blank" rel="noopener noreferrer">Instagram</a>
       </nav>
+      <p class="foot-copy">© <span id="year">2026</span> ContaProNow</p>
     </div>
   </footer>
 
@@ -815,7 +882,3 @@
   <script src="/assets/js/chatbot.js" defer></script>
 </body>
 </html>
-
-
-
-                  

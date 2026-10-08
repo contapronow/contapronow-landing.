@@ -12,7 +12,6 @@
     setupHeaderScroll();
     setupTitleAnimation();
     setupRevealObserver();
-    setupHeroParallax();
     setupAudienceSlider();
     setupContactForm();
     setupProcessLine();
@@ -155,47 +154,6 @@
     elements.forEach((el) => observer.observe(el));
   }
 
-  function setupHeroParallax() {
-    if (reduceMotion) return;
-    if (window.matchMedia('(pointer: coarse)').matches) return;
-
-    const visual = document.querySelector('.hero [data-parallax]');
-    const hero = document.querySelector('.hero-premium');
-    if (!visual || !hero) return;
-
-    let targetX = 0;
-    let targetY = 0;
-    let curX = 0;
-    let curY = 0;
-    let rafId = null;
-
-    function loop() {
-      curX += (targetX - curX) * 0.08;
-      curY += (targetY - curY) * 0.08;
-      visual.style.transform = `translate3d(${curX.toFixed(2)}px, ${curY.toFixed(2)}px, 0)`;
-      if (Math.abs(curX - targetX) > 0.1 || Math.abs(curY - targetY) > 0.1) {
-        rafId = requestAnimationFrame(loop);
-      } else {
-        rafId = null;
-      }
-    }
-
-    hero.addEventListener('mousemove', (e) => {
-      const rect = hero.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      targetX = ((e.clientX - cx) / rect.width) * 18;
-      targetY = ((e.clientY - cy) / rect.height) * 14;
-      if (!rafId) rafId = requestAnimationFrame(loop);
-    });
-
-    hero.addEventListener('mouseleave', () => {
-      targetX = 0;
-      targetY = 0;
-      if (!rafId) rafId = requestAnimationFrame(loop);
-    });
-  }
-
   function setupAudienceSlider() {
     const slider = document.getElementById('audience-slider');
     if (!slider) return;
@@ -244,63 +202,60 @@
     const submitBtn = form.querySelector('.btn-submit');
     const fields = form.querySelectorAll('.field-float');
 
+    function setError(field, hasError) {
+      const input = field.querySelector('input, textarea');
+      field.classList.toggle('error', hasError);
+      if (input) input.setAttribute('aria-invalid', String(hasError));
+    }
+
     fields.forEach((field) => {
       const input = field.querySelector('input, textarea');
       if (!input) return;
-      input.addEventListener('input', () => field.classList.remove('error'));
+      input.addEventListener('input', () => setError(field, false));
     });
 
+    // El formulario no envía a ningún servidor: prepara el mensaje y abre
+    // WhatsApp (único objetivo de conversión). Nada se guarda en la web.
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      let valid = true;
+      let firstInvalid = null;
       fields.forEach((field) => {
         const input = field.querySelector('input, textarea');
-        if (input && input.required && !input.value.trim()) {
-          field.classList.add('error');
-          valid = false;
-        }
-        if (input && input.type === 'email' && input.value) {
-          const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!re.test(input.value)) {
-            field.classList.add('error');
-            valid = false;
-          }
-        }
+        const invalid = !!input && input.required && !input.value.trim();
+        setError(field, invalid);
+        if (invalid && !firstInvalid) firstInvalid = input;
       });
 
-      if (!valid) {
-        status.textContent = 'Por favor revisa los campos marcados.';
+      if (firstInvalid) {
+        status.textContent = 'Revisa los campos marcados.';
         status.className = 'error';
+        firstInvalid.focus();
         return;
       }
 
-      status.textContent = '';
-      status.className = '';
-      submitBtn.classList.add('loading');
-      submitBtn.disabled = true;
+      const name = form.elements.name.value.trim();
+      const message = form.elements.message.value.trim();
+      const text = `Hola ContaProNow, soy ${name}. ${message}`;
+      const url = `https://wa.me/34634753021?text=${encodeURIComponent(text)}`;
 
-      const nameVal = form.name.value.trim();
-      const emailVal = form.email.value.trim();
-      const messageVal = form.message.value.trim();
+      // Con 'noopener' window.open devuelve null siempre, así que se corta
+      // el opener a mano para poder detectar si el navegador bloqueó la pestaña.
+      const win = window.open(url, '_blank');
+      if (win) {
+        win.opener = null;
+      } else {
+        window.location.href = url;
+      }
+
+      submitBtn.classList.add('success');
+      status.textContent = 'Listo: te hemos abierto WhatsApp con tu mensaje.';
+      status.className = 'success';
 
       setTimeout(() => {
-        submitBtn.classList.remove('loading');
-        submitBtn.classList.add('success');
-        status.textContent = '¡Listo! Abriendo tu cliente de correo...';
-        status.className = 'success';
-
-        const subject = encodeURIComponent('Consulta desde ContaProNow');
-        const body = encodeURIComponent(`Nombre: ${nameVal}\nEmail: ${emailVal}\n\n${messageVal}`);
-        window.location.href = `mailto:contapronoww@gmail.com?subject=${subject}&body=${body}`;
-
-        setTimeout(() => {
-          submitBtn.classList.remove('success');
-          submitBtn.disabled = false;
-          form.reset();
-          fields.forEach((f) => f.classList.remove('error'));
-        }, 2400);
-      }, 1100);
+        submitBtn.classList.remove('success');
+        form.reset();
+      }, 2400);
     });
   }
 })();
