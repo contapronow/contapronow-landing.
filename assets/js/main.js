@@ -143,10 +143,10 @@
     const elements = document.querySelectorAll('.reveal');
     if (!elements.length) return;
 
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-      elements.forEach((el) => el.classList.add('visible'));
-      return;
-    }
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+    // Solo a partir de aquí se ocultan los elementos para animarlos.
+    document.documentElement.classList.add('js-reveal');
 
     const observer = new IntersectionObserver(
       (entries) => {

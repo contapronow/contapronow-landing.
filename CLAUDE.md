@@ -47,6 +47,7 @@ Deployment is via Vercel (static site + `/api` serverless functions), triggered 
 - Un solo objetivo de conversión: mensaje de WhatsApp
 
 ## Sistema de marca (Laurisilva v2)
+- Al cambiar CSS o JS, sube el `?v=` de `styles.css`, `boot.js`, `main.js` y `chatbot.js` en TODAS las páginas (Safari sirve copias antiguas en caché si no).
 - Tokens en `:root` de `styles.css`: Arena (fondo), Tinta (texto), Laurisilva (marca), Sage, Teide (solo resaltar 1-2 palabras / alertas), Basalto, Bruma.
 - Cero gradientes, cero blobs/cuadrículas decorativas. Fraunces (display) + Inter (texto) + JetBrains Mono (etiquetas).
 - Solo se elevan con hover los elementos clicables. Texto pequeño en Sage no pasa AA sobre fondos claros: usar `--brand-2`.
