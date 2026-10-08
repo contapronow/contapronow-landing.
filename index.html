@@ -51,9 +51,9 @@
       "@type":"OfferCatalog",
       "name":"Servicios de ContaProNow",
       "itemListElement":[
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Automatización de atención y captación","url":"https://www.contapronow.com/automatizacion-atencion-captacion.html"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Automatización de facturas y gestión administrativa","url":"https://www.contapronow.com/automatizacion-facturas.html"}},
-        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Web orientada a captación y estructura digital","url":"https://www.contapronow.com/web-captacion-estructura-digital.html"}}
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Automatización de atención y captación","url":"https://www.contapronow.com/automatizacion-atencion-captacion"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Automatización de facturas y gestión administrativa","url":"https://www.contapronow.com/automatizacion-facturas"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"Web orientada a captación y estructura digital","url":"https://www.contapronow.com/web-captacion-estructura-digital"}}
       ]
     },
     "knowsAbout":[
@@ -127,16 +127,21 @@
     }
     .stack-logos {
       display: flex;
-      gap: 16px;
+      flex-wrap: wrap;
+      gap: 12px 16px;
       align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      max-width: 520px;
     }
+    /* Monocromo: 16 logos a todo color romperían la paleta de marca */
     .stack-logos img {
-      height: 18px;
-      width: auto;
-      opacity: 0.7;
-      transition: opacity 200ms ease;
+      height: 20px;
+      width: 20px;
+      filter: grayscale(1);
+      opacity: 0.62;
     }
-    .stack-logos img:hover { opacity: 1; }
 
     /* Fundamentos: grid 2x2 sobrio */
     .fundamentos-grid {
@@ -304,15 +309,26 @@
             <span class="benefit-pill">Cero oportunidades perdidas</span>
           </div>
 
-          <div class="hero-stack-badge" aria-label="Stack tecnológico sobre el que construimos">
-            <span class="stack-label">Construido sobre</span>
-            <div class="stack-logos">
-              <img src="/assets/icons/n8n.svg" alt="n8n" width="18" height="18" loading="lazy" />
-              <img src="/assets/icons/openai.svg" alt="OpenAI" width="18" height="18" loading="lazy" />
-              <img src="/assets/icons/wordpress.svg" alt="WordPress" width="18" height="18" loading="lazy" />
-              <img src="/assets/icons/stripe.svg" alt="Stripe" width="18" height="18" loading="lazy" />
-              <img src="/assets/icons/whatsapp.svg" alt="WhatsApp Business API" width="18" height="18" loading="lazy" />
-            </div>
+          <div class="hero-stack-badge">
+            <span class="stack-label" id="stack-label">Construido sobre</span>
+            <ul class="stack-logos" aria-labelledby="stack-label">
+              <li><img src="/assets/icons/n8n.svg" alt="n8n" title="n8n" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/make.svg" alt="Make" title="Make" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/openai.svg" alt="OpenAI" title="OpenAI" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/anthropic.svg" alt="Claude (Anthropic)" title="Claude (Anthropic)" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/whatsapp.svg" alt="WhatsApp Business" title="WhatsApp Business" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/gmail.svg" alt="Gmail" title="Gmail" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/google-sheets.svg" alt="Google Sheets" title="Google Sheets" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/airtable.svg" alt="Airtable" title="Airtable" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/notion.svg" alt="Notion" title="Notion" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/calendly.svg" alt="Calendly" title="Calendly" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/supabase.svg" alt="Supabase" title="Supabase" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/wordpress.svg" alt="WordPress" title="WordPress" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/woocommerce.svg" alt="WooCommerce" title="WooCommerce" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/stripe.svg" alt="Stripe" title="Stripe" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/vercel.svg" alt="Vercel" title="Vercel" width="20" height="20" loading="lazy" /></li>
+              <li><img src="/assets/icons/elevenlabs.svg" alt="ElevenLabs" title="ElevenLabs" width="20" height="20" loading="lazy" /></li>
+            </ul>
           </div>
         </div>
 
@@ -493,7 +509,7 @@
             </ul>
             <div class="service-card-footer">
               <span class="service-footnote">Más continuidad comercial</span>
-              <a class="btn btn-secondary" href="/automatizacion-atencion-captacion.html">Ver servicio</a>
+              <a class="btn btn-secondary" href="/automatizacion-atencion-captacion">Ver servicio</a>
             </div>
           </article>
 
@@ -520,7 +536,7 @@
             </ul>
             <div class="service-card-footer">
               <span class="service-footnote">Gestión más ordenada</span>
-              <a class="btn btn-secondary" href="/automatizacion-facturas.html">Ver servicio</a>
+              <a class="btn btn-secondary" href="/automatizacion-facturas">Ver servicio</a>
             </div>
           </article>
 
@@ -546,7 +562,7 @@
             </ul>
             <div class="service-card-footer">
               <span class="service-footnote">Mejor base digital</span>
-              <a class="btn btn-secondary" href="/web-captacion-estructura-digital.html">Ver servicio</a>
+              <a class="btn btn-secondary" href="/web-captacion-estructura-digital">Ver servicio</a>
             </div>
           </article>
         </div>
@@ -680,6 +696,7 @@
               <span class="tool-pill"><img src="/assets/icons/n8n.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />n8n</span>
               <span class="tool-pill"><img src="/assets/icons/make.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Make</span>
               <span class="tool-pill"><img src="/assets/icons/openai.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />OpenAI</span>
+              <span class="tool-pill"><img src="/assets/icons/anthropic.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Claude</span>
             </div>
           </article>
 
@@ -691,6 +708,7 @@
               <span class="tool-pill"><img src="/assets/icons/google-sheets.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Google Sheets</span>
               <span class="tool-pill"><img src="/assets/icons/airtable.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Airtable</span>
               <span class="tool-pill"><img src="/assets/icons/notion.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Notion</span>
+              <span class="tool-pill"><img src="/assets/icons/supabase.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Supabase</span>
             </div>
           </article>
 
@@ -702,6 +720,7 @@
               <span class="tool-pill"><img src="/assets/icons/wordpress.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />WordPress</span>
               <span class="tool-pill"><img src="/assets/icons/woocommerce.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />WooCommerce</span>
               <span class="tool-pill"><img src="/assets/icons/stripe.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Stripe</span>
+              <span class="tool-pill"><img src="/assets/icons/vercel.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Vercel</span>
             </div>
           </article>
 
@@ -713,6 +732,7 @@
               <span class="tool-pill"><img src="/assets/icons/gmail.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Gmail</span>
               <span class="tool-pill"><img src="/assets/icons/whatsapp.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />WhatsApp</span>
               <span class="tool-pill"><img src="/assets/icons/calendly.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />Calendly</span>
+              <span class="tool-pill"><img src="/assets/icons/elevenlabs.svg" alt="" width="18" height="18" aria-hidden="true" loading="lazy" />ElevenLabs</span>
             </div>
           </article>
         </div>
@@ -862,14 +882,14 @@
       </nav>
       <nav class="foot-col" aria-label="Servicios">
         <p class="foot-label">Servicios</p>
-        <a href="/automatizacion-atencion-captacion.html">Atención y captación</a>
-        <a href="/automatizacion-facturas.html">Facturas y administración</a>
-        <a href="/web-captacion-estructura-digital.html">Web de captación</a>
+        <a href="/automatizacion-atencion-captacion">Atención y captación</a>
+        <a href="/automatizacion-facturas">Facturas y administración</a>
+        <a href="/web-captacion-estructura-digital">Web de captación</a>
       </nav>
       <nav class="foot-col" aria-label="Legal y redes">
         <p class="foot-label">Legal</p>
-        <a href="/privacidad.html">Privacidad</a>
-        <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/privacidad">Privacidad</a>
+        <a href="/aviso-legal">Aviso legal</a>
         <a href="https://www.instagram.com/abiaanperez" target="_blank" rel="noopener noreferrer">Instagram</a>
       </nav>
       <p class="foot-copy">© <span id="year">2026</span> ContaProNow</p>
