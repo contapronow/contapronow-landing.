@@ -2,7 +2,7 @@
    ContaProNow — Chatbot widget de captación de leads
    Ubicación en el repo: /assets/js/chatbot.js
    Incluir en cada página con: <script src="/assets/js/chatbot.js" defer></script>
-   v2: paleta unificada con la identidad del sitio (azul corporativo)
+   v3: paleta Laurisilva v2 (Laurisilva, Arena, Tinta) a juego con el sitio
    ──────────────────────────────────────────────────────────────────── */
 
 (function () {
@@ -30,7 +30,7 @@
   let typing = false;
 
   // ────────────────────────────────────────────────────────────────────
-  // ESTILOS — paleta del sitio: azul corporativo sobre superficie clara
+  // ESTILOS — paleta del sitio: Laurisilva sobre superficie Arena clara
   // ────────────────────────────────────────────────────────────────────
   const styles = `
     .cpn-chat-bubble {
@@ -39,14 +39,14 @@
       background: #2A3A28; border-radius: 50%;
       cursor: pointer; display: flex; align-items: center; justify-content: center;
       box-shadow: 0 14px 32px rgba(42,58,40,0.32), 0 2px 8px rgba(26,18,16,0.14);
-      border: none; z-index: 9999;
+      border: 2px solid #F2EBE0; z-index: 9999;
       transition: transform 0.2s;
     }
     .cpn-chat-bubble:hover { transform: scale(1.08); }
     .cpn-chat-window {
       position: fixed; bottom: 92px; right: 24px;
       width: 375px; max-height: 600px;
-      background: #ffffff; border: 1px solid rgba(26,18,16,0.1); border-radius: 20px;
+      background: #FBF8F1; border: 1px solid rgba(26,18,16,0.1); border-radius: 20px;
       box-shadow: 0 24px 64px rgba(26,18,16,0.18);
       display: flex; flex-direction: column; overflow: hidden;
       z-index: 9998;
@@ -76,7 +76,7 @@
     .cpn-chat-messages {
       flex: 1; overflow-y: auto; padding: 18px 14px;
       display: flex; flex-direction: column; gap: 10px;
-      background: #ffffff;
+      background: #FBF8F1;
     }
     .cpn-msg-row { display: flex; align-items: flex-end; gap: 8px; }
     .cpn-msg-row.user { justify-content: flex-end; }
@@ -121,7 +121,7 @@
     }
     .cpn-chat-form {
       padding: 12px 14px; border-top: 1px solid rgba(26,18,16,0.08);
-      display: flex; gap: 8px; background: #ffffff;
+      display: flex; gap: 8px; background: #FBF8F1;
     }
     .cpn-chat-input {
       flex: 1; background: #ffffff; border: 1px solid rgba(26,18,16,0.14); border-radius: 22px;
