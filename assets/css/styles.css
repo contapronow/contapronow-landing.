@@ -1404,82 +1404,46 @@ button {
   background: rgba(26, 18, 16, 0.16);
 }
 
-/* Tarjeta de equipo: personas reales y hechos verificables, sin adornos */
-.team-card {
+.about-panel {
   padding: 1.6rem;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-radius: var(--radius-lg);
   background: var(--surface);
   border: 1px solid rgba(42, 58, 40, 0.14);
   box-shadow: var(--shadow-md);
 }
 
-.team-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 1rem;
+.about-panel-top {
+  display: flex;
+  gap: 0.42rem;
+  margin-bottom: 1.2rem;
 }
 
-.team-member {
-  display: grid;
-  grid-template-columns: 3.25rem minmax(0, 1fr);
-  gap: 1rem;
-  align-items: center;
+.about-panel-body h3 {
+  margin: 0.4rem 0 1.1rem;
+  font-size: 1.6rem;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
 }
 
-.team-initials {
-  width: 3.25rem;
-  height: 3.25rem;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: var(--brand);
-  color: var(--text-invert);
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+.about-panel-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
 }
 
-.team-name {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.2;
-}
-
-.team-role {
-  margin: 0.15rem 0 0;
-  font-size: 0.93rem;
-  color: var(--text-soft);
-}
-
-.team-facts {
-  margin: 1.4rem 0 0;
-  padding-top: 1.2rem;
-  border-top: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.team-facts dt {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--brand-2);
-}
-
-.team-facts dd {
-  margin: 0.25rem 0 0;
-  font-size: 0.93rem;
-  font-weight: 600;
-  line-height: 1.35;
-  color: var(--text);
+.about-panel-list span {
+  display: inline-flex;
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  border: 1px solid rgba(42, 58, 40, 0.12);
+  font-size: 0.84rem;
+  font-weight: 700;
 }
 
 /* ============= SECCIÓN DE MARCA (cierre en Laurisilva) ============= */
@@ -1999,12 +1963,8 @@ button {
   .tool-group,
   .capability-card,
   .contact-form-card,
-  .team-card {
+  .about-panel {
     padding: 1.3rem;
-  }
-
-  .team-facts {
-    grid-template-columns: 1fr 1fr;
   }
 
   .ops-board {
