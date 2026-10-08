@@ -37,13 +37,27 @@
       }
     });
 
+    function closeMenu() {
+      menu.setAttribute('hidden', '');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
     menu.querySelectorAll('a').forEach((a) => {
       a.addEventListener('click', () => {
-        if (window.matchMedia('(max-width: 980px)').matches) {
-          menu.setAttribute('hidden', '');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
+        if (window.matchMedia('(max-width: 1180px)').matches) closeMenu();
       });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (toggle.getAttribute('aria-expanded') !== 'true') return;
+      if (!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu();
     });
   }
 

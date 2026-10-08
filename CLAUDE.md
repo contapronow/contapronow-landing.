@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Static marketing website for **ContaProNow** (contapronow.com), a Spanish digital-infrastructure/automation agency for freelancers and small businesses. No build system, no package manager, no framework — plain HTML/CSS/JS deployed as static files on Vercel, plus one serverless function.
+Static marketing website for **ContaProNow** (contapronow.com), a Spanish digital-infrastructure/automation agency for freelancers and small businesses. No build system, no package manager, no framework — plain HTML/CSS/JS deployed as static files on Vercel, plus two serverless functions (`api/chat.js`, `api/lead.js`).
 
 ## Commands
 
@@ -21,11 +21,15 @@ Deployment is via Vercel (static site + `/api` serverless functions), triggered 
 - **Pages are standalone HTML files at the repo root** (`index.html`, `automatizacion-facturas.html`, `automatizacion-atencion-captacion.html`, `web-captacion-estructura-digital.html`, plus legal pages `aviso-legal.html` / `privacidad.html`). There is no templating — shared markup (header, footer, chatbot widget) is duplicated across each page, so structural changes usually need to be applied to every page individually. Check `sitemap.xml` when adding/removing a page.
 - **`assets/css/styles.css`** is a single shared stylesheet for all pages. Individual pages may add a `<style id="premium-overrides">` block in their `<head>` for page-specific visual tweaks rather than touching the shared CSS.
 - **`assets/js/main.js`** drives on-page interactivity (nav toggle, smooth scroll, header scroll state, hero title/parallax animation, scroll-reveal via `IntersectionObserver`, audience slider, contact form validation, process timeline animation). It's a single IIFE with one `init()` that wires up each feature; each feature is a self-contained `setupX()` function that no-ops if its DOM isn't present on the page. Respects `prefers-reduced-motion`.
-- **`assets/js/chatbot.js`** injects a self-contained chat widget (bubble + window, all styles injected via a `<style>` tag at runtime — not in `styles.css`) used for lead capture. It is included on the three service pages and `index.html`.
-  - Conversation turns are sent to `/api/chat` (see below) along with a hardcoded Spanish `SYSTEM_PROMPT` describing ContaProNow's services and a strict output contract: once the assistant has both name and email, it must append a `[LEAD_CAPTURED:nombre=...,email=...,interes=...]` tag to its final message.
-  - The client parses that tag out of the response (`detectLead`/`cleanText`), and on match POSTs the lead to an **n8n webhook** (`N8N_WEBHOOK_URL`, currently a Railway-hosted n8n instance) which handles downstream lead storage/notification. This webhook URL is hardcoded in the JS — updating it requires editing `assets/js/chatbot.js` directly.
-- **`api/chat.js`** is a Vercel serverless function acting as a secure proxy to OpenAI (`gpt-4o-mini`) so the API key never reaches the client. Expects `OPENAI_API_KEY` as a Vercel environment variable. Handles CORS (`*`) and only accepts `POST`/`OPTIONS`.
-- **`vercel.json`** only configures security response headers (CSP-adjacent headers like `X-Frame-Options`, `Strict-Transport-Security`, etc.) applied to all routes — there's no routing/build config beyond that.
+- **`assets/js/chatbot.js`** injects a self-contained chat widget (bubble + window, all styles injected via a `<style>` tag at runtime — not in `styles.css`) used for lead capture. It is included on `index.html` and the three service pages.
+  - Conversation turns are sent to `/api/chat`. The Spanish `SYSTEM_PROMPT` lives **server-side** in `api/chat.js` (the client never sends it). Output contract: once the assistant has both name and email, it appends a `[LEAD_CAPTURED:nombre=...,email=...,interes=...]` tag to its final message.
+  - The client parses that tag out of the response (`detectLead`/`cleanText`) and POSTs the lead to **`/api/lead`** (same origin), which validates it and forwards it server-side to the n8n webhook (Railway). The n8n URL lives only in `api/lead.js`.
+- **`api/chat.js`** — Vercel serverless proxy to OpenAI (`gpt-4o-mini`); needs `OPENAI_API_KEY` in Vercel env. CORS restricted to contapronow.com + `*.vercel.app` previews, input validation, best-effort in-memory rate limit (20/min/IP), ignores any client `system` message.
+- **`api/lead.js`** — Vercel serverless proxy for leads → n8n. Validates nombre/email/interes, rate limit 10/min/IP.
+- **`vercel.json`** only configures security response headers (strict CSP with `script-src 'self'` and `connect-src 'self'`, HSTS, X-Frame-Options, COOP, etc.). Inline `<script>` is blocked by the CSP — JSON-LD blocks are fine because they are not executed. Any new external script/connection needs a CSP update.
+- **Hero visual (`.ops-board`)**: every hero shows a coded "operativa del día" board (HTML/CSS in Laurisilva tokens) instead of a raster mockup. It must stay honest: example events only, no invented result metrics, with the "Ejemplo…" caption.
+- **Contact form** (`index.html#contacto`, `setupContactForm` in `main.js`) does not post anywhere: it builds a message and opens WhatsApp (`wa.me`). Nothing is stored on the site.
+- **`assets/img/og-image.png`** (1200×630) is the social preview for all pages; regenerate it if the brand or headline changes.
 - **`assets/icons/`** and **`assets/img/`** hold SVG icons (including per-integration brand icons like `n8n.svg`, `make.svg`, `openai.svg`, `notion.svg`, `stripe.svg`) and raster/photo assets respectively.
 
 ## Content/editing notes
@@ -42,6 +46,12 @@ Deployment is via Vercel (static site + `/api` serverless functions), triggered 
 - Nav: "Sobre nosotros" (no "About" ni otro texto)
 - Un solo objetivo de conversión: mensaje de WhatsApp
 
+## Sistema de marca (Laurisilva v2)
+- Tokens en `:root` de `styles.css`: Arena (fondo), Tinta (texto), Laurisilva (marca), Sage, Teide (solo resaltar 1-2 palabras / alertas), Basalto, Bruma.
+- Cero gradientes, cero blobs/cuadrículas decorativas. Fraunces (display) + Inter (texto) + JetBrains Mono (etiquetas).
+- Solo se elevan con hover los elementos clicables. Texto pequeño en Sage no pasa AA sobre fondos claros: usar `--brand-2`.
+- Prueba social: nunca inventar cifras, testimonios ni clientes.
+
 ## Pendientes conocidos
-- DNS apex: en GoDaddy añadir A record apuntando a 76.76.21.21 (Vercel)
-- Verificar que el chatbot de n8n sigue funcionando tras cualquier cambio en api/
+- DNS: el dominio lo gestiona Cloudflare (no GoDaddy). El apex `contapronow.com` redirige 308 a `www` y funciona; Vercel recomienda (opcional) cambiar el A `@ → 76.76.21.21` por el CNAME que muestra en Settings → Domains.
+- Verificar que el chatbot (`/api/chat`) y la captura de leads (`/api/lead` → n8n) siguen funcionando tras cualquier cambio en `api/`.

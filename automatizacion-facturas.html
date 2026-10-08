@@ -13,11 +13,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.contapronow.com/automatizacion-facturas.html" />
   <meta property="og:image" content="https://www.contapronow.com/assets/img/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="ContaProNow" />
+  <meta property="og:locale" content="es_ES" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://www.contapronow.com/automatizacion-facturas.html" />
 
   <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml" />
-
-  <!-- FIX 08: Google Fonts preconnect + preload (igual que index) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,800&family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" />
@@ -25,16 +28,26 @@
 
   <link rel="preload" as="style" href="/assets/css/styles.css" />
   <link rel="stylesheet" href="/assets/css/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Automatización de facturas y gestión administrativa",
+    "serviceType":"Automatización administrativa",
+    "description":"Las facturas que llegan por email o carpetas se leen, se registran en Excel o Google Sheets y se archivan solas, listas para tu gestoría.",
+    "url":"https://www.contapronow.com/automatizacion-facturas.html",
+    "areaServed":[{"@type":"AdministrativeArea","name":"Tenerife"},{"@type":"Country","name":"España"}],
+    "provider":{"@type":"ProfessionalService","name":"ContaProNow","url":"https://www.contapronow.com/","telephone":"+34634753021"}
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <!-- FIX 03: cursor-dot añadido -->
-  <div class="cursor-dot" aria-hidden="true"></div>
-
   <header class="site-header site-header-glass" role="banner">
     <div class="container header-inner">
-      <a class="logo" href="/index.html" aria-label="Inicio ContaProNow">
+      <a class="logo" href="/" aria-label="Inicio ContaProNow">
         <span class="logo-mark" aria-hidden="true">cp<span class="logo-mark-dot">.</span></span>
         <span class="logo-text-wrap">
           <span class="logo-text">conta<em>pro</em>now<span class="logo-dot">.</span></span>
@@ -45,10 +58,10 @@
       <nav class="site-nav" aria-label="Navegación principal">
         <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menú</button>
         <ul id="menu" class="menu" hidden>
-          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/">Inicio</a></li>
           <li><a href="/index.html#servicios">Servicios</a></li>
           <li><a href="/index.html#proceso">Cómo trabajamos</a></li>
-          <li><a href="/index.html#sobre-mi">Sobre nosotros</a></li>
+          <li><a href="/index.html#sobre-nosotros">Sobre nosotros</a></li>
           <li><a href="/index.html#contacto">Contacto</a></li>
           <li class="li-cta">
             <a class="btn btn-primary sm" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20automatizaci%C3%B3n%20de%20facturas.">
@@ -59,8 +72,6 @@
       </nav>
     </div>
   </header>
-
-  <!-- FIX 01: WhatsApp FAB con SVG completo (igual que index) -->
   <a class="whatsapp-fab" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20automatizaci%C3%B3n%20de%20facturas." aria-label="Abrir WhatsApp">
     <span class="wa-pulse wa-pulse-1" aria-hidden="true"></span>
     <span class="wa-pulse wa-pulse-2" aria-hidden="true"></span>
@@ -71,23 +82,15 @@
 
   <main id="contenido">
     <section class="hero hero-premium service-hero-premium" id="hero" aria-labelledby="hero-title">
-      <div class="hero-bg" aria-hidden="true">
-        <span class="hero-blur hero-blur-a"></span>
-        <span class="hero-blur hero-blur-b"></span>
-        <!-- FIX 04: hero-blur-c añadido -->
-        <span class="hero-blur hero-blur-c"></span>
-        <span class="hero-grid-lines"></span>
-      </div>
 
       <div class="container hero-layout service-hero-layout">
         <div class="hero-copy">
           <span class="section-tag section-tag-strong">Servicio · Gestión administrativa</span>
 
           <div class="hero-title-wrap">
-            <!-- FIX 05: H1 con data-split y estructura title-word + hl -->
             <h1 id="hero-title" class="hero-title-anim" data-split>
-              <span class="title-word"><span class="hl">Automatización</span></span>
-              <span class="title-word"><span class="hl">de</span></span>
+              <span class="title-word">Automatización</span>
+              <span class="title-word">de</span>
               <span class="title-word"><span class="hl">facturas</span></span>
               <span class="title-word">y</span>
               <span class="title-word">gestión</span>
@@ -99,123 +102,94 @@
           </div>
 
           <div class="cta-row hero-cta-row">
-            <!-- FIX 06: btn-magnetic añadido -->
-            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20solicitar%20una%20revisi%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20facturas.">Solicitar revisión</a>
+            <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20solicitar%20una%20revisi%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20facturas.">Solicitar revisión gratuita</a>
             <a class="btn btn-secondary" href="#como-funciona">Ver cómo funciona</a>
           </div>
 
-          <div class="hero-benefits hero-benefits-pills" aria-label="Beneficios principales">
-            <span class="benefit-pill">Menos trabajo manual</span>
-            <span class="benefit-pill">Más orden documental</span>
-            <span class="benefit-pill">Mejor control administrativo</span>
-          </div>
-
-          <div class="hero-mini-metrics" aria-label="Puntos clave">
-            <!-- FIX 02: clase reveal añadida a los 3 artículos -->
-            <article class="mini-metric-card reveal">
+          <div class="hero-mini-metrics" aria-label="Cómo funciona, en tres pasos">
+            <article class="mini-metric-card">
               <span class="mini-metric-label">Entrada</span>
-              <strong>Más clara</strong>
-              <p>Facturas y documentos con una recepción mejor organizada.</p>
+              <strong>Email y carpetas</strong>
+              <p>Cada factura entra sola al sistema, sin descargar nada.</p>
             </article>
-            <article class="mini-metric-card reveal">
+            <article class="mini-metric-card">
+              <span class="mini-metric-label">Lectura</span>
+              <strong>Datos clave, sin teclear</strong>
+              <p>Proveedor, fecha, base, impuestos y total, extraídos al momento.</p>
+            </article>
+            <article class="mini-metric-card">
               <span class="mini-metric-label">Registro</span>
-              <strong>Más útil</strong>
-              <p>Información mejor estructurada para consultar y seguir.</p>
-            </article>
-            <article class="mini-metric-card reveal">
-              <span class="mini-metric-label">Control</span>
-              <strong>Más estable</strong>
-              <p>Una operativa administrativa menos dependiente de pasos manuales.</p>
+              <strong>Excel o Google Sheets</strong>
+              <p>Todo listo para consultar o enviar a tu gestoría.</p>
             </article>
           </div>
         </div>
 
-        <div class="hero-visual hero-visual-panel" aria-hidden="true">
-          <div class="hero-stack">
-            <article class="floating-panel panel-primary">
-              <div class="panel-top">
-                <span class="panel-dot"></span>
-                <span class="panel-dot"></span>
-                <span class="panel-dot"></span>
-              </div>
-
-              <div class="panel-body">
-                <div class="panel-header-row">
-                  <span class="panel-kicker">Administración</span>
-                  <span class="panel-status">Ordenado</span>
+        <figure class="hero-visual">
+          <div class="ops-board" role="img" aria-label="Ejemplo de un día con el sistema en marcha: una factura de proveedor llega por email, se leen sus datos, se registra en Google Sheets, se archiva y la información llega a la gestoría.">
+            <div class="ops-head">
+              <p class="ops-title">Administración, hoy</p>
+              <span class="ops-live">En marcha</span>
+            </div>
+            <ol class="ops-feed">
+              <li class="ops-row" style="--i:0">
+                <span class="ops-time">08:40</span>
+                <span class="ops-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"/><path d="M9 13h6"/><path d="M9 17h6"/></svg></span>
+                <div>
+                  <p class="ops-what">Factura de proveedor por email</p>
+                  <p class="ops-done">Leída: proveedor, fecha, base, impuestos y total</p>
                 </div>
-
-                <h2 class="panel-title">Gestión documental más clara</h2>
-
-                <div class="panel-lines">
-                  <span class="line w-100"></span>
-                  <span class="line w-84"></span>
-                  <span class="line w-66"></span>
+              </li>
+              <li class="ops-row" style="--i:1">
+                <span class="ops-time">08:40</span>
+                <span class="ops-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/></svg></span>
+                <div>
+                  <p class="ops-what">Registro en Google Sheets</p>
+                  <p class="ops-done">Fila añadida sin teclear un solo dato</p>
                 </div>
-
-                <div class="panel-metric-grid">
-                  <div class="panel-metric">
-                    <span class="metric-number">01</span>
-                    <span class="metric-text">Entrada</span>
-                  </div>
-                  <div class="panel-metric">
-                    <span class="metric-number">02</span>
-                    <span class="metric-text">Registro</span>
-                  </div>
-                  <div class="panel-metric">
-                    <span class="metric-number">03</span>
-                    <span class="metric-text">Control</span>
-                  </div>
+              </li>
+              <li class="ops-row" style="--i:2">
+                <span class="ops-time">08:41</span>
+                <span class="ops-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg></span>
+                <div>
+                  <p class="ops-what">Archivo del documento</p>
+                  <p class="ops-done">Guardado con nombre y carpeta correctos</p>
                 </div>
-              </div>
-            </article>
-
-            <article class="floating-panel panel-secondary">
-              <div class="panel-chip-row">
-                <span class="ui-chip">Email</span>
-                <span class="ui-chip">Sheets</span>
-                <span class="ui-chip">Drive</span>
-              </div>
-              <div class="signal-list">
-                <span class="signal-pill">Facturas</span>
-                <span class="signal-pill">Documentos</span>
-                <span class="signal-pill">Orden</span>
-              </div>
-            </article>
-
-            <article class="floating-panel panel-tertiary">
-              <span class="panel-kicker">Flujo de trabajo</span>
-              <div class="flow-steps">
-                <span>Recepción</span>
-                <span>Extracción</span>
-                <span>Registro</span>
-                <span>Control</span>
-              </div>
-            </article>
+              </li>
+              <li class="ops-row" style="--i:3">
+                <span class="ops-time">13:00</span>
+                <span class="ops-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7Z"/></svg></span>
+                <div>
+                  <p class="ops-what">Información para tu gestoría</p>
+                  <p class="ops-done">Completa y a tiempo</p>
+                </div>
+              </li>
+            </ol>
+            <p class="ops-foot">Tú solo revisas.</p>
           </div>
-        </div>
+          <figcaption class="ops-caption">Ejemplo de un día con el sistema en marcha.</figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="section section-tight metrics-strip-section" aria-label="Resumen del servicio">
       <div class="container">
         <div class="metrics-strip">
-          <!-- FIX 10: reveal añadido a cada strip-card -->
           <article class="strip-card reveal">
             <span class="strip-label">Problema</span>
-            <strong>Demasiados pasos manuales</strong>
+            <strong>Facturas copiadas a mano</strong>
           </article>
           <article class="strip-card reveal">
             <span class="strip-label">Punto crítico</span>
-            <strong>Desorden documental</strong>
+            <strong>Errores de tecleo y papeles pendientes</strong>
           </article>
           <article class="strip-card reveal">
             <span class="strip-label">Objetivo</span>
-            <strong>Más control administrativo</strong>
+            <strong>Cero datos copiados a mano</strong>
           </article>
           <article class="strip-card reveal">
             <span class="strip-label">Resultado</span>
-            <strong>Gestión más clara y útil</strong>
+            <strong>Todo registrado y localizable</strong>
           </article>
         </div>
       </div>
@@ -225,7 +199,7 @@
       <div class="container">
         <div class="section-head section-head-elevated compact-center reveal">
           <span class="section-tag">Problema habitual</span>
-          <h2 id="problema-title">Cuando la gestión administrativa depende demasiado de tareas manuales, el negocio pierde tiempo y control</h2>
+          <h2 id="problema-title">Copiar facturas a mano te cuesta horas cada mes. Y errores.</h2>
           <p class="section-lead">
             Copiar datos de facturas a mano consume horas cada mes y genera errores que después cuestan más horas corregir. Ese trabajo ya no debería hacerlo una persona. A partir de ahora, lo hace el sistema.
           </p>
@@ -297,10 +271,9 @@
     <section class="section section-dark-block" id="solucion" aria-labelledby="solucion-title">
       <div class="container">
         <div class="system-block">
-          <!-- FIX 09: reveal añadido a system-copy y system-visual -->
           <div class="system-copy reveal">
             <span class="section-tag section-tag-invert">Qué resolvemos</span>
-            <h2 id="solucion-title">Una forma más clara de gestionar facturas, registros y documentación administrativa</h2>
+            <h2 id="solucion-title">Cada factura, leída, registrada y archivada sin que la toques</h2>
             <p>
               Cada factura que llega se lee, se extraen sus datos clave y se registran en tu hoja o sistema, con el documento archivado y localizable en segundos.
             </p>
@@ -348,19 +321,16 @@
       <div class="container">
         <div class="section-head section-head-elevated compact-center reveal">
           <span class="section-tag">Qué incluye</span>
-          <h2 id="funciona-title">Una solución práctica adaptada al funcionamiento real del negocio</h2>
+          <h2 id="funciona-title">Seis piezas que eliminan el trabajo administrativo manual</h2>
           <p class="section-lead">
-            El servicio se plantea sobre la operativa real de la empresa para que la recepción, el registro y el control
-            documental queden mucho más claros y sostenibles.
+            Lo montamos sobre cómo trabajas hoy: tu correo, tus carpetas y tu hoja de cálculo. Sin obligarte a cambiar de herramientas.
           </p>
         </div>
 
         <div class="service-showcase service-showcase-3">
-          <!-- FIX 12: tilt-card + tilt-glow añadidos a todas las service-cards -->
-          <article class="card service feature-card service-card-premium reveal tilt-card">
-            <div class="tilt-glow" aria-hidden="true"></div>
+          <article class="card service feature-card service-card-premium reveal">
             <div class="service-card-top">
-              <span class="service-badge">Bloque 01</span>
+              <span class="service-badge">Recepción</span>
               <div class="feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M21 15V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9"></path>
@@ -373,10 +343,9 @@
             <p>Las facturas que llegan a tu email o a tus carpetas entran solas al sistema. Sin descargar ni mover nada a mano.</p>
           </article>
 
-          <article class="card service feature-card service-card-premium reveal tilt-card">
-            <div class="tilt-glow" aria-hidden="true"></div>
+          <article class="card service feature-card service-card-premium reveal">
             <div class="service-card-top">
-              <span class="service-badge">Bloque 02</span>
+              <span class="service-badge">Lectura</span>
               <div class="feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M9 11h6"></path>
@@ -390,10 +359,9 @@
             <p>Proveedor, fecha, base, impuestos y total se extraen de cada factura automáticamente, sin teclear un solo dato.</p>
           </article>
 
-          <article class="card service feature-card service-card-premium reveal tilt-card">
-            <div class="tilt-glow" aria-hidden="true"></div>
+          <article class="card service feature-card service-card-premium reveal">
             <div class="service-card-top">
-              <span class="service-badge">Bloque 03</span>
+              <span class="service-badge">Registro</span>
               <div class="feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M3 3v18h18"></path>
@@ -407,10 +375,9 @@
         </div>
 
         <div class="service-showcase service-showcase-3 service-showcase-gap-top">
-          <article class="card service feature-card service-card-premium reveal tilt-card">
-            <div class="tilt-glow" aria-hidden="true"></div>
+          <article class="card service feature-card service-card-premium reveal">
             <div class="service-card-top">
-              <span class="service-badge">Bloque 04</span>
+              <span class="service-badge">Archivo</span>
               <div class="feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 7h16"></path>
@@ -424,10 +391,9 @@
             <p>Cada documento archivado con nombre y carpeta correctos. Localizas cualquier factura en segundos, no en tardes.</p>
           </article>
 
-          <article class="card service feature-card service-card-premium reveal service-card-featured tilt-card">
-            <div class="tilt-glow" aria-hidden="true"></div>
+          <article class="card service feature-card service-card-premium reveal">
             <div class="service-card-top">
-              <span class="service-badge">Bloque 05</span>
+              <span class="service-badge">Precisión</span>
               <div class="feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M21 12a9 9 0 1 1-3.2-6.9"></path>
@@ -440,10 +406,9 @@
             <p>Se elimina el copiar-pegar manual: la principal fuente de errores y de horas perdidas en administración.</p>
           </article>
 
-          <article class="card service feature-card service-card-premium reveal tilt-card">
-            <div class="tilt-glow" aria-hidden="true"></div>
+          <article class="card service feature-card service-card-premium reveal">
             <div class="service-card-top">
-              <span class="service-badge">Bloque 06</span>
+              <span class="service-badge">Escalable</span>
               <div class="feature-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" class="ui-icon" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M3 17l6-6 4 4 7-8"></path>
@@ -460,13 +425,11 @@
 
     <section class="section" id="resultado" aria-labelledby="resultado-title">
       <div class="container">
-        <!-- FIX 11: reveal añadido al section-head -->
         <div class="section-head section-head-elevated compact-center reveal">
           <span class="section-tag">Resultado</span>
-          <h2 id="resultado-title">No se trata solo de automatizar por automatizar, sino de trabajar con más orden y más control</h2>
+          <h2 id="resultado-title">Menos administración. Más control.</h2>
           <p class="section-lead">
-            Este servicio está pensado para que la gestión administrativa deje de depender tanto de tareas manuales
-            y pase a apoyarse en una estructura más clara, más estable y más fácil de seguir.
+            La gestión administrativa deja de depender de que alguien teclee datos y pasa a funcionar sola, con cada factura registrada y localizable.
           </p>
         </div>
 
@@ -474,47 +437,51 @@
           <article class="card reveal value-card">
             <div class="value-card-head">
               <span class="value-number">01</span>
-              <h3>Menos fricción diaria</h3>
+              <h3>Horas libres cada mes</h3>
             </div>
-            <p>Menos pasos repetitivos en una parte del negocio que suele consumir demasiado tiempo.</p>
+            <p>Los pasos repetitivos desaparecen de la parte del negocio que más tiempo consume.</p>
           </article>
 
           <article class="card reveal value-card">
             <div class="value-card-head">
               <span class="value-number">02</span>
-              <h3>Más claridad interna</h3>
+              <h3>Todo localizable</h3>
             </div>
-            <p>Una base documental y administrativa más ordenada para consultar y trabajar mejor.</p>
+            <p>Cada factura registrada y archivada: encuentras cualquier dato en segundos.</p>
           </article>
 
           <article class="card reveal value-card">
             <div class="value-card-head">
               <span class="value-number">03</span>
-              <h3>Más recorrido</h3>
+              <h3>Base para lo siguiente</h3>
             </div>
-            <p>Una estructura más sólida sobre la que seguir mejorando otros procesos si el negocio lo necesita.</p>
+            <p>La misma estructura sirve para conciliación, avisos de vencimientos o informes automáticos.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section alt section-cta-premium" id="revision" aria-labelledby="revision-title">
+    <section class="section section-brand section-cta-premium" id="revision" aria-labelledby="revision-title">
       <div class="container">
-        <!-- FIX 07: reveal añadido al final-cta-shell -->
-        <div class="final-cta-shell reveal">
+        <div class="final-cta-shell">
           <div class="section-head compact-center">
             <span class="section-tag">Revisión</span>
             <h2 id="revision-title">En 20 minutos te decimos si esto encaja con tu negocio — y si no encaja, también</h2>
             <p class="section-lead">
-              Podemos revisar cómo gestionáis ahora facturas y documentación para detectar dónde tiene sentido intervenir
-              y qué solución sería más útil según vuestra forma real de trabajar.
-            </p>
+            Revisamos cómo gestionáis hoy facturas y documentación y te decimos qué automatizar primero y qué no merece la pena tocar.
+          </p>
           </div>
 
           <div class="cta-row final-cta-row">
-            <a class="btn btn-primary btn-magnetic" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20facturas%20y%20gesti%C3%B3n%20administrativa.">Pedir revisión</a>
-            <a class="btn btn-secondary" href="/index.html#contacto">Ir a contacto</a>
+            <a class="btn btn-primary" href="https://wa.me/34634753021?text=Hola%20ContaProNow%2C%20quiero%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20facturas%20y%20gesti%C3%B3n%20administrativa.">Pedir revisión gratuita</a>
+            <a class="btn btn-secondary" href="tel:+34634753021">Llamar al 634 753 021</a>
           </div>
+          <p class="cta-note">Sin compromiso. Respondemos en menos de 24 h laborables.</p>
+          <nav class="service-crosslinks" aria-label="Otros servicios">
+            <span>Otros sistemas:</span>
+            <a href="/automatizacion-atencion-captacion.html">Atención y captación</a>
+            <a href="/web-captacion-estructura-digital.html">Web de captación</a>
+          </nav>
         </div>
       </div>
     </section>

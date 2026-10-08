@@ -153,7 +153,7 @@ button {
   top: 0;
   z-index: var(--z-sticky);
   min-height: var(--header-h);
-  transition: min-height 0.3s var(--ease-premium), background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .site-header-glass {
@@ -178,7 +178,6 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
-  transition: min-height 0.3s var(--ease-premium);
 }
 
 .site-header.scrolled .header-inner {
@@ -254,8 +253,13 @@ button {
 }
 
 .site-nav {
+  position: static;
   display: flex;
   align-items: center;
+}
+
+.header-inner {
+  position: relative;
 }
 
 .nav-toggle {
@@ -279,6 +283,7 @@ button {
 
 .menu a:not(.btn) {
   position: relative;
+  white-space: nowrap;
   color: var(--text-soft);
   font-size: 0.95rem;
   transition: color var(--transition);
@@ -467,7 +472,6 @@ button {
 
 .title-word {
   display: inline-block;
-  margin-right: 0.22em;
   opacity: 0;
   filter: blur(10px);
   transform: translateY(20px);
@@ -1509,6 +1513,21 @@ button {
   outline-color: var(--brand-2);
 }
 
+/* Dentro de la tarjeta clara del formulario el botón vuelve a Laurisilva */
+.section-brand .contact-form-card .btn-primary {
+  background: var(--brand);
+  color: var(--text-invert);
+  box-shadow: 0 14px 30px rgba(42, 58, 40, 0.26);
+}
+
+.section-brand .contact-form-card .btn-primary:hover {
+  background: var(--brand-2);
+}
+
+.section-brand .contact-form-card .btn-submit.success {
+  background: var(--success);
+}
+
 .final-cta-shell {
   max-width: 880px;
   margin-inline: auto;
@@ -1652,30 +1671,6 @@ button {
   overflow: hidden;
 }
 
-.btn-spinner {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid rgba(255,255,255,0.3);
-  border-top-color: #fff;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.btn-submit.loading .btn-label {
-  opacity: 0;
-}
-
-.btn-submit.loading .btn-spinner {
-  opacity: 1;
-  animation: spin 0.7s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
 .btn-check {
   position: absolute;
   width: 24px;
@@ -1694,8 +1689,7 @@ button {
   background: var(--success);
 }
 
-.btn-submit.success .btn-label,
-.btn-submit.success .btn-spinner {
+.btn-submit.success .btn-label {
   opacity: 0;
 }
 
@@ -1834,11 +1828,13 @@ button {
 }
 
 /* ============= REVEAL ANIMATIONS ============= */
-.reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s var(--ease-premium), transform 0.8s var(--ease-premium);
-  will-change: opacity, transform;
+/* Solo se oculta para animar si hay JavaScript: sin JS el contenido se ve */
+@media (scripting: enabled) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s var(--ease-premium), transform 0.8s var(--ease-premium);
+  }
 }
 
 .reveal.visible {
@@ -1847,23 +1843,37 @@ button {
 }
 
 /* ============= MOBILE ============= */
-@media (max-width: 980px) {
+/* Menú desplegable: el menú completo de la home (7 enlaces + CTA) no cabe
+   en una línea por debajo de ~1180px */
+@media (max-width: 1180px) {
   .nav-toggle {
     display: inline-flex;
+    min-height: 44px;
+    align-items: center;
   }
 
   .menu {
     position: absolute;
     right: 1rem;
-    top: calc(var(--header-h) - 6px);
+    top: calc(100% + 6px);
     width: min(360px, calc(100vw - 2rem));
     flex-direction: column;
     align-items: stretch;
+    gap: 0.25rem;
     padding: 1rem;
     background: var(--surface);
     border: 1px solid rgba(26, 18, 16, 0.08);
     border-radius: 18px;
     box-shadow: var(--shadow-md);
+  }
+
+  .menu a:not(.btn) {
+    display: block;
+    padding: 0.7rem 0.4rem;
+  }
+
+  .menu a:not(.btn)::after {
+    display: none;
   }
 
   .menu[hidden] {
@@ -1872,11 +1882,15 @@ button {
 
   .li-cta {
     margin-left: 0;
+    margin-top: 0.4rem;
   }
 
   .li-cta .btn {
     width: 100%;
   }
+}
+
+@media (max-width: 980px) {
 
   .hero-layout,
   .system-block,
@@ -1983,7 +1997,8 @@ button {
     grid-template-columns: 1fr 1fr;
   }
 
-  .foot-brand {
+  .foot-brand,
+  .foot-col[aria-label="Contacto"] {
     grid-column: 1 / -1;
   }
 
@@ -2165,5 +2180,116 @@ button {
   .ops-live::before,
   .wa-pulse {
     animation: none !important;
+  }
+}
+
+/* ============= PÁGINAS LEGALES ============= */
+.legal-body {
+  max-width: 760px;
+}
+
+.legal-body h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(2.2rem, 2.5vw + 1.2rem, 3.2rem);
+  line-height: 1.05;
+}
+
+.legal-updated {
+  margin: 0 0 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.legal-body h2 {
+  margin: 2.4rem 0 0.8rem;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.legal-body p,
+.legal-body li {
+  color: var(--text-soft);
+  max-width: 68ch;
+}
+
+.legal-body ul {
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.legal-body a {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.legal-facts {
+  margin: 1.5rem 0 0;
+  padding: 1.3rem 1.4rem;
+  display: grid;
+  gap: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.legal-facts div {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.legal-facts dt {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-2);
+  padding-top: 0.2rem;
+}
+
+.legal-facts dd {
+  margin: 0;
+  color: var(--text);
+}
+
+@media (max-width: 560px) {
+  .legal-facts div {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}
+
+/* Hero de servicio: los tres pasos como lista compacta cuando la columna
+   de texto no da para tres columnas legibles */
+@media (max-width: 1280px) {
+  .service-hero-layout .hero-mini-metrics {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .service-hero-layout .mini-metric-card {
+    display: grid;
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    column-gap: 1rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .service-hero-layout .mini-metric-label {
+    grid-row: 1 / span 2;
+    margin: 0.2rem 0 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .service-hero-layout .mini-metric-card {
+    grid-template-columns: 1fr;
+  }
+
+  .service-hero-layout .mini-metric-label {
+    grid-row: auto;
   }
 }
