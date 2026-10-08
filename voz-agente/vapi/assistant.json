@@ -1,0 +1,187 @@
+{
+  "_comment": "Plantilla del assistant Vapi para una PYME. Los valores en {{MAYUSCULAS}} son sustituidos por el script create-vapi-assistant.sh",
+  "name": "{{BUSINESS_NAME}} — Agente de voz",
+  "model": {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "temperature": 0.3,
+    "maxTokens": 300,
+    "messages": [
+      {
+        "role": "system",
+        "content": "{{SYSTEM_PROMPT}}"
+      }
+    ],
+    "toolIds": []
+  },
+  "voice": {
+    "provider": "11labs",
+    "voiceId": "{{ELEVENLABS_VOICE_ID}}",
+    "model": "eleven_flash_v2_5",
+    "stability": 0.5,
+    "similarityBoost": 0.75,
+    "language": "es"
+  },
+  "transcriber": {
+    "provider": "deepgram",
+    "model": "nova-3",
+    "language": "multi",
+    "smartFormat": true,
+    "endpointing": 550
+  },
+  "firstMessage": "{{FIRST_MESSAGE}}",
+  "firstMessageMode": "assistant-speaks-first",
+  "endCallMessage": "Muchas gracias por llamar a {{BUSINESS_NAME}}. ¡Hasta pronto!",
+  "endCallPhrases": [
+    "adiós", "hasta luego", "hasta pronto", "bye", "goodbye",
+    "gracias y adiós", "que tenga buen día", "que pase buen día"
+  ],
+  "silenceTimeoutSeconds": 30,
+  "maxDurationSeconds": 600,
+  "backgroundSound": "office",
+  "backchannelingEnabled": true,
+  "backgroundDenoisingEnabled": true,
+  "server": {
+    "url": "{{MICROSERVICE_URL}}/webhook/post-call",
+    "secret": "{{VAPI_WEBHOOK_SECRET}}",
+    "timeoutSeconds": 0.9
+  },
+  "analysisPlan": {
+    "summaryPrompt": "Resume esta llamada en 2 frases: qué quería el cliente y qué resultado tuvo.",
+    "structuredDataPrompt": "Extrae: intent (info|booking|transfer|abandoned), language_detected (es|en|other), sentiment (positive|neutral|negative).",
+    "structuredDataSchema": {
+      "type": "object",
+      "properties": {
+        "intent":            { "type": "string" },
+        "language_detected": { "type": "string" },
+        "sentiment":         { "type": "string" }
+      }
+    }
+  },
+  "artifactPlan": {
+    "recordingEnabled": true,
+    "transcriptPlan": {
+      "enabled": true
+    }
+  },
+  "metadata": {
+    "business_id": "{{BUSINESS_ID}}",
+    "account_id":  "00000000-0000-0000-0000-000000000001",
+    "managed_by":  "ContaProNow"
+  },
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "get_info",
+        "description": "Obtiene información del negocio: horarios, dirección, teléfono, servicios disponibles. Llama a esta función cuando el cliente pregunte por horarios, ubicación, qué servicios ofrecéis, precios orientativos o cualquier dato general del negocio.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "query_type": {
+              "type": "string",
+              "enum": ["hours", "services", "address", "general"],
+              "description": "Tipo de información solicitada. Usa 'general' si no estás seguro."
+            }
+          },
+          "required": ["query_type"]
+        }
+      },
+      "server": {
+        "url": "{{MICROSERVICE_URL}}/tools/get-info",
+        "secret": "{{VAPI_WEBHOOK_SECRET}}",
+        "timeoutSeconds": 0.9
+      },
+      "messages": [
+        {
+          "type": "request-start",
+          "content": "Un momento, déjame consultar eso."
+        },
+        {
+          "type": "request-failed",
+          "content": "Lo siento, ahora mismo no puedo acceder a esa información. ¿Puedo ayudarle con algo más?"
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "check_availability",
+        "description": "Consulta los huecos disponibles para reservar una cita en una fecha concreta. Llama a esta función cuando el cliente quiera reservar o pedir cita y necesite ver horarios disponibles. Extrae la fecha de la conversación; si no la menciona, usa el próximo día laborable.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "date": {
+              "type": "string",
+              "description": "Fecha en formato YYYY-MM-DD. Ejemplo: 2024-01-20"
+            }
+          },
+          "required": []
+        }
+      },
+      "server": {
+        "url": "{{MICROSERVICE_URL}}/tools/check-availability",
+        "secret": "{{VAPI_WEBHOOK_SECRET}}",
+        "timeoutSeconds": 0.9
+      },
+      "messages": [
+        {
+          "type": "request-start",
+          "content": "Déjame revisar la disponibilidad, un momento."
+        },
+        {
+          "type": "request-failed",
+          "content": "No he podido consultar la disponibilidad ahora mismo. Le recomiendo llamarnos directamente para confirmar su cita."
+        }
+      ]
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "book_appointment",
+        "description": "Reserva una cita confirmada por el cliente. Solo llama a esta función cuando el cliente haya confirmado explícitamente el horario, su nombre y el servicio. Nunca reserves sin confirmación verbal clara.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "start_time": {
+              "type": "string",
+              "description": "Inicio de la cita en formato ISO 8601 con timezone. Ejemplo: 2024-01-20T10:00:00+00:00"
+            },
+            "end_time": {
+              "type": "string",
+              "description": "Fin de la cita en formato ISO 8601. Si no lo sabes, omite y el sistema calcula la duración estándar."
+            },
+            "client_name": {
+              "type": "string",
+              "description": "Nombre del cliente tal como lo ha dicho."
+            },
+            "service_name": {
+              "type": "string",
+              "description": "Nombre del servicio o motivo de la visita."
+            },
+            "client_notes": {
+              "type": "string",
+              "description": "Notas adicionales del cliente (alergias, preferencias, etc.). Opcional."
+            }
+          },
+          "required": ["start_time", "client_name"]
+        }
+      },
+      "server": {
+        "url": "{{MICROSERVICE_URL}}/tools/book",
+        "secret": "{{VAPI_WEBHOOK_SECRET}}",
+        "timeoutSeconds": 0.9
+      },
+      "messages": [
+        {
+          "type": "request-start",
+          "content": "Perfecto, estoy registrando su cita ahora mismo."
+        },
+        {
+          "type": "request-failed",
+          "content": "Lo siento, ha habido un problema al registrar la cita. Por favor, llámenos directamente y le atendemos de inmediato."
+        }
+      ]
+    }
+  ]
+}

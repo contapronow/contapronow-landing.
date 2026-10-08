@@ -1,0 +1,224 @@
+{
+  "name": "voz-agente_post-call",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "voz-agente-post-call",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook — Post Call",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "voz-agente-post-call"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "{\"ok\": true}",
+        "options": {}
+      },
+      "id": "respond-ok",
+      "name": "Responder 200 OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [460, 180]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extraer y validar campos del payload del microservicio\nconst body = $input.first().json.body ?? $input.first().json;\n\nconst data = {\n  call_db_id:        body.call_db_id ?? null,\n  vapi_call_id:      body.vapi_call_id ?? null,\n  business_id:       body.business_id ?? null,\n  business_name:     body.business_name ?? 'Negocio desconocido',\n  transcript:        body.transcript ?? '',\n  duration_sec:      body.duration_sec ?? 0,\n  transfer_whatsapp: body.transfer_whatsapp ?? null,\n};\n\nif (!data.call_db_id) throw new Error('call_db_id requerido');\nif (!data.transcript) throw new Error('transcript vacío — no hay nada que analizar');\n\nreturn [{ json: data }];"
+      },
+      "id": "validate-payload",
+      "name": "Validar payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [460, 360]
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "Eres un asistente de análisis de llamadas telefónicas para negocios. Recibes transcripciones de llamadas y debes extraer información estructurada. Responde SIEMPRE en JSON válido, sin markdown, sin explicaciones adicionales."
+            },
+            {
+              "role": "user",
+              "content": "=Analiza esta transcripción de llamada al negocio \"{{ $json.business_name }}\" y devuelve un JSON con:\n- summary: resumen en 2 frases de qué quería el cliente y qué resultado tuvo (en español)\n- outcome: uno de estos valores: \"info_provided\" | \"booking_created\" | \"transfer\" | \"abandoned\" | \"error\"\n- sentiment: \"positive\" | \"neutral\" | \"negative\"\n- sentiment_score: número entre -1 (muy negativo) y 1 (muy positivo)\n- language_detected: \"es\" | \"en\" | \"other\"\n- key_topic: tema principal de la llamada en 3 palabras máximo\n\nTRANSCRIPCIÓN:\n{{ $json.transcript }}"
+            }
+          ]
+        },
+        "options": {
+          "temperature": 0.1,
+          "maxTokens": 300
+        }
+      },
+      "id": "analyze-gpt",
+      "name": "Analizar con GPT-4o mini",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [700, 360],
+      "credentials": {
+        "openAiApi": {
+          "name": "voz_openai"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parsear la respuesta de GPT y preparar el update de Supabase\nconst analysis = $input.first().json;\nconst prevData = $('Validar payload').first().json;\n\nlet parsed;\ntry {\n  const raw = analysis.content ?? analysis.text ?? JSON.stringify(analysis);\n  parsed = JSON.parse(raw);\n} catch {\n  parsed = {\n    summary: 'No se pudo analizar la transcripción.',\n    outcome: 'error',\n    sentiment: 'neutral',\n    sentiment_score: 0,\n    language_detected: 'es',\n    key_topic: 'error análisis',\n  };\n}\n\nreturn [{ json: { ...prevData, analysis: parsed } }];"
+      },
+      "id": "parse-analysis",
+      "name": "Parsear análisis",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [940, 360]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "=https://tvkdhjxatkehuryvnjmu.supabase.co/rest/v1/va_calls?id=eq.{{ $json.call_db_id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "apikey", "value": "={{ $credentials.value }}" },
+            { "name": "Authorization", "value": "=Bearer {{ $credentials.value }}" },
+            { "name": "Content-Type", "value": "application/json" },
+            { "name": "Prefer", "value": "return=minimal" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "summary", "value": "={{ $json.analysis.summary }}" },
+            { "name": "outcome", "value": "={{ $json.analysis.outcome }}" },
+            { "name": "sentiment", "value": "={{ $json.analysis.sentiment }}" },
+            { "name": "sentiment_score", "value": "={{ $json.analysis.sentiment_score }}" },
+            { "name": "language_detected", "value": "={{ $json.analysis.language_detected }}" },
+            { "name": "post_processed_at", "value": "={{ new Date().toISOString() }}" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "update-supabase",
+      "name": "Actualizar va_calls en Supabase",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1180, 360],
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "voz_supabase_service_role"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Solo enviar WhatsApp si hay número de transfer y el análisis es válido\nconst data = $input.first().json;\n\nif (!data.transfer_whatsapp) {\n  return [{ json: { skip_whatsapp: true, ...data } }];\n}\n\nconst dur = data.duration_sec ? `${Math.round(data.duration_sec / 60)}min ${data.duration_sec % 60}s` : 'desconocida';\nconst icon = data.analysis.sentiment === 'positive' ? '😊' :\n              data.analysis.sentiment === 'negative' ? '⚠️' : '📞';\n\nconst message = `${icon} *Llamada a ${data.business_name}*\\n\\n` +\n  `*Resumen:* ${data.analysis.summary}\\n` +\n  `*Resultado:* ${data.analysis.outcome}\\n` +\n  `*Duración:* ${dur}\\n` +\n  `*Tema:* ${data.analysis.key_topic}\\n\\n` +\n  `_ContaProNow — voz-agente_`;\n\nreturn [{ json: { ...data, whatsapp_message: message } }];"
+      },
+      "id": "prepare-whatsapp",
+      "name": "Preparar mensaje WhatsApp",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1420, 360]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.skip_whatsapp }}",
+              "rightValue": true,
+              "operator": { "type": "boolean", "operation": "equals" }
+            }
+          ]
+        }
+      },
+      "id": "check-whatsapp",
+      "name": "¿Enviar WhatsApp?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1660, 360]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://waba.360dialog.io/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"to\": \"{{ $json.transfer_whatsapp.replace(/[^0-9]/g, '') }}\",\n  \"type\": \"text\",\n  \"text\": { \"body\": \"{{ $json.whatsapp_message }}\" }\n}",
+        "options": {}
+      },
+      "id": "send-whatsapp",
+      "name": "Enviar WhatsApp (360dialog)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1900, 280],
+      "credentials": {
+        "httpHeaderAuth": {
+          "name": "360dialog_whatsapp"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "console.log('WhatsApp omitido — sin número de transfer configurado');\nreturn $input.all();"
+      },
+      "id": "skip-whatsapp",
+      "name": "Sin WhatsApp",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1900, 460]
+    }
+  ],
+  "connections": {
+    "Webhook — Post Call": {
+      "main": [
+        [
+          { "node": "Responder 200 OK", "type": "main", "index": 0 },
+          { "node": "Validar payload", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Validar payload": {
+      "main": [[{ "node": "Analizar con GPT-4o mini", "type": "main", "index": 0 }]]
+    },
+    "Analizar con GPT-4o mini": {
+      "main": [[{ "node": "Parsear análisis", "type": "main", "index": 0 }]]
+    },
+    "Parsear análisis": {
+      "main": [[{ "node": "Actualizar va_calls en Supabase", "type": "main", "index": 0 }]]
+    },
+    "Actualizar va_calls en Supabase": {
+      "main": [[{ "node": "Preparar mensaje WhatsApp", "type": "main", "index": 0 }]]
+    },
+    "Preparar mensaje WhatsApp": {
+      "main": [[{ "node": "¿Enviar WhatsApp?", "type": "main", "index": 0 }]]
+    },
+    "¿Enviar WhatsApp?": {
+      "main": [
+        [{ "node": "Sin WhatsApp", "type": "main", "index": 0 }],
+        [{ "node": "Enviar WhatsApp (360dialog)", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "tags": [{ "name": "voz-agente" }],
+  "triggerCount": 1,
+  "updatedAt": "2026-07-25T00:00:00.000Z",
+  "versionId": "1"
+}
